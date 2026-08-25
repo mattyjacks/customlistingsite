@@ -1,96 +1,65 @@
 /* ==========================================================================
-   Custom Listing Site by MattyJacks.com - Interactive Logic
+   Zillow / Redfin Style Property Detail Page - Interactive JavaScript
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Promo Top Bar Close
+
+  // 1. Promo Top Bar Dismiss
   const promoCloseBtn = document.getElementById('promoCloseBtn');
   const promoBar = document.getElementById('promoBar');
   if (promoCloseBtn && promoBar) {
     promoCloseBtn.addEventListener('click', () => {
       promoBar.style.display = 'none';
-      document.querySelector('.site-header').style.top = '0px';
+      const header = document.querySelector('.site-header');
+      if (header) header.style.top = '0px';
     });
   }
 
-  // 2. Features Accordion
-  const accordionHeaders = document.querySelectorAll('.accordion-header');
-  accordionHeaders.forEach(header => {
-    header.addEventListener('click', () => {
-      const item = header.parentElement;
-      const isActive = item.classList.contains('active');
-      
-      // Close all items
-      document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('active'));
-      
-      // Toggle current
-      if (!isActive) {
-        item.classList.add('active');
-      }
-    });
-  });
-
-  // 3. Gallery Filtering & Lightbox
+  // 2. Photo Gallery & Lightbox Modal
   const galleryItems = [
-    { title: 'Golden Hour Shoreline View', category: 'exterior', src: 'images/hero.jpg' },
-    { title: 'Great Room with Stone Fireplace', category: 'interior', src: 'images/living_room.jpg' },
-    { title: 'Gourmet Chef\'s Kitchen', category: 'kitchen', src: 'images/kitchen.jpg' },
-    { title: 'Primary Master Suite & Balcony', category: 'master', src: 'images/master_suite.jpg' },
-    { title: 'Aerial Lakefront Overview', category: 'aerial', src: 'images/aerial.jpg' }
+    { title: '42 Lakeview Ridge Rd Unit B - Exterior & Walkway', category: 'EXTERIOR', src: 'images/hero.jpg' },
+    { title: 'Empty Living Space & Window', category: 'INTERIOR', src: 'images/living_room.jpg' },
+    { title: 'Kitchen with Slate-Blue Cabinets & Mosaic Tile Counter', category: 'KITCHEN', src: 'images/kitchen.jpg' },
+    { title: 'Hallway Bathroom & Bifold Closet', category: 'BATHROOM', src: 'images/master_suite.jpg' },
+    { title: 'Building Complex Aerial & Parking Lot', category: 'EXTERIOR', src: 'images/aerial.jpg' }
   ];
 
   let currentGalleryIndex = 0;
-  const galleryGrid = document.getElementById('galleryGrid');
-  const filterBtns = document.querySelectorAll('.filter-btn');
   const lightboxModal = document.getElementById('lightboxModal');
   const lightboxImg = document.getElementById('lightboxImg');
   const lightboxCaption = document.getElementById('lightboxCaption');
-
-  function renderGallery(filter = 'all') {
-    if (!galleryGrid) return;
-    galleryGrid.innerHTML = '';
-    
-    galleryItems.forEach((item, index) => {
-      if (filter === 'all' || item.category === filter) {
-        const card = document.createElement('div');
-        card.className = 'gallery-card';
-        card.innerHTML = `
-          <img src="${item.src}" alt="${item.title}" loading="lazy" />
-          <div class="gallery-card-overlay">
-            <div>
-              <div class="gallery-card-category">${item.category}</div>
-              <div class="gallery-card-title">${item.title}</div>
-            </div>
-          </div>
-        `;
-        card.addEventListener('click', () => openLightbox(index));
-        galleryGrid.appendChild(card);
-      }
-    });
-  }
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      renderGallery(btn.dataset.filter);
-    });
-  });
+  const openGalleryBtn = document.getElementById('openGalleryBtn');
+  const collageItems = document.querySelectorAll('.collage-item');
 
   function openLightbox(index) {
     currentGalleryIndex = index;
     updateLightbox();
-    lightboxModal.classList.add('active');
+    if (lightboxModal) lightboxModal.classList.add('active');
   }
 
   function updateLightbox() {
+    if (!lightboxImg || !lightboxCaption) return;
     const item = galleryItems[currentGalleryIndex];
     lightboxImg.src = item.src;
-    lightboxCaption.textContent = item.title + ` (${item.category.toUpperCase()})`;
+    lightboxCaption.textContent = `${item.title} (${currentGalleryIndex + 1} of ${galleryItems.length})`;
+  }
+
+  collageItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const idx = parseInt(item.dataset.index || '0', 10);
+      openLightbox(idx);
+    });
+  });
+
+  if (openGalleryBtn) {
+    openGalleryBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openLightbox(0);
+    });
   }
 
   document.getElementById('lightboxClose')?.addEventListener('click', () => {
-    lightboxModal.classList.remove('active');
+    lightboxModal?.classList.remove('active');
   });
 
   document.getElementById('lightboxPrev')?.addEventListener('click', () => {
@@ -104,28 +73,43 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.addEventListener('keydown', (e) => {
-    if (!lightboxModal.classList.contains('active')) return;
+    if (!lightboxModal || !lightboxModal.classList.contains('active')) return;
     if (e.key === 'Escape') lightboxModal.classList.remove('active');
-    if (e.key === 'ArrowLeft') document.getElementById('lightboxPrev').click();
-    if (e.key === 'ArrowRight') document.getElementById('lightboxNext').click();
+    if (e.key === 'ArrowLeft') document.getElementById('lightboxPrev')?.click();
+    if (e.key === 'ArrowRight') document.getElementById('lightboxNext')?.click();
   });
 
-  renderGallery('all');
+  // 3. Tour Type & Date Picker Toggles (Sticky Sidebar Widget)
+  const tourTypeBtns = document.querySelectorAll('.tour-type-btn');
+  tourTypeBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tourTypeBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
 
-  // 4. Floorplan Interactive Tabs & Pins
+  const datePills = document.querySelectorAll('.date-pill');
+  datePills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      datePills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+    });
+  });
+
+  // 4. Floorplan Interactive Tabs & Hotspot Pins
   const floorplanData = {
     main: [
-      { top: '45%', left: '30%', label: 'Great Room & Fireplace', img: 'images/living_room.jpg' },
-      { top: '35%', left: '70%', label: 'Gourmet Chef Kitchen', img: 'images/kitchen.jpg' },
-      { top: '65%', left: '50%', label: 'Lakefront Covered Terrace', img: 'images/hero.jpg' }
+      { top: '45%', left: '30%', label: 'Empty Living Space', img: 'images/living_room.jpg' },
+      { top: '35%', left: '70%', label: 'Kitchen & Counter', img: 'images/kitchen.jpg' },
+      { top: '65%', left: '50%', label: 'Exterior Walkway', img: 'images/hero.jpg' }
     ],
     upper: [
-      { top: '40%', left: '40%', label: 'Primary Master Suite', img: 'images/master_suite.jpg' },
-      { top: '60%', left: '75%', label: 'Guest Suite 1 & Bath', img: 'images/master_suite.jpg' }
+      { top: '40%', left: '40%', label: 'Hallway Bathroom', img: 'images/master_suite.jpg' },
+      { top: '60%', left: '75%', label: 'Secondary Bedroom Space', img: 'images/living_room.jpg' }
     ],
     grounds: [
-      { top: '70%', left: '25%', label: 'Private Mahogany Dock & Slip', img: 'images/aerial.jpg' },
-      { top: '50%', left: '60%', label: 'Granite Stone Fire Pit', img: 'images/hero.jpg' }
+      { top: '70%', left: '25%', label: 'Asphalt Parking Lot', img: 'images/aerial.jpg' },
+      { top: '50%', left: '60%', label: 'Building Entrance Bridge', img: 'images/hero.jpg' }
     ]
   };
 
@@ -143,16 +127,11 @@ document.addEventListener('DOMContentLoaded', () => {
       pinEl.style.top = pin.top;
       pinEl.style.left = pin.left;
       pinEl.textContent = i + 1;
-      
-      pinEl.innerHTML += `
-        <div class="pin-tooltip">
-          <strong>${pin.label}</strong>
-          <br/><span style="color:var(--primary-gold)">Click to preview view</span>
-        </div>
-      `;
+      pinEl.title = pin.label;
       
       pinEl.addEventListener('click', () => {
-        alert(`📍 Room Hotspot Preview: ${pin.label}`);
+        const matchingIndex = galleryItems.findIndex(g => g.title.toLowerCase().includes(pin.label.toLowerCase().split(' ')[0]));
+        openLightbox(matchingIndex !== -1 ? matchingIndex : 0);
       });
       
       fpGraphic.appendChild(pinEl);
@@ -203,12 +182,12 @@ document.addEventListener('DOMContentLoaded', () => {
   openOrderBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      orderModal.classList.add('active');
+      orderModal?.classList.add('active');
     });
   });
 
   closeOrderBtn?.addEventListener('click', () => {
-    orderModal.classList.remove('active');
+    orderModal?.classList.remove('active');
   });
 
   orderModal?.addEventListener('click', (e) => {
@@ -219,8 +198,100 @@ document.addEventListener('DOMContentLoaded', () => {
 
   orderForm?.addEventListener('submit', (e) => {
     e.preventDefault();
-    alert('🎉 Thank you! Your custom listing site request has been submitted to MattyJacks.com. Our AI crafting engine is initializing your draft site. Check your email for a preview link within 24 hours!');
-    orderModal.classList.remove('active');
-    orderForm.reset();
+    const card = orderModal?.querySelector('.order-modal-card');
+    if (card) {
+      card.innerHTML = `
+        <button class="modal-close" onclick="document.getElementById('orderModal').classList.remove('active')">&times;</button>
+        <span class="badge-tag">Request Received</span>
+        <h3 style="color: #0f172a; margin-top: 8px; margin-bottom: 12px;">Thank You for Your Order</h3>
+        <p style="color: #475569; font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
+          Your custom property site request has been submitted successfully to <strong>MattyJacks.com</strong>.
+          We will send your preview link to <strong>Matt@MattyJacks.com</strong>.
+        </p>
+        <button class="btn-primary" onclick="document.getElementById('orderModal').classList.remove('active')">Done</button>
+      `;
+    }
   });
+
+  // 7. Schedule Showing Modal
+  const showingModal = document.getElementById('showingModal');
+  const openShowingBtns = document.querySelectorAll('.open-showing-modal');
+  const closeShowingBtn = document.getElementById('closeShowingModal');
+  const showingForm = document.getElementById('showingForm');
+
+  openShowingBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      showingModal?.classList.add('active');
+    });
+  });
+
+  closeShowingBtn?.addEventListener('click', () => {
+    showingModal?.classList.remove('active');
+  });
+
+  showingModal?.addEventListener('click', (e) => {
+    if (e.target === showingModal) {
+      showingModal.classList.remove('active');
+    }
+  });
+
+  showingForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const card = showingModal?.querySelector('.order-modal-card');
+    if (card) {
+      card.innerHTML = `
+        <button class="modal-close" onclick="document.getElementById('showingModal').classList.remove('active')">&times;</button>
+        <span class="badge-tag">Request Confirmed</span>
+        <h3 style="color: #0f172a; margin-top: 8px; margin-bottom: 12px;">Showing Request Received</h3>
+        <p style="color: #475569; font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
+          Your tour request for 42 Lakeview Ridge Rd Unit B has been submitted. Agent Matt Jacks (603 999 9420) will reach out shortly to confirm your walkthrough time.
+        </p>
+        <button class="btn-primary" onclick="document.getElementById('showingModal').classList.remove('active')">Done</button>
+      `;
+    }
+  });
+
+  // 8. Sidebar Quick Contact Form
+  const sidebarForm = document.getElementById('sidebarQuickContact');
+  if (sidebarForm) {
+    sidebarForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      sidebarForm.innerHTML = `
+        <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 12px; border-radius: 8px; color: #166534; font-size: 0.88rem; text-align: center;">
+          ✓ Question sent to Matt Jacks (Matt@MattyJacks.com / 603 999 9420)!
+        </div>
+      `;
+    });
+  }
+
+  // 9. Save & Share Buttons
+  const saveBtn = document.getElementById('savePropertyBtn');
+  if (saveBtn) {
+    saveBtn.addEventListener('click', () => {
+      const icon = saveBtn.querySelector('svg');
+      if (saveBtn.classList.contains('saved')) {
+        saveBtn.classList.remove('saved');
+        saveBtn.querySelector('span').textContent = 'Save';
+        if (icon) icon.style.fill = 'none';
+      } else {
+        saveBtn.classList.add('saved');
+        saveBtn.querySelector('span').textContent = 'Saved';
+        if (icon) icon.style.fill = '#ef4444';
+      }
+    });
+  }
+
+  const shareBtn = document.getElementById('sharePropertyBtn');
+  if (shareBtn) {
+    shareBtn.addEventListener('click', () => {
+      navigator.clipboard?.writeText(window.location.href);
+      const span = shareBtn.querySelector('span');
+      if (span) {
+        span.textContent = 'Link Copied!';
+        setTimeout(() => { span.textContent = 'Share'; }, 2000);
+      }
+    });
+  }
+
 });

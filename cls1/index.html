@@ -3,393 +3,583 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Pinnacle at Lake Winnipesaukee | Luxury Custom Property Site</title>
-  <meta name="description" content="Custom Listing Site powered by MattyJacks.com. Explore 42 Lakeview Ridge Rd, Meredith, NH - an ultra-luxury lakeside estate." />
+  <title>42 Lakeview Ridge Rd Unit B, Meredith, NH 03253 | Property Details - Redfin / Zillow Style</title>
+  <meta name="description" content="View property details for 42 Lakeview Ridge Rd Unit B, Meredith, NH 03253. 2 beds, 1.5 baths, 1,120 sqft condo. Photos, floorplans, price history & tour scheduling." />
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
   
   <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body class="zillow-theme">
 
   <!-- Top Sticky Promotional Banner for MattyJacks.com -->
   <div class="promo-top-bar" id="promoBar">
-    <span class="promo-badge">PROMOTIONAL DEMO</span>
-    <span>⚡ <strong>MattyJacks.com Showcase:</strong> We build dedicated, high-converting property websites custom crafted with AI tools for cheap!</span>
-    <a href="#mattyjacks-pricing" class="promo-cta-btn open-order-modal">Get Your Property Site ($499) →</a>
-    <button class="promo-close" id="promoCloseBtn" aria-label="Dismiss banner">&times;</button>
+    <div class="container promo-container">
+      <span class="promo-badge">REALTOR DEMO</span>
+      <span><strong>MattyJacks.com:</strong> Dedicated single-property listing websites that win seller presentations & capture 100% direct leads.</span>
+      <div class="promo-actions">
+        <a href="#mattyjacks-pricing" class="promo-cta-btn open-order-modal">Get A Site Like This ($499) →</a>
+        <button class="promo-close" id="promoCloseBtn" aria-label="Dismiss banner">&times;</button>
+      </div>
+    </div>
   </div>
 
-  <!-- Header / Navigation -->
+  <!-- Real Estate Navbar (Zillow / Redfin Style) -->
   <header class="site-header">
-    <div class="header-brand">
-      <div class="brand-logo">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-          <polyline points="9 22 9 12 15 12 15 22"></polyline>
-        </svg>
-        CustomListingSite
+    <div class="container header-container">
+      <div class="header-left">
+        <a href="#" class="brand-logo">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <span class="logo-text">Listing<span class="logo-accent">Hub</span></span>
+        </a>
+
+        <!-- Header Search Bar -->
+        <div class="header-search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" value="Meredith, NH 03253" placeholder="City, Zip, or Address..." />
+        </div>
       </div>
-      <div class="brand-subtitle">Crafted by <span>MattyJacks.com</span></div>
-    </div>
 
-    <nav class="main-nav">
-      <ul>
-        <li><a href="#overview" class="active">Overview</a></li>
-        <li><a href="#story">Property Story</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#floorplan">Floorplan & Tour</a></li>
-        <li><a href="#why-custom-sites">Why Dedicated Sites?</a></li>
-        <li><a href="#mattyjacks-pricing">Pricing</a></li>
-      </ul>
-    </nav>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#photos" class="nav-link active">Photos</a></li>
+          <li><a href="#overview" class="nav-link">Overview</a></li>
+          <li><a href="#features" class="nav-link">Features</a></li>
+          <li><a href="#floorplan" class="nav-link">Floorplan</a></li>
+          <li><a href="#history" class="nav-link">Price History</a></li>
+          <li><a href="#why-custom-sites" class="nav-link highlight-link">Realtor Site Demo</a></li>
+        </ul>
+      </nav>
 
-    <div class="header-actions">
-      <button class="btn-secondary" onclick="alert('Showing scheduler initialized! Call listing agent directly at (603) 555-0199.')">Schedule Showing</button>
-      <button class="btn-primary open-order-modal">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-        </svg>
-        Get A Site Like This
-      </button>
+      <div class="header-actions">
+        <button class="btn-outline open-showing-modal">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          Request Tour
+        </button>
+        <button class="btn-primary open-order-modal">
+          Order Property Site
+        </button>
+      </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero-section" id="overview">
-    <div class="hero-overlay"></div>
-    <div class="container hero-content">
-      <div class="property-badge-row">
-        <span class="badge-tag">Featured Lakefront Estate</span>
-        <span class="badge-location">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 9 0 0 1 18 0z"></path>
-            <circle cx="12" cy="10" r="3"></circle>
-          </svg>
-          Lake Winnipesaukee, New Hampshire
-        </span>
+  <!-- Secondary Breadcrumbs & Quick Action Bar -->
+  <div class="sub-nav-bar">
+    <div class="container sub-nav-container">
+      <div class="breadcrumbs">
+        <a href="#">Homes for Sale</a>
+        <span class="sep">›</span>
+        <a href="#">New Hampshire</a>
+        <span class="sep">›</span>
+        <a href="#">Belknap County</a>
+        <span class="sep">›</span>
+        <a href="#">Meredith</a>
+        <span class="sep">›</span>
+        <span class="current">42 Lakeview Ridge Rd Unit B</span>
       </div>
 
-      <h1 class="hero-title">The Pinnacle at Lake Winnipesaukee</h1>
-      <p class="hero-address">42 Lakeview Ridge Rd, Meredith, NH 03253</p>
-
-      <div class="hero-stats-grid">
-        <div class="stat-card">
-          <div class="stat-value highlight">$2,850,000</div>
-          <div class="stat-label">Asking Price</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">4</div>
-          <div class="stat-label">Bedrooms</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">5.5</div>
-          <div class="stat-label">Bathrooms</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">5,240</div>
-          <div class="stat-label">Sq Ft</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">220 FT</div>
-          <div class="stat-label">Prime Shoreline</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">1.8</div>
-          <div class="stat-label">Acres</div>
-        </div>
-      </div>
-
-      <div class="hero-ctas">
-        <a href="#gallery" class="btn-primary">
+      <div class="action-buttons">
+        <button class="action-btn" id="savePropertyBtn">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-            <circle cx="8.5" cy="8.5" r="1.5"></circle>
-            <polyline points="21 15 16 10 5 21"></polyline>
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
           </svg>
-          Explore HD Gallery
-        </a>
-        <a href="#why-custom-sites" class="btn-secondary">Realtors: Why Dedicated Sites Win Listings</a>
+          <span>Save</span>
+        </button>
+        <button class="action-btn" id="sharePropertyBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="18" cy="5" r="3"></circle>
+            <circle cx="6" cy="12" r="3"></circle>
+            <circle cx="18" cy="19" r="3"></circle>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+          </svg>
+          <span>Share</span>
+        </button>
+        <button class="action-btn open-showing-modal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <span>Contact Agent</span>
+        </button>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Spotlight Bar -->
-  <section class="spotlight-bar">
-    <div class="container spotlight-grid">
-      <div class="spotlight-item">
-        <div class="spotlight-icon">🌲</div>
-        <div class="spotlight-text">
-          <h4>Panoramic Alpine Views</h4>
-          <p>Overlooking the Ossipee Mountain Range & crystal waters.</p>
-        </div>
-      </div>
-      <div class="spotlight-item">
-        <div class="spotlight-icon">⚓</div>
-        <div class="spotlight-text">
-          <h4>Mahogany Boat Dock</h4>
-          <p>Deep-water slip with electric lift & sun terrace.</p>
-        </div>
-      </div>
-      <div class="spotlight-item">
-        <div class="spotlight-icon">🔥</div>
-        <div class="spotlight-text">
-          <h4>Granite Fieldstone Hearth</h4>
-          <p>Floor-to-ceiling double-sided outdoor & indoor fireplace.</p>
-        </div>
-      </div>
-      <div class="spotlight-item">
-        <div class="spotlight-icon">✨</div>
-        <div class="spotlight-text">
-          <h4>Crafted by MattyJacks</h4>
-          <p>Custom AI-powered website delivered in 24 hours.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Property Story & Details -->
-  <section class="section-padding" id="story">
+  <!-- Main Property Content Area -->
+  <main class="main-content">
     <div class="container">
-      <div class="story-grid">
-        <div class="story-image-wrap">
-          <img src="images/living_room.jpg" alt="Great Room at The Pinnacle" />
+
+      <!-- Zillow/Redfin 5-Photo Grid Collage -->
+      <section class="photo-collage-section" id="photos">
+        <div class="photo-collage-grid">
+          <div class="collage-item hero-photo" data-index="0">
+            <img src="images/hero.jpg" alt="42 Lakeview Ridge Rd Condo Exterior & Walkway" />
+            <span class="photo-badge">Main Exterior</span>
+          </div>
+          <div class="collage-item" data-index="1">
+            <img src="images/living_room.jpg" alt="Living Room Area" />
+          </div>
+          <div class="collage-item" data-index="2">
+            <img src="images/kitchen.jpg" alt="Kitchen with Blue Countertops" />
+          </div>
+          <div class="collage-item" data-index="3">
+            <img src="images/master_suite.jpg" alt="Hallway Bathroom" />
+          </div>
+          <div class="collage-item" data-index="4">
+            <img src="images/aerial.jpg" alt="Complex Aerial & Parking" />
+            <button class="view-all-photos-btn" id="openGalleryBtn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                <polyline points="21 15 16 10 5 21"></polyline>
+              </svg>
+              View all 5 photos
+            </button>
+          </div>
         </div>
-        <div class="story-content">
-          <span class="section-tag">Architectural Masterpiece</span>
-          <h3>Where Rustic New Hampshire Elegance Meets Modern Luxury</h3>
-          <p>
-            Nestled along 220 feet of pristine shoreline on Lake Winnipesaukee, <em>The Pinnacle</em> represents the pinnacle of New Hampshire lakefront architecture. Built with locally quarried granite and native Douglas fir timber framing, this mastercrafted sanctuary offers floor-to-ceiling lakeside views, a professional chef's kitchen, and an expansive covered balcony for breathtaking sunset gatherings.
-          </p>
-          <p>
-            Every detail was engineered for luxury, comfort, and year-round mountain lifestyle entertainment.
-          </p>
+      </section>
 
-          <div class="features-accordion">
-            <div class="accordion-item active">
-              <div class="accordion-header">
-                Gourmet Chef's Kitchen & Dining
-                <span class="accordion-icon">▼</span>
+      <!-- 2-Column Detail Layout (Left: Listing Details | Right: Sticky Agent Sidebar) -->
+      <div class="listing-detail-layout">
+        
+        <!-- Left Column: Primary Listing Info & Sections -->
+        <div class="listing-main-col">
+          
+          <!-- Key Listing Title & Price Bar -->
+          <div class="listing-header-box" id="overview">
+            <div class="status-row">
+              <span class="status-badge active"><span class="pulse-dot"></span> FOR SALE</span>
+              <span class="status-meta">Listed on MLS &bull; 4 days on ListingHub</span>
+            </div>
+
+            <div class="price-address-row">
+              <div>
+                <h1 class="property-price">$349,900</h1>
+                <div class="property-address">42 Lakeview Ridge Rd Unit B, Meredith, NH 03253</div>
               </div>
-              <div class="accordion-content">
-                Features custom walnut cabinetry, Calacatta marble waterfall island, Sub-Zero dual refrigerator tower, Wolf 6-burner gas range, walk-in butler pantry, and wine cellar.
+              <div class="est-payment-tag">
+                <span class="pay-amount">$2,185<small>/mo</small></span>
+                <span class="pay-label">Est. Monthly Payment</span>
               </div>
             </div>
 
-            <div class="accordion-item">
-              <div class="accordion-header">
-                Primary Master Sanctuary & Balcony
-                <span class="accordion-icon">▼</span>
+            <!-- Key Specs Pill Row -->
+            <div class="specs-pill-row">
+              <div class="spec-item">
+                <span class="spec-num">2</span>
+                <span class="spec-label">Beds</span>
               </div>
-              <div class="accordion-content">
-                Vaulted wood beam ceilings, private covered stone balcony, gas fireplace, spa bath with free-standing soaking tub overlooking the lake, and radiant warm stone flooring.
+              <div class="spec-divider"></div>
+              <div class="spec-item">
+                <span class="spec-num">1.5</span>
+                <span class="spec-label">Baths</span>
               </div>
-            </div>
-
-            <div class="accordion-item">
-              <div class="accordion-header">
-                Outdoor Living & Dock Facilities
-                <span class="accordion-icon">▼</span>
+              <div class="spec-divider"></div>
+              <div class="spec-item">
+                <span class="spec-num">1,120</span>
+                <span class="spec-label">Sq Ft</span>
               </div>
-              <div class="accordion-content">
-                Heated bluestone patio with gas fire pit, custom mahogany boat dock with deep water slip, jet-ski lifts, outdoor kitchen, and private sandy beach access.
+              <div class="spec-divider"></div>
+              <div class="spec-item">
+                <span class="spec-num">$312</span>
+                <span class="spec-label">/ Sq Ft</span>
+              </div>
+              <div class="spec-divider"></div>
+              <div class="spec-item">
+                <span class="spec-num">Condo</span>
+                <span class="spec-label">Property Type</span>
               </div>
             </div>
           </div>
+
+          <!-- Overview / Description ("About this home") -->
+          <section class="section-card">
+            <h2 class="card-title">About This Home</h2>
+            <div class="property-description">
+              <p>
+                Welcome to <strong>42 Lakeview Ridge Rd, Unit B</strong> in desirable Meredith, NH! This modest 2-bedroom, 1.5-bath condominium offers an affordable gateway to the Lakes Region.
+              </p>
+              <p>
+                The unit features a functional layout with an open living space, neutral grey painted drywall, and wall-to-wall carpeting. The kitchen is outfitted with custom slate-blue cabinetry, blue mosaic tile countertops and backsplash, gas range, and double stainless steel sink.
+              </p>
+              <p>
+                Enjoy peaceful wooded surroundings with outdoor walkway bridge entry, reserved asphalt parking, and low-maintenance condo association care covering water, trash, and exterior maintenance. Conveniently located near local shops, dining, and public boat launches on Lake Winnipesaukee.
+              </p>
+            </div>
+
+            <div class="quick-facts-grid">
+              <div class="fact-box">
+                <span class="fact-icon">🏠</span>
+                <div>
+                  <div class="fact-label">Property Type</div>
+                  <div class="fact-val">Condominium</div>
+                </div>
+              </div>
+              <div class="fact-box">
+                <span class="fact-icon">📅</span>
+                <div>
+                  <div class="fact-label">Year Built</div>
+                  <div class="fact-val">1986</div>
+                </div>
+              </div>
+              <div class="fact-box">
+                <span class="fact-icon">💵</span>
+                <div>
+                  <div class="fact-label">HOA Dues</div>
+                  <div class="fact-val">$280 / month</div>
+                </div>
+              </div>
+              <div class="fact-box">
+                <span class="fact-icon">🚗</span>
+                <div>
+                  <div class="fact-label">Parking</div>
+                  <div class="fact-val">2 Reserved Spaces</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Expandable Features & Amenities -->
+          <section class="section-card" id="features">
+            <h2 class="card-title">Home Facts & Features</h2>
+            
+            <div class="features-categories-grid">
+              <!-- Interior -->
+              <div class="feature-category-card">
+                <h3>Interior Features</h3>
+                <ul>
+                  <li><strong>Bedrooms:</strong> 2 Bedrooms</li>
+                  <li><strong>Bathrooms:</strong> 1 Full Bath, 1 Half Bath</li>
+                  <li><strong>Flooring:</strong> Carpet, Wood Vinyl Plank</li>
+                  <li><strong>Heating:</strong> Baseboard Electric / Forced Air</li>
+                  <li><strong>Cooling:</strong> Window AC Units</li>
+                  <li><strong>Storage:</strong> Bifold Closet Space</li>
+                </ul>
+              </div>
+
+              <!-- Kitchen & Appliances -->
+              <div class="feature-category-card">
+                <h3>Kitchen & Appliances</h3>
+                <ul>
+                  <li><strong>Cabinets:</strong> Slate-Blue Painted Wood</li>
+                  <li><strong>Countertops:</strong> Blue Mosaic Square Tile</li>
+                  <li><strong>Appliances:</strong> Stainless Gas Range, Dishwasher</li>
+                  <li><strong>Sink:</strong> Stainless Steel Double Basin</li>
+                  <li><strong>Lighting:</strong> Ceiling Track Fixture</li>
+                </ul>
+              </div>
+
+              <!-- Exterior & HOA -->
+              <div class="feature-category-card">
+                <h3>Exterior & Association</h3>
+                <ul>
+                  <li><strong>Construction:</strong> Vertical Wood Siding</li>
+                  <li><strong>Walkway:</strong> Wooden Entry Bridge</li>
+                  <li><strong>Parking:</strong> Asphalt Lot (2 Spaces)</li>
+                  <li><strong>HOA Includes:</strong> Water, Sewer, Trash, Snow Removal</li>
+                  <li><strong>Pet Policy:</strong> Cats & Dogs Allowed (with limits)</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Interactive Floor Plan & Hotspots -->
+          <section class="section-card" id="floorplan">
+            <div class="card-header-flex">
+              <div>
+                <h2 class="card-title">Interactive Floorplan & Hotspots</h2>
+                <p class="card-subtitle">Select a level and click any pin to inspect room preview shots.</p>
+              </div>
+            </div>
+
+            <div class="floorplan-container">
+              <div class="floorplan-tabs">
+                <button class="fp-tab-btn active" data-level="main">Main Level</button>
+                <button class="fp-tab-btn" data-level="upper">Upper Bedroom Level</button>
+                <button class="fp-tab-btn" data-level="grounds">Exterior & Parking</button>
+              </div>
+
+              <div class="floorplan-stage">
+                <div class="floorplan-graphic" id="fpGraphic">
+                  <!-- Pins rendered dynamically via JS -->
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Price & Tax History -->
+          <section class="section-card" id="history">
+            <h2 class="card-title">Price & Tax History</h2>
+            
+            <div class="history-table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Event</th>
+                    <th>Price</th>
+                    <th>Price/SqFt</th>
+                    <th>Source</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Aug 22, 2026</td>
+                    <td><span class="event-badge listed">Listed for Sale</span></td>
+                    <td><strong>$349,900</strong></td>
+                    <td>$312</td>
+                    <td>Belknap MLS</td>
+                  </tr>
+                  <tr>
+                    <td>May 14, 2021</td>
+                    <td><span class="event-badge sold">Sold</span></td>
+                    <td>$265,000</td>
+                    <td>$236</td>
+                    <td>Public Records</td>
+                  </tr>
+                  <tr>
+                    <td>Apr 02, 2018</td>
+                    <td><span class="event-badge tax">Tax Assessment</span></td>
+                    <td>$210,000</td>
+                    <td>$187</td>
+                    <td>Town of Meredith</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Neighborhood & Scores -->
+          <section class="section-card">
+            <h2 class="card-title">Neighborhood & Location Scores</h2>
+            
+            <div class="scores-grid">
+              <div class="score-card">
+                <div class="score-circle">42</div>
+                <div class="score-info">
+                  <h4>Walk Score&reg;</h4>
+                  <p>Car-Dependent &bull; Most errands require a car</p>
+                </div>
+              </div>
+              <div class="score-card">
+                <div class="score-circle highlight">78</div>
+                <div class="score-info">
+                  <h4>SoundScore&trade;</h4>
+                  <p>Quiet &bull; Low traffic noise area</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Agent ROI Calculator (MattyJacks Interactive) -->
+          <section class="section-card mattyjacks-calc-card" id="why-custom-sites">
+            <div class="calc-header-tag">Realtor Productivity Tool</div>
+            <h2 class="card-title" style="color: #fff;">Calculate Agent ROI on Custom Listing Sites</h2>
+            <p style="color: var(--text-muted); margin-bottom: 24px;">
+              Single-property websites help listing agents win seller presentations by demonstrating dedicated digital marketing.
+            </p>
+
+            <div class="calculator-box">
+              <div class="calc-inputs">
+                <label for="propPriceSlider">Target Listing Price:</label>
+                <div class="calc-slider-val" id="priceDisplay">$349,900</div>
+                <input type="range" id="propPriceSlider" min="200000" max="3000000" step="25000" value="349900" />
+              </div>
+
+              <div class="calc-results">
+                <div class="calc-label">Est. Agent Commission (2.5%)</div>
+                <div class="calc-results-num" id="calcCommission">$8,748</div>
+                <div class="calc-results-sub">
+                  A $499 MattyJacks custom property site yields an est. <strong id="calcRoi" style="color: var(--primary-gold);">18x ROI</strong> by securing seller listings.
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- MattyJacks.com Promotional Section for Realtors -->
+          <section class="section-card mattyjacks-promo-card" id="mattyjacks-pricing">
+            <div class="section-header text-center">
+              <span class="badge-tag">MattyJacks.com Showcase</span>
+              <h2 class="card-title" style="color: #fff; margin-top: 6px;">Get A Dedicated Listing Site For Your Property</h2>
+              <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 24px;">
+                Stand out from generic MLS listings with a custom-domain website tailored to your client's property.
+              </p>
+            </div>
+
+            <div class="pricing-grid">
+              <!-- Starter Tier -->
+              <div class="pricing-card">
+                <div class="pricing-plan-name">Single Property Starter</div>
+                <div class="pricing-price">$299 <span>/ property</span></div>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Ideal for single-family home listings up to $750k.</p>
+                <ul class="pricing-features">
+                  <li><span class="icon-check">✓</span> Custom Domain (.com)</li>
+                  <li><span class="icon-check">✓</span> Responsive Mobile Layout</li>
+                  <li><span class="icon-check">✓</span> Direct Agent Lead Form</li>
+                  <li><span class="icon-check">✓</span> Up to 20 Photo Gallery</li>
+                  <li><span class="icon-check">✓</span> Full Analytics & Hosting</li>
+                </ul>
+                <button class="btn-secondary open-order-modal">Order Starter Site</button>
+              </div>
+
+              <!-- Luxury Tier (Popular) -->
+              <div class="pricing-card popular">
+                <span class="badge-featured" style="background: var(--primary-blue); color: #fff; top: 16px; right: 16px;">Most Popular</span>
+                <div class="pricing-plan-name">Luxury Property Pro</div>
+                <div class="pricing-price">$499 <span>/ property</span></div>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Perfect for luxury estates, lakefronts & high-end listings.</p>
+                <ul class="pricing-features">
+                  <li><span class="icon-check">✓</span> <strong>Everything in Starter</strong></li>
+                  <li><span class="icon-check">✓</span> <strong>High-Res Photo Enhancement</strong></li>
+                  <li><span class="icon-check">✓</span> Interactive Floorplan Hotspots</li>
+                  <li><span class="icon-check">✓</span> 360 Virtual Tour Integration</li>
+                  <li><span class="icon-check">✓</span> VIP Agent Branding Options</li>
+                </ul>
+                <button class="btn-primary open-order-modal">Order Luxury Pro Site</button>
+              </div>
+            </div>
+          </section>
+
         </div>
+
+        <!-- Right Column: Sticky Zillow/Redfin Style Tour & Agent Booking Sidebar -->
+        <aside class="listing-sidebar">
+          
+          <!-- Sticky Widget Container -->
+          <div class="sidebar-widget-card">
+            
+            <div class="widget-header">
+              <h3>Tour This Home</h3>
+              <p>Schedule an in-person or virtual walkthrough</p>
+            </div>
+
+            <!-- Tour Type Pills -->
+            <div class="tour-type-toggle">
+              <button class="tour-type-btn active" data-type="in-person">In Person</button>
+              <button class="tour-type-btn" data-type="video">Video Chat</button>
+            </div>
+
+            <!-- Date Selector Pills -->
+            <div class="date-picker-row">
+              <button class="date-pill active">
+                <span class="day">TODAY</span>
+                <span class="date">Aug 26</span>
+              </button>
+              <button class="date-pill">
+                <span class="day">THU</span>
+                <span class="date">Aug 27</span>
+              </button>
+              <button class="date-pill">
+                <span class="day">FRI</span>
+                <span class="date">Aug 28</span>
+              </button>
+              <button class="date-pill">
+                <span class="day">SAT</span>
+                <span class="date">Aug 29</span>
+              </button>
+            </div>
+
+            <button class="btn-primary btn-full-width open-showing-modal" style="margin-top: 16px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              Request a Tour
+            </button>
+            <div class="widget-note">It's free, with no obligation to buy.</div>
+
+            <hr class="widget-divider" />
+
+            <!-- Agent Contact Card -->
+            <div class="agent-contact-box">
+              <div class="agent-profile-row">
+                <div class="agent-avatar">MJ</div>
+                <div class="agent-details">
+                  <div class="agent-name">Matt Jacks</div>
+                  <div class="agent-title">Listing Representative</div>
+                  <div class="agent-brokerage">MattyJacks Real Estate</div>
+                </div>
+              </div>
+
+              <div class="agent-direct-info">
+                <div class="info-row">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                  <span><strong>603 999 9420</strong></span>
+                </div>
+                <div class="info-row">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                  <span><strong>Matt@MattyJacks.com</strong></span>
+                </div>
+              </div>
+
+              <!-- Quick Question Form -->
+              <form id="sidebarQuickContact" style="margin-top: 16px;">
+                <div class="form-group-sm">
+                  <input type="text" class="form-control-sm" placeholder="Your Name" required />
+                </div>
+                <div class="form-group-sm">
+                  <input type="email" class="form-control-sm" placeholder="Your Email" required />
+                </div>
+                <div class="form-group-sm">
+                  <input type="tel" class="form-control-sm" placeholder="Your Phone (603 999 9420)" required />
+                </div>
+                <div class="form-group-sm">
+                  <textarea class="form-control-sm" rows="2" placeholder="I am interested in 42 Lakeview Ridge Rd Unit B..."></textarea>
+                </div>
+                <button type="submit" class="btn-outline btn-full-width">Ask Agent a Question</button>
+              </form>
+            </div>
+
+          </div>
+
+        </aside>
+
       </div>
+
     </div>
-  </section>
+  </main>
 
-  <!-- Interactive Photo Gallery -->
-  <section class="section-padding" id="gallery" style="background: rgba(11,15,25,0.5);">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">High Definition Showcase</span>
-        <h2 class="section-title">Immersive Gallery</h2>
-        <p class="section-desc">Experience every angle of 42 Lakeview Ridge Rd in crisp detail.</p>
-      </div>
-
-      <div class="gallery-controls">
-        <button class="filter-btn active" data-filter="all">All Photos</button>
-        <button class="filter-btn" data-filter="exterior">Exterior & Shoreline</button>
-        <button class="filter-btn" data-filter="interior">Living Rooms</button>
-        <button class="filter-btn" data-filter="kitchen">Chef Kitchen</button>
-        <button class="filter-btn" data-filter="master">Master Suite</button>
-        <button class="filter-btn" data-filter="aerial">Aerial Views</button>
-      </div>
-
-      <div class="gallery-grid" id="galleryGrid">
-        <!-- Rendered dynamically via JS -->
-      </div>
-    </div>
-  </section>
-
-  <!-- Gallery Lightbox Modal -->
+  <!-- Full Gallery Lightbox Modal -->
   <div class="lightbox-modal" id="lightboxModal">
     <div class="lightbox-content">
       <button class="lightbox-close" id="lightboxClose">&times;</button>
       <button class="lightbox-nav lightbox-prev" id="lightboxPrev">‹</button>
-      <img src="" id="lightboxImg" alt="Gallery preview" />
+      <img src="" id="lightboxImg" alt="Property gallery preview" />
       <div class="lightbox-caption" id="lightboxCaption"></div>
       <button class="lightbox-nav lightbox-next" id="lightboxNext">›</button>
     </div>
   </div>
 
-  <!-- Interactive Floor Plan & Hotspots -->
-  <section class="section-padding" id="floorplan">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Architectural Layout</span>
-        <h2 class="section-title">Interactive Floorplan & Hotspots</h2>
-        <p class="section-desc">Select a floor level and click any pin to inspect view lines and key living areas.</p>
-      </div>
-
-      <div class="floorplan-container">
-        <div class="floorplan-tabs">
-          <button class="fp-tab-btn active" data-level="main">Main Living Level</button>
-          <button class="fp-tab-btn" data-level="upper">Upper Suite Level</button>
-          <button class="fp-tab-btn" data-level="grounds">Grounds & Shoreline</button>
-        </div>
-
-        <div class="floorplan-stage">
-          <div class="floorplan-graphic" id="fpGraphic">
-            <!-- Pins rendered dynamically via JS -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MATTYJACKS.COM PROMOTIONAL SECTION -->
-  <section class="section-padding mattyjacks-section" id="why-custom-sites">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag" style="color: #a855f7;">MattyJacks.com Advantage</span>
-        <h2 class="section-title">Why Every Property Needs Its Own Dedicated Website</h2>
-        <p class="section-desc">
-          Stop burying luxury listings in cluttered MLS portals with rival agent ads. Elevate your seller presentations with a custom-crafted, single-property website.
-        </p>
-      </div>
-
-      <div class="comparison-grid">
-        <div class="comparison-card">
-          <h3 class="comparison-title">Standard MLS / Zillow Listing</h3>
-          <ul class="comparison-list">
-            <li><span class="icon-cross">✕</span> Cluttered with competing agent ads and popups</li>
-            <li><span class="icon-cross">✕</span> Standard small photos and slow video embeds</li>
-            <li><span class="icon-cross">✕</span> Leads routed to random paying agents</li>
-            <li><span class="icon-cross">✕</span> Generic layout that cheapens luxury properties</li>
-            <li><span class="icon-cross">✕</span> Zero personal branding for your agency</li>
-          </ul>
-        </div>
-
-        <div class="comparison-card highlighted">
-          <span class="badge-featured">The MattyJacks Secret</span>
-          <h3 class="comparison-title" style="color: #e9d5ff;">Dedicated Custom Listing Site</h3>
-          <ul class="comparison-list">
-            <li><span class="icon-check">✓</span> <strong>Custom Domain Name</strong> (e.g. <em>42LakeviewRidge.com</em>)</li>
-            <li><span class="icon-check">✓</span> <strong>100% Direct Leads</strong> - all inquiries go exclusively to you</li>
-            <li><span class="icon-check">✓</span> <strong>Custom Crafted with AI Tools</strong> for rapid 24-hr turnaround</li>
-            <li><span class="icon-check">✓</span> <strong>Win Seller Presentations</strong> by showing custom tech investment</li>
-            <li><span class="icon-check">✓</span> <strong>Unbeatable Price</strong> - starting at just $299 per property!</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Agent ROI Calculator -->
-      <div class="calculator-box">
-        <div class="calc-inputs">
-          <span class="section-tag">Interactive Calculator</span>
-          <h3 style="color: #fff; margin-bottom: 12px;">Calculate Your ROI on Custom Listing Sites</h3>
-          <p style="color: var(--text-muted); margin-bottom: 24px;">See how much a dedicated listing website increases your closed listing probability and agent commission value.</p>
-
-          <label for="propPriceSlider">Listing Price Range:</label>
-          <div class="calc-slider-val" id="priceDisplay">$2,850,000</div>
-          <input type="range" id="propPriceSlider" min="300000" max="5000000" step="50000" value="2850000" />
-        </div>
-
-        <div class="calc-results">
-          <div style="font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase;">Est. Agent Commission (2.5%)</div>
-          <div class="calc-results-num" id="calcCommission">$71,250</div>
-          <div class="calc-results-sub" style="margin-top: 10px;">
-            A $499 MattyJacks custom site yields an incredible <strong id="calcRoi" style="color: var(--primary-gold);">142x ROI</strong> by securing seller signatures!
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Pricing Tiers -->
-  <section class="section-padding" id="mattyjacks-pricing">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Affordable & Custom Crafted</span>
-        <h2 class="section-title">MattyJacks.com Pricing Packages</h2>
-        <p class="section-desc">Fast 24-hour turnaround, custom AI enhanced imagery, and custom domains included.</p>
-      </div>
-
-      <div class="pricing-grid">
-        <!-- Starter Tier -->
-        <div class="pricing-card">
-          <div class="pricing-plan-name">Single Property Starter</div>
-          <div class="pricing-price">$299 <span>/ property</span></div>
-          <p style="color: var(--text-muted); font-size: 0.9rem;">Ideal for single-family home listings up to $750k.</p>
-          <ul class="pricing-features">
-            <li><span class="icon-check">✓</span> Custom Domain (.com)</li>
-            <li><span class="icon-check">✓</span> Responsive Mobile Design</li>
-            <li><span class="icon-check">✓</span> Direct Agent Lead Form</li>
-            <li><span class="icon-check">✓</span> Up to 20 HD Photo Gallery</li>
-            <li><span class="icon-check">✓</span> 48-Hour Delivery</li>
-          </ul>
-          <button class="btn-secondary open-order-modal">Order Starter Site</button>
-        </div>
-
-        <!-- Luxury Tier (Popular) -->
-        <div class="pricing-card popular">
-          <span class="badge-featured" style="background: var(--primary-gold); color: #0b0f19; top: 16px; right: 16px;">Most Popular</span>
-          <div class="pricing-plan-name">Luxury Property Pro</div>
-          <div class="pricing-price">$499 <span>/ property</span></div>
-          <p style="color: var(--text-muted); font-size: 0.9rem;">Perfect for luxury estates, lakefronts & high-end listings.</p>
-          <ul class="pricing-features">
-            <li><span class="icon-check">✓</span> <strong>Everything in Starter</strong></li>
-            <li><span class="icon-check">✓</span> <strong>AI Photo Enhancement & Staging</strong></li>
-            <li><span class="icon-check">✓</span> Interactive Floorplan Hotspots</li>
-            <li><span class="icon-check">✓</span> 360 Virtual Tour Integration</li>
-            <li><span class="icon-check">✓</span> Priority <strong>24-Hour Delivery</strong></li>
-          </ul>
-          <button class="btn-primary open-order-modal">Order Luxury Pro Site</button>
-        </div>
-
-        <!-- Agency Pass -->
-        <div class="pricing-card">
-          <div class="pricing-plan-name">Agent Unlimited Pass</div>
-          <div class="pricing-price">$1,299 <span>/ month</span></div>
-          <p style="color: var(--text-muted); font-size: 0.9rem;">Designed for top-producing agents & luxury brokerages.</p>
-          <ul class="pricing-features">
-            <li><span class="icon-check">✓</span> <strong>Unlimited Property Sites</strong></li>
-            <li><span class="icon-check">✓</span> Custom Agency Branding</li>
-            <li><span class="icon-check">✓</span> 12-Hour Priority Turnaround</li>
-            <li><span class="icon-check">✓</span> Dedicated MattyJacks Producer</li>
-          </ul>
-          <button class="btn-secondary open-order-modal">Contact For Agency Pass</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Order / Request Custom Site Modal -->
   <div class="order-modal" id="orderModal">
     <div class="order-modal-card">
       <button class="modal-close" id="closeOrderModal">&times;</button>
-      <span class="section-tag" style="color: var(--primary-gold);">MattyJacks.com Order Form</span>
-      <h3 style="color: #fff; margin-bottom: 8px;">Order Your Custom Property Site</h3>
+      <span class="section-tag" style="color: var(--primary-blue);">MattyJacks.com Order Form</span>
+      <h3 style="color: #0f172a; margin-bottom: 8px;">Order Your Custom Property Site</h3>
       <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 0.9rem;">
-        Fill out your listing info below and our team will craft your custom property site within 24 hours!
+        Fill out your listing details below and our team will prepare your custom property site.
       </p>
 
       <form id="orderForm">
@@ -400,7 +590,7 @@
 
         <div class="form-group">
           <label for="propAddress">Property Address</label>
-          <input type="text" id="propAddress" class="form-control" placeholder="e.g. 42 Lakeview Ridge Rd, Meredith, NH" required />
+          <input type="text" id="propAddress" class="form-control" placeholder="e.g. 42 Lakeview Ridge Rd Unit B, Meredith, NH" required />
         </div>
 
         <div class="form-group">
@@ -408,52 +598,87 @@
           <select id="planSelect" class="form-control">
             <option value="499">Luxury Property Pro ($499) - Recommended</option>
             <option value="299">Single Property Starter ($299)</option>
-            <option value="1299">Agent Unlimited Pass ($1,299/mo)</option>
           </select>
         </div>
 
         <div class="form-group">
           <label for="agentEmail">Email Address for Preview Link</label>
-          <input type="email" id="agentEmail" class="form-control" placeholder="jane@realty.com" required />
+          <input type="email" id="agentEmail" class="form-control" placeholder="Matt@MattyJacks.com" required />
         </div>
 
         <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; margin-top: 10px;">
-          🚀 Submit Request & Generate Preview
+          Submit Site Request
         </button>
       </form>
     </div>
   </div>
 
-  <!-- Site Footer -->
+  <!-- Schedule Showing Modal -->
+  <div class="order-modal" id="showingModal">
+    <div class="order-modal-card">
+      <button class="modal-close" id="closeShowingModal">&times;</button>
+      <span class="section-tag" style="color: var(--primary-blue);">Private Tour Request</span>
+      <h3 style="color: #0f172a; margin-bottom: 8px;">Schedule a Private Showing</h3>
+      <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.9rem;">
+        To arrange a private walkthrough of 42 Lakeview Ridge Rd Unit B, contact the listing agent directly or submit your details.
+      </p>
+      
+      <div style="background: #f1f5f9; border: 1px solid #e2e8f0; padding: 16px; border-radius: 8px; margin-bottom: 24px;">
+        <div style="color: #0f172a; font-weight: 600; margin-bottom: 4px;">Listing Representative</div>
+        <div style="color: #475569; font-size: 0.9rem;">Phone: <strong style="color: #0f172a;">603 999 9420</strong></div>
+        <div style="color: #475569; font-size: 0.9rem;">Email: <strong style="color: #0f172a;">Matt@MattyJacks.com</strong></div>
+      </div>
+
+      <form id="showingForm">
+        <div class="form-group">
+          <label for="visitorName">Full Name</label>
+          <input type="text" id="visitorName" class="form-control" placeholder="John Smith" required />
+        </div>
+        <div class="form-group">
+          <label for="visitorPhone">Phone Number</label>
+          <input type="tel" id="visitorPhone" class="form-control" placeholder="603 999 9420" required />
+        </div>
+        <div class="form-group">
+          <label for="preferredDate">Preferred Date & Time</label>
+          <input type="text" id="preferredDate" class="form-control" placeholder="e.g. Saturday afternoon" required />
+        </div>
+        <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+          Confirm Showing Request
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Real Estate Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div>
-          <div class="brand-logo" style="margin-bottom: 12px;">
+          <div class="brand-logo" style="margin-bottom: 12px; color: #0f172a;">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
               <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
             </svg>
-            Custom Listing Site
+            ListingHub Real Estate
           </div>
-          <p style="color: var(--text-muted); max-width: 380px;">
-            A product of <strong>MattyJacks.com</strong>. We craft bespoke, high-performing single-property websites powered by AI tools to help realtors win listings and sell properties faster.
+          <p style="color: #64748b; max-width: 380px; font-size: 0.9rem;">
+            Listing details provided by Belknap MLS. Information is deemed reliable but not guaranteed. Powered by <strong>MattyJacks.com</strong> single-property listing platform.
           </p>
         </div>
 
         <div class="footer-col">
-          <h5>Property Demo</h5>
+          <h5>Property Details</h5>
           <ul>
-            <li><a href="#overview">Overview</a></li>
-            <li><a href="#story">Property Story</a></li>
-            <li><a href="#gallery">HD Gallery</a></li>
-            <li><a href="#floorplan">Floorplan</a></li>
+            <li><a href="#photos">Photo Gallery</a></li>
+            <li><a href="#overview">Home Overview</a></li>
+            <li><a href="#features">Facts & Features</a></li>
+            <li><a href="#floorplan">Interactive Floorplan</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h5>MattyJacks</h5>
+          <h5>Realtor Showcase</h5>
           <ul>
-            <li><a href="#why-custom-sites">Why Custom Sites?</a></li>
+            <li><a href="#why-custom-sites">ROI Calculator</a></li>
             <li><a href="#mattyjacks-pricing">Pricing Plans</a></li>
             <li><a href="https://mattyjacks.com" target="_blank" rel="noopener">MattyJacks.com</a></li>
           </ul>
@@ -462,20 +687,20 @@
         <div class="footer-col">
           <h5>Contact & Support</h5>
           <ul>
-            <li>Email: hello@mattyjacks.com</li>
-            <li>Phone: (603) 555-0199</li>
+            <li>Email: Matt@MattyJacks.com</li>
+            <li>Phone: 603 999 9420</li>
             <li>Location: New Hampshire, USA</li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
-        &copy; 2026 Custom Listing Site by MattyJacks.com. All Rights Reserved. Demo Property: 42 Lakeview Ridge Rd, Meredith, NH.
+        &copy; 2026 Custom Listing Site by MattyJacks.com. Equal Housing Opportunity. All Rights Reserved.
       </div>
     </div>
   </footer>
 
-  <!-- Script -->
+  <!-- Interactive JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>

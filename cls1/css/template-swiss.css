@@ -1,0 +1,101 @@
+/* ==========================================================================
+   Template 4: Swiss Contemporary Modernist (Minimalist Architecture & Bold Type)
+   ========================================================================== */
+
+body.theme-swiss {
+  --bg-page: #ffffff;
+  --bg-card: #f8fafc;
+  --text-main: #09090b;
+  --text-muted: #3f3f46;
+  --primary-blue: #e11d48;
+  --primary-blue-hover: #be123c;
+  --border-light: #18181b;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-full: 0px;
+}
+
+body.theme-swiss .site-header {
+  background: #ffffff;
+  border-bottom: 3px solid #09090b;
+}
+
+body.theme-swiss h1,
+body.theme-swiss h2,
+body.theme-swiss h3,
+body.theme-swiss .card-title,
+body.theme-swiss .property-price {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+body.theme-swiss .hero-banner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  height: 520px;
+  margin: 24px 0 32px;
+  border: 3px solid #09090b;
+  background: #09090b;
+}
+
+body.theme-swiss .hero-img-col {
+  background: url('../images/hero.jpg') center/cover no-repeat;
+  height: 100%;
+}
+
+body.theme-swiss .hero-text-col {
+  background: #09090b;
+  color: #fff;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+body.theme-swiss .hero-text-col h1 {
+  font-size: 2.8rem;
+  color: #fff;
+  line-height: 1.05;
+  margin-bottom: 16px;
+}
+
+body.theme-swiss .hero-text-col .hero-price {
+  font-size: 2.2rem;
+  color: #e11d48;
+  font-weight: 900;
+}
+
+body.theme-swiss .section-card {
+  border: 2px solid #09090b;
+  box-shadow: 6px 6px 0px #09090b;
+  background: #ffffff;
+}
+
+body.theme-swiss .btn-primary {
+  background: #e11d48;
+  color: #ffffff;
+  border: 2px solid #09090b;
+  box-shadow: 4px 4px 0px #09090b;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+body.theme-swiss .btn-primary:hover {
+  background: #09090b;
+  color: #ffffff;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #e11d48;
+}
+
+@media (max-width: 768px) {
+  body.theme-swiss .hero-banner {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  body.theme-swiss .hero-img-col {
+    height: 300px;
+  }
+}

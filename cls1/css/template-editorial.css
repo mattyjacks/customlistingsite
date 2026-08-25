@@ -1,0 +1,84 @@
+/* ==========================================================================
+   Template 1: Modern Editorial Luxury (Architectural Digest Vibe)
+   ========================================================================== */
+
+body.theme-editorial {
+  --bg-page: #fcfbfa;
+  --bg-card: #ffffff;
+  --text-main: #1c1917;
+  --text-muted: #57534e;
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --primary-blue: #a87d32;
+  --primary-blue-hover: #866224;
+  --border-light: #e7e5e4;
+}
+
+body.theme-editorial .site-header {
+  border-bottom: 1px solid #e7e5e4;
+  background: rgba(252, 251, 250, 0.92);
+}
+
+body.theme-editorial h1,
+body.theme-editorial h2,
+body.theme-editorial h3,
+body.theme-editorial .property-price,
+body.theme-editorial .card-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+body.theme-editorial .hero-banner {
+  position: relative;
+  height: 520px;
+  background: url('../images/hero.jpg') center/cover no-repeat;
+  border-radius: var(--radius-lg);
+  margin-top: 24px;
+  margin-bottom: 32px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+body.theme-editorial .hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.75) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 48px;
+  color: #fff;
+}
+
+body.theme-editorial .hero-overlay h1 {
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 8px;
+  line-height: 1.1;
+}
+
+body.theme-editorial .hero-overlay .hero-price {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #fef3c7;
+}
+
+body.theme-editorial .section-card {
+  border-radius: 4px;
+  border: 1px solid #e7e5e4;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+
+body.theme-editorial .btn-primary {
+  background: #1c1917;
+  color: #fff;
+  border-radius: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  padding: 12px 24px;
+}
+
+body.theme-editorial .btn-primary:hover {
+  background: #a87d32;
+}

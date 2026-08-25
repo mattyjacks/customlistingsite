@@ -3,297 +3,208 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>77 Example Road, Chester NH 03036 | Presented by Example Realty</title>
-  <meta name="description" content="View property details for 77 Example Road, Chester NH 03036 presented by Example Realty. 4 beds, 3.5 baths, 3,850 sqft residence. Photos, floorplans, price history & tour scheduling." />
+  <title>77 Example Road, Chester NH 03036 | Bespoke Home Showcase</title>
+  <meta name="description" content="View the luxury bespoke single-property website for 77 Example Road, Chester NH 03036. Presented by Example Realty." />
   
-  <!-- Google Fonts -->
+  <!-- Google Fonts for Luxury Templates -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,400&family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet" />
   
-  <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="styles.css" />
+  <!-- Master Modular Stylesheet -->
+  <link rel="stylesheet" href="css/main.css" />
 </head>
-<body class="zillow-theme">
+<body class="theme-editorial">
 
-  <!-- HEADER 1: Top Sticky Promotional Banner for MattyJacks.com -->
-  <div class="promo-top-bar" id="promoBar">
-    <div class="container promo-container">
-      <span class="promo-badge">REALTOR DEMO</span>
-      <span><strong>MattyJacks.com:</strong> Dedicated single-property listing websites that win seller presentations &amp; capture 100% direct leads. Hire us to get a website like this ($499)!</span>
-      <div class="promo-actions">
-        <a href="#mattyjacks-pricing" class="promo-cta-btn open-order-modal">Get A Site Like This ($499) →</a>
-        <button class="promo-close" id="promoCloseBtn" aria-label="Dismiss banner">&times;</button>
+  <!-- TOP CONTROL TOOLBAR: Live Template Switcher Engine -->
+  <div class="template-switcher-bar" id="templateSwitcherBar">
+    <div class="container switcher-container">
+      <div class="switcher-left">
+        <span class="switcher-badge">DESIGN TEMPLATE SWITCHER</span>
+        <span class="switcher-title">Select a bespoke custom property website style:</span>
+      </div>
+      <div class="template-buttons" id="templateBtnGroup">
+        <button class="tpl-btn active" data-template="editorial">
+          <span class="tpl-icon">🏛</span> Modern Editorial
+        </button>
+        <button class="tpl-btn" data-template="midnight">
+          <span class="tpl-icon">🌙</span> Midnight Luxury
+        </button>
+        <button class="tpl-btn" data-template="coastal">
+          <span class="tpl-icon">🌊</span> Coastal Hamptons
+        </button>
+        <button class="tpl-btn" data-template="swiss">
+          <span class="tpl-icon">📐</span> Swiss Modernist
+        </button>
+        <button class="tpl-btn" data-template="heritage">
+          <span class="tpl-icon">🏰</span> Executive Manor
+        </button>
       </div>
     </div>
   </div>
 
-  <!-- HEADER 2: Real Estate Header (Presented by Example Realty) -->
+  <!-- BESPOKE PROPERTY HEADER -->
   <header class="site-header">
     <div class="container header-container">
       <div class="header-left">
-        <!-- Presented by Example Realty Branding -->
-        <a href="#" class="brand-logo" title="Presented by Example Realty">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5">
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-            <polyline points="9 22 9 12 15 12 15 22"></polyline>
-          </svg>
-          <span class="logo-text">Example <span class="logo-accent">Realty</span></span>
+        <a href="#" class="brand-logo" title="77 Example Road">
+          <span class="property-tag">BESPOKE RESIDENCE SHOWCASE</span>
+          <span class="logo-text">77 Example Road</span>
         </a>
-
-        <!-- Header 2 Address Search Bar: 77 Example Road, Chester NH 03036 -->
-        <div class="header-search">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-          <input type="text" value="77 Example Road, Chester NH 03036" placeholder="77 Example Road, Chester NH 03036" />
-        </div>
       </div>
 
       <nav class="main-nav">
         <ul>
-          <li><a href="#photos" class="nav-link active">Photos</a></li>
+          <li><a href="#hero" class="nav-link active">Home</a></li>
           <li><a href="#overview" class="nav-link">Overview</a></li>
+          <li><a href="#photos" class="nav-link">Gallery</a></li>
           <li><a href="#features" class="nav-link">Features</a></li>
           <li><a href="#floorplan" class="nav-link">Floorplan</a></li>
-          <li><a href="#history" class="nav-link">Price History</a></li>
-          <li><a href="#why-custom-sites" class="nav-link highlight-link">Realtor Site Demo</a></li>
+          <li><a href="#mattyjacks-showcase" class="nav-link highlight-link">Get A Site Like This</a></li>
         </ul>
       </nav>
 
       <div class="header-actions">
-        <button class="btn-outline open-showing-modal">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-            <line x1="16" y1="2" x2="16" y2="6"></line>
-            <line x1="8" y1="2" x2="8" y2="6"></line>
-            <line x1="3" y1="10" x2="21" y2="10"></line>
-          </svg>
-          Request Tour
-        </button>
-        <button class="btn-primary open-order-modal">
-          Order Property Site
+        <button class="btn-primary open-showing-modal">
+          Schedule Private Tour
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Secondary Breadcrumbs & Quick Action Bar -->
-  <div class="sub-nav-bar">
-    <div class="container sub-nav-container">
-      <div class="breadcrumbs">
-        <a href="#">Homes for Sale</a>
-        <span class="sep">›</span>
-        <a href="#">New Hampshire</a>
-        <span class="sep">›</span>
-        <a href="#">Rockingham County</a>
-        <span class="sep">›</span>
-        <a href="#">Chester</a>
-        <span class="sep">›</span>
-        <span class="current">77 Example Road, Chester NH 03036</span>
-      </div>
-
-      <div class="action-buttons">
-        <button class="action-btn" id="savePropertyBtn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-          </svg>
-          <span>Save</span>
-        </button>
-        <button class="action-btn" id="sharePropertyBtn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="18" cy="5" r="3"></circle>
-            <circle cx="6" cy="12" r="3"></circle>
-            <circle cx="18" cy="19" r="3"></circle>
-            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-          </svg>
-          <span>Share</span>
-        </button>
-        <button class="action-btn open-showing-modal">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-          </svg>
-          <span>Contact Agent</span>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Main Property Content Area -->
+  <!-- MAIN BESPOKE HOME SHOWCASE CONTENT -->
   <main class="main-content">
     <div class="container">
 
-      <!-- Zillow/Redfin 5-Photo Grid Collage -->
-      <section class="photo-collage-section" id="photos">
-        <div class="photo-collage-grid">
-          <div class="collage-item hero-photo" data-index="0">
-            <img src="images/hero.jpg" alt="42 Lakeview Ridge Rd Condo Exterior & Walkway" />
-            <span class="photo-badge">Main Exterior</span>
-          </div>
-          <div class="collage-item" data-index="1">
-            <img src="images/living_room.jpg" alt="Living Room Area" />
-          </div>
-          <div class="collage-item" data-index="2">
-            <img src="images/kitchen.jpg" alt="Kitchen with Blue Countertops" />
-          </div>
-          <div class="collage-item" data-index="3">
-            <img src="images/master_suite.jpg" alt="Hallway Bathroom" />
-          </div>
-          <div class="collage-item" data-index="4">
-            <img src="images/aerial.jpg" alt="Complex Aerial & Parking" />
-            <button class="view-all-photos-btn" id="openGalleryBtn">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                <polyline points="21 15 16 10 5 21"></polyline>
-              </svg>
-              View all 5 photos
-            </button>
-          </div>
+      <!-- Dynamic Hero Banner Splash -->
+      <section class="hero-banner" id="hero">
+        <div class="hero-img-col"></div>
+        <div class="hero-overlay hero-text-col">
+          <span class="badge-tag" style="background: rgba(255,255,255,0.2); color: #fff; border: 1px solid rgba(255,255,255,0.3); max-width: fit-content;">EXCLUSIVE CHESTER LISTING</span>
+          <h1>77 Example Road</h1>
+          <p style="font-size: 1.1rem; opacity: 0.9; margin-bottom: 12px;">Chester, New Hampshire 03036 &bull; 2.5 Private Acres</p>
+          <div class="hero-price">$849,900</div>
         </div>
       </section>
 
-      <!-- 2-Column Detail Layout (Left: Listing Details | Right: Sticky Agent Sidebar) -->
+      <!-- 2-Column Detail Layout -->
       <div class="listing-detail-layout">
         
-        <!-- Left Column: Primary Listing Info & Sections -->
+        <!-- Left Column: Primary Property Narrative & Details -->
         <div class="listing-main-col">
           
-          <!-- Key Listing Title & Price Bar -->
-          <div class="listing-header-box" id="overview">
-            <div class="status-row">
-              <span class="status-badge active"><span class="pulse-dot"></span> FOR SALE</span>
-              <span class="status-meta">Listed on MLS &bull; 4 days on ListingHub</span>
-            </div>
-
-            <div class="price-address-row">
-              <div>
-                <h1 class="property-price">$849,900</h1>
-                <div class="property-address">77 Example Road, Chester NH 03036</div>
-              </div>
-              <div class="est-payment-tag">
-                <span class="pay-amount">$4,680<small>/mo</small></span>
-                <span class="pay-label">Est. Monthly Payment</span>
-              </div>
-            </div>
-
-            <!-- Key Specs Pill Row -->
-            <div class="specs-pill-row">
-              <div class="spec-item">
-                <span class="spec-num">4</span>
-                <span class="spec-label">Beds</span>
-              </div>
-              <div class="spec-divider"></div>
-              <div class="spec-item">
-                <span class="spec-num">3.5</span>
-                <span class="spec-label">Baths</span>
-              </div>
-              <div class="spec-divider"></div>
-              <div class="spec-item">
-                <span class="spec-num">3,850</span>
-                <span class="spec-label">Sq Ft</span>
-              </div>
-              <div class="spec-divider"></div>
-              <div class="spec-item">
-                <span class="spec-num">$220</span>
-                <span class="spec-label">/ Sq Ft</span>
-              </div>
-              <div class="spec-divider"></div>
-              <div class="spec-item">
-                <span class="spec-num">Single Family</span>
-                <span class="spec-label">Property Type</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Overview / Description ("About this home") -->
-          <section class="section-card">
-            <h2 class="card-title">About This Home</h2>
-            <div class="property-description">
-              <p>
-                Welcome to <strong>77 Example Road</strong> in desirable Chester, NH! Presented by <strong>Example Realty</strong>, this exquisite 4-bedroom, 3.5-bath residence offers modern architectural elegance on 2.5 private acres.
-              </p>
-              <p>
-                The home features a functional open-concept layout with light-filled living space, vaulted beam ceilings, and premium hardwood flooring. The gourmet kitchen is outfitted with custom cabinetry, quartz waterfall island, gas range, and butler's pantry.
-              </p>
-              <p>
-                Enjoy peaceful wooded surroundings with expansive outdoor patio, 2-car garage, and top-tier Rockingham County school district access.
-              </p>
-            </div>
-
-            <div class="quick-facts-grid">
+          <!-- Key Specs Pill Box -->
+          <div class="section-card" id="overview">
+            <h2 class="card-title">Property Highlights</h2>
+            <div class="quick-facts-grid" style="margin-top: 0;">
               <div class="fact-box">
-                <span class="fact-icon">🏠</span>
+                <span class="fact-icon">🛏</span>
                 <div>
-                  <div class="fact-label">Property Type</div>
-                  <div class="fact-val">Single Family Home</div>
+                  <div class="fact-label">Bedrooms</div>
+                  <div class="fact-val">4 Beds</div>
                 </div>
               </div>
               <div class="fact-box">
-                <span class="fact-icon">📅</span>
+                <span class="fact-icon">🛁</span>
                 <div>
-                  <div class="fact-label">Year Built</div>
-                  <div class="fact-val">2022</div>
+                  <div class="fact-label">Bathrooms</div>
+                  <div class="fact-val">3.5 Baths</div>
+                </div>
+              </div>
+              <div class="fact-box">
+                <span class="fact-icon">📐</span>
+                <div>
+                  <div class="fact-label">Living Area</div>
+                  <div class="fact-val">3,850 Sq Ft</div>
                 </div>
               </div>
               <div class="fact-box">
                 <span class="fact-icon">🌲</span>
                 <div>
                   <div class="fact-label">Lot Size</div>
-                  <div class="fact-val">2.5 Private Acres</div>
+                  <div class="fact-val">2.5 Acres</div>
                 </div>
               </div>
-              <div class="fact-box">
-                <span class="fact-icon">🚗</span>
-                <div>
-                  <div class="fact-label">Garage</div>
-                  <div class="fact-val">2-Car Attached</div>
-                </div>
+            </div>
+          </div>
+
+          <!-- Narrative Description ("About This Home") -->
+          <section class="section-card">
+            <h2 class="card-title">Architectural Narrative</h2>
+            <div style="font-size: 1.05rem; line-height: 1.8; color: var(--text-muted);">
+              <p style="margin-bottom: 16px;">
+                Welcome to <strong>77 Example Road</strong> in desirable Chester, NH! Presented by <strong>Example Realty</strong>, this exquisite 4-bedroom, 3.5-bath residence offers modern architectural elegance on 2.5 private acres.
+              </p>
+              <p style="margin-bottom: 16px;">
+                The home features a functional open-concept layout with light-filled living space, vaulted beam ceilings, and premium hardwood flooring. The gourmet kitchen is outfitted with custom cabinetry, quartz waterfall island, gas range, and butler's pantry.
+              </p>
+              <p>
+                Enjoy peaceful wooded surroundings with expansive outdoor patio, 2-car garage, and top-tier Rockingham County school district access.
+              </p>
+            </div>
+          </section>
+
+          <!-- Photo Gallery Grid -->
+          <section class="section-card" id="photos">
+            <h2 class="card-title">Photography Showcase</h2>
+            <p class="card-subtitle">Click any image to launch the full-screen high-res gallery lightbox.</p>
+            
+            <div class="photo-collage-grid">
+              <div class="collage-item hero-photo" data-index="0">
+                <img src="images/hero.jpg" alt="77 Example Road Main Exterior" />
+                <span class="photo-badge">Main Residence Exterior</span>
+              </div>
+              <div class="collage-item" data-index="1">
+                <img src="images/living_room.jpg" alt="Living Room" />
+              </div>
+              <div class="collage-item" data-index="2">
+                <img src="images/kitchen.jpg" alt="Gourmet Kitchen" />
+              </div>
+              <div class="collage-item" data-index="3">
+                <img src="images/master_suite.jpg" alt="Master Bath" />
+              </div>
+              <div class="collage-item" data-index="4">
+                <img src="images/aerial.jpg" alt="Aerial Lot View" />
+                <button class="view-all-photos-btn" id="openGalleryBtn">
+                  View All 5 Photos ➔
+                </button>
               </div>
             </div>
           </section>
 
-          <!-- Expandable Features & Amenities -->
+          <!-- Expandable Facts & Features -->
           <section class="section-card" id="features">
-            <h2 class="card-title">Home Facts & Features</h2>
+            <h2 class="card-title">Residence Specifications</h2>
             
             <div class="features-categories-grid">
-              <!-- Interior -->
               <div class="feature-category-card">
-                <h3>Interior Features</h3>
+                <h3>Interior Finishings</h3>
                 <ul>
-                  <li><strong>Bedrooms:</strong> 2 Bedrooms</li>
-                  <li><strong>Bathrooms:</strong> 1 Full Bath, 1 Half Bath</li>
-                  <li><strong>Flooring:</strong> Carpet, Wood Vinyl Plank</li>
+                  <li><strong>Bedrooms:</strong> 4 Bedrooms</li>
+                  <li><strong>Bathrooms:</strong> 3 Full, 1 Half Bath</li>
+                  <li><strong>Flooring:</strong> Hardwood &amp; Natural Stone Tile</li>
                   <li><strong>Heating:</strong> Baseboard Electric / Forced Air</li>
-                  <li><strong>Cooling:</strong> Window AC Units</li>
-                  <li><strong>Storage:</strong> Bifold Closet Space</li>
+                  <li><strong>Cooling:</strong> Central Air Conditioning</li>
                 </ul>
               </div>
 
-              <!-- Kitchen & Appliances -->
               <div class="feature-category-card">
-                <h3>Kitchen & Appliances</h3>
+                <h3>Gourmet Kitchen</h3>
                 <ul>
-                  <li><strong>Cabinets:</strong> Slate-Blue Painted Wood</li>
-                  <li><strong>Countertops:</strong> Blue Mosaic Square Tile</li>
-                  <li><strong>Appliances:</strong> Stainless Gas Range, Dishwasher</li>
+                  <li><strong>Cabinetry:</strong> Custom Slate-Blue Hardwood</li>
+                  <li><strong>Countertops:</strong> Blue Mosaic &amp; Quartz</li>
+                  <li><strong>Appliances:</strong> Stainless Steel Gas Range</li>
                   <li><strong>Sink:</strong> Stainless Steel Double Basin</li>
-                  <li><strong>Lighting:</strong> Ceiling Track Fixture</li>
                 </ul>
               </div>
 
-              <!-- Exterior & HOA -->
               <div class="feature-category-card">
-                <h3>Exterior & Association</h3>
+                <h3>Grounds &amp; Structure</h3>
                 <ul>
                   <li><strong>Construction:</strong> Vertical Wood Siding</li>
-                  <li><strong>Walkway:</strong> Wooden Entry Bridge</li>
-                  <li><strong>Parking:</strong> Asphalt Lot (2 Spaces)</li>
-                  <li><strong>HOA Includes:</strong> Water, Sewer, Trash, Snow Removal</li>
-                  <li><strong>Pet Policy:</strong> Cats & Dogs Allowed (with limits)</li>
+                  <li><strong>Lot Size:</strong> 2.5 Private Acres</li>
+                  <li><strong>Parking:</strong> 2-Car Garage + Driveway</li>
+                  <li><strong>Utilities:</strong> Private Well &amp; Septic</li>
                 </ul>
               </div>
             </div>
@@ -301,32 +212,25 @@
 
           <!-- Interactive Floor Plan & Hotspots -->
           <section class="section-card" id="floorplan">
-            <div class="card-header-flex">
-              <div>
-                <h2 class="card-title">Interactive Floorplan & Hotspots</h2>
-                <p class="card-subtitle">Select a level and click any pin to inspect room preview shots.</p>
-              </div>
-            </div>
+            <h2 class="card-title">Interactive Floorplan &amp; Hotspots</h2>
+            <p class="card-subtitle">Select a level and click any pin to inspect room preview shots.</p>
 
             <div class="floorplan-container">
               <div class="floorplan-tabs">
                 <button class="fp-tab-btn active" data-level="main">Main Level</button>
                 <button class="fp-tab-btn" data-level="upper">Upper Bedroom Level</button>
-                <button class="fp-tab-btn" data-level="grounds">Exterior & Parking</button>
+                <button class="fp-tab-btn" data-level="grounds">Exterior &amp; Grounds</button>
               </div>
 
               <div class="floorplan-stage">
-                <div class="floorplan-graphic" id="fpGraphic">
-                  <!-- Pins rendered dynamically via JS -->
-                </div>
+                <div class="floorplan-graphic" id="fpGraphic"></div>
               </div>
             </div>
           </section>
 
           <!-- Price & Tax History -->
-          <section class="section-card" id="history">
-            <h2 class="card-title">Price & Tax History</h2>
-            
+          <section class="section-card">
+            <h2 class="card-title">Price &amp; Market History</h2>
             <div class="history-table-wrap">
               <table class="data-table">
                 <thead>
@@ -353,208 +257,38 @@
                     <td>$160</td>
                     <td>Public Records</td>
                   </tr>
-                  <tr>
-                    <td>Apr 02, 2018</td>
-                    <td><span class="event-badge tax">Tax Assessment</span></td>
-                    <td>$520,000</td>
-                    <td>$135</td>
-                    <td>Town of Chester</td>
-                  </tr>
                 </tbody>
               </table>
             </div>
           </section>
 
-          <!-- Neighborhood & Scores -->
-          <section class="section-card">
-            <h2 class="card-title">Neighborhood & Location Scores</h2>
-            
-            <div class="scores-grid">
-              <div class="score-card">
-                <div class="score-circle">42</div>
-                <div class="score-info">
-                  <h4>Walk Score&reg;</h4>
-                  <p>Car-Dependent &bull; Most errands require a car</p>
-                </div>
-              </div>
-              <div class="score-card">
-                <div class="score-circle highlight">78</div>
-                <div class="score-info">
-                  <h4>SoundScore&trade;</h4>
-                  <p>Quiet &bull; Low traffic noise area</p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- Agent ROI Calculator (MattyJacks Interactive) -->
-          <section class="section-card mattyjacks-calc-card" id="why-custom-sites">
-            <div class="calc-header-tag">Realtor Productivity Tool</div>
-            <h2 class="card-title" style="color: #fff;">Calculate Agent ROI on Custom Listing Sites</h2>
-            <p style="color: var(--text-muted); margin-bottom: 24px;">
-              Single-property websites help listing agents win seller presentations by demonstrating dedicated digital marketing.
-            </p>
-
-            <div class="calculator-box">
-              <div class="calc-inputs">
-                <label for="propPriceSlider">Target Listing Price:</label>
-                <div class="calc-slider-val" id="priceDisplay">$849,900</div>
-                <input type="range" id="propPriceSlider" min="200000" max="3000000" step="25000" value="849900" />
-              </div>
-
-              <div class="calc-results">
-                <div class="calc-label">Est. Agent Commission (2.5%)</div>
-                <div class="calc-results-num" id="calcCommission">$21,248</div>
-                <div class="calc-results-sub">
-                  A $499 MattyJacks custom property site yields an est. <strong id="calcRoi" style="color: var(--primary-gold);">42x ROI</strong> by securing seller listings.
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- MattyJacks.com Promotional Section for Realtors -->
-          <section class="section-card mattyjacks-promo-card" id="mattyjacks-pricing">
-            <div class="section-header text-center">
-              <span class="badge-tag">MattyJacks.com Showcase</span>
-              <h2 class="card-title" style="color: #fff; margin-top: 6px;">Get A Dedicated Listing Site For Your Property</h2>
-              <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 24px;">
-                Stand out from generic MLS listings with a custom-domain website tailored to your client's property.
-              </p>
-            </div>
-
-            <div class="pricing-grid">
-              <!-- Starter Tier -->
-              <div class="pricing-card">
-                <div class="pricing-plan-name">Single Property Starter</div>
-                <div class="pricing-price">$299 <span>/ property</span></div>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">Ideal for single-family home listings up to $750k.</p>
-                <ul class="pricing-features">
-                  <li><span class="icon-check">✓</span> Custom Domain (.com)</li>
-                  <li><span class="icon-check">✓</span> Responsive Mobile Layout</li>
-                  <li><span class="icon-check">✓</span> Direct Agent Lead Form</li>
-                  <li><span class="icon-check">✓</span> Up to 20 Photo Gallery</li>
-                  <li><span class="icon-check">✓</span> Full Analytics & Hosting</li>
-                </ul>
-                <button class="btn-secondary open-order-modal">Order Starter Site</button>
-              </div>
-
-              <!-- Luxury Tier (Popular) -->
-              <div class="pricing-card popular">
-                <span class="badge-featured" style="background: var(--primary-blue); color: #fff; top: 16px; right: 16px;">Most Popular</span>
-                <div class="pricing-plan-name">Luxury Property Pro</div>
-                <div class="pricing-price">$499 <span>/ property</span></div>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">Perfect for luxury estates, lakefronts & high-end listings.</p>
-                <ul class="pricing-features">
-                  <li><span class="icon-check">✓</span> <strong>Everything in Starter</strong></li>
-                  <li><span class="icon-check">✓</span> <strong>High-Res Photo Enhancement</strong></li>
-                  <li><span class="icon-check">✓</span> Interactive Floorplan Hotspots</li>
-                  <li><span class="icon-check">✓</span> 360 Virtual Tour Integration</li>
-                  <li><span class="icon-check">✓</span> VIP Agent Branding Options</li>
-                </ul>
-                <button class="btn-primary open-order-modal">Order Luxury Pro Site</button>
-              </div>
-            </div>
-          </section>
-
         </div>
 
-        <!-- Right Column: Sticky Zillow/Redfin Style Tour & Agent Booking Sidebar -->
+        <!-- Right Column: Sticky Bespoke Showing Sidebar -->
         <aside class="listing-sidebar">
-          
-          <!-- Sticky Widget Container -->
           <div class="sidebar-widget-card">
-            
             <div class="widget-header">
-              <h3>Tour This Home</h3>
-              <p>Schedule an in-person or virtual walkthrough</p>
+              <h3>Schedule Showing</h3>
+              <p>Arrange a private tour with Example Realty</p>
             </div>
 
-            <!-- Tour Type Pills -->
-            <div class="tour-type-toggle">
-              <button class="tour-type-btn active" data-type="in-person">In Person</button>
-              <button class="tour-type-btn" data-type="video">Video Chat</button>
+            <div class="agent-profile-row">
+              <div class="agent-avatar">ER</div>
+              <div class="agent-details">
+                <div class="agent-name">Example Realty Agent</div>
+                <div class="agent-title">Listing Representative</div>
+              </div>
             </div>
 
-            <!-- Date Selector Pills -->
-            <div class="date-picker-row">
-              <button class="date-pill active">
-                <span class="day">TODAY</span>
-                <span class="date">Aug 26</span>
-              </button>
-              <button class="date-pill">
-                <span class="day">THU</span>
-                <span class="date">Aug 27</span>
-              </button>
-              <button class="date-pill">
-                <span class="day">FRI</span>
-                <span class="date">Aug 28</span>
-              </button>
-              <button class="date-pill">
-                <span class="day">SAT</span>
-                <span class="date">Aug 29</span>
-              </button>
-            </div>
-
-            <button class="btn-primary btn-full-width open-showing-modal" style="margin-top: 16px;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                <line x1="16" y1="2" x2="16" y2="6"></line>
-                <line x1="8" y1="2" x2="8" y2="6"></line>
-                <line x1="3" y1="10" x2="21" y2="10"></line>
-              </svg>
-              Request a Tour
+            <button class="btn-primary open-showing-modal" style="width: 100%; justify-content: center; margin-bottom: 12px;">
+              Request Private Tour
             </button>
-            <div class="widget-note">It's free, with no obligation to buy.</div>
-
-            <hr class="widget-divider" />
-
-            <!-- Agent Contact Card -->
-            <div class="agent-contact-box">
-              <div class="agent-profile-row">
-                <div class="agent-avatar">ER</div>
-                <div class="agent-details">
-                  <div class="agent-name">Example Realty Agent</div>
-                  <div class="agent-title">Listing Representative</div>
-                  <div class="agent-brokerage">Example Realty</div>
-                </div>
-              </div>
-
-              <div class="agent-direct-info">
-                <div class="info-row">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                  </svg>
-                  <span><strong>(603) 555-0199</strong></span>
-                </div>
-                <div class="info-row">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                    <polyline points="22,6 12,13 2,6"></polyline>
-                  </svg>
-                  <span><strong>info@examplerealty.com</strong></span>
-                </div>
-              </div>
-
-              <!-- Quick Question Form -->
-              <form id="sidebarQuickContact" style="margin-top: 16px;">
-                <div class="form-group-sm">
-                  <input type="text" class="form-control-sm" placeholder="Your Name" required />
-                </div>
-                <div class="form-group-sm">
-                  <input type="email" class="form-control-sm" placeholder="Your Email" required />
-                </div>
-                <div class="form-group-sm">
-                  <input type="tel" class="form-control-sm" placeholder="Your Phone (603 555 0199)" required />
-                </div>
-                <div class="form-group-sm">
-                  <textarea class="form-control-sm" rows="2" placeholder="I am interested in 77 Example Road, Chester NH 03036..."></textarea>
-                </div>
-                <button type="submit" class="btn-outline btn-full-width">Ask Example Realty a Question</button>
-              </form>
+            
+            <div style="font-size: 0.82rem; color: var(--text-dim); text-align: center;">
+              Direct Phone: <strong>(603) 555-0199</strong><br/>
+              Email: <strong>info@examplerealty.com</strong>
             </div>
-
           </div>
-
         </aside>
 
       </div>
@@ -562,25 +296,96 @@
     </div>
   </main>
 
+  <!-- BOTTOM REALTOR SHOWCASE & SALES PITCH SECTION ("We Can Build A Website For You") -->
+  <section class="realtor-bottom-showcase" id="mattyjacks-showcase">
+    <div class="container">
+      
+      <div class="showcase-header">
+        <span class="showcase-tag">MattyJacks.com Platform</span>
+        <h2 class="showcase-title">Want A Custom Bespoke Website For Your Home Listing?</h2>
+        <p class="showcase-subtitle">
+          Stand out from generic Zillow &amp; MLS listings with a dedicated single-property domain tailored specifically for your seller's property.
+        </p>
+      </div>
+
+      <!-- Realtor ROI Calculator -->
+      <div class="showcase-calc-wrapper" id="why-custom-sites">
+        <div class="calc-title">Interactive Realtor ROI Calculator</div>
+        <div class="calc-desc">Calculate your return on investment when using custom property websites to win seller listing presentations.</div>
+
+        <div class="calculator-box">
+          <div class="calc-inputs">
+            <label for="propPriceSlider">Target Listing Price:</label>
+            <div class="calc-slider-val" id="priceDisplay">$849,900</div>
+            <input type="range" id="propPriceSlider" min="200000" max="3000000" step="25000" value="849900" />
+          </div>
+
+          <div class="calc-results">
+            <div class="calc-label">Est. Agent Commission (2.5%)</div>
+            <div class="calc-results-num" id="calcCommission">$21,248</div>
+            <div class="calc-results-sub">
+              A $499 MattyJacks custom property site yields an est. <strong id="calcRoi" style="color: #f59e0b;">42x ROI</strong> by securing seller listings.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pricing Cards -->
+      <div class="pricing-grid" id="mattyjacks-pricing">
+        <!-- Starter Package -->
+        <div class="pricing-card">
+          <div class="pricing-plan-name">Single Property Starter</div>
+          <div class="pricing-price">$299 <span>/ property</span></div>
+          <p style="color: #94a3b8; font-size: 0.9rem;">Ideal for single-family home listings up to $750k.</p>
+          <ul class="pricing-features">
+            <li><span class="icon-check">✓</span> Custom Domain (.com)</li>
+            <li><span class="icon-check">✓</span> 5 Bespoke Design Templates</li>
+            <li><span class="icon-check">✓</span> Direct Agent Lead Form</li>
+            <li><span class="icon-check">✓</span> High-Res Photo Gallery</li>
+            <li><span class="icon-check">✓</span> Fast Hosting &amp; Analytics</li>
+          </ul>
+          <button class="btn-primary open-order-modal" style="width: 100%; justify-content: center;">Order Starter Site</button>
+        </div>
+
+        <!-- Luxury Pro Package -->
+        <div class="pricing-card popular">
+          <span class="showcase-tag" style="position: absolute; top: 16px; right: 16px; background: #2563eb; color: #fff;">Most Popular</span>
+          <div class="pricing-plan-name">Luxury Property Pro</div>
+          <div class="pricing-price">$499 <span>/ property</span></div>
+          <p style="color: #94a3b8; font-size: 0.9rem;">Perfect for luxury estates, waterfronts &amp; high-end listings.</p>
+          <ul class="pricing-features">
+            <li><span class="icon-check">✓</span> <strong>Everything in Starter</strong></li>
+            <li><span class="icon-check">✓</span> <strong>Interactive Floorplan Hotspots</strong></li>
+            <li><span class="icon-check">✓</span> 360 Virtual Tour Integration</li>
+            <li><span class="icon-check">✓</span> High-Res Image Enhancement</li>
+            <li><span class="icon-check">✓</span> VIP Agent Branding Options</li>
+          </ul>
+          <button class="btn-primary open-order-modal" style="width: 100%; justify-content: center; background: #2563eb;">Order Luxury Pro Site</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- Full Gallery Lightbox Modal -->
   <div class="lightbox-modal" id="lightboxModal">
     <div class="lightbox-content">
       <button class="lightbox-close" id="lightboxClose">&times;</button>
-      <button class="lightbox-nav lightbox-prev" id="lightboxPrev">‹</button>
-      <img src="" id="lightboxImg" alt="Property gallery preview" />
-      <div class="lightbox-caption" id="lightboxCaption"></div>
-      <button class="lightbox-nav lightbox-next" id="lightboxNext">›</button>
+      <button class="lightbox-nav lightbox-prev" id="lightboxPrev" style="position: absolute; left: -40px; top: 50%; background: none; border: none; color: #fff; font-size: 3rem;">‹</button>
+      <img src="" id="lightboxImg" alt="Gallery preview" />
+      <div class="lightbox-caption" id="lightboxCaption" style="color: #fff; margin-top: 12px;"></div>
+      <button class="lightbox-nav lightbox-next" id="lightboxNext" style="position: absolute; right: -40px; top: 50%; background: none; border: none; color: #fff; font-size: 3rem;">›</button>
     </div>
   </div>
 
-  <!-- Order / Request Custom Site Modal -->
+  <!-- Order Custom Property Site Modal -->
   <div class="order-modal" id="orderModal">
     <div class="order-modal-card">
       <button class="modal-close" id="closeOrderModal">&times;</button>
-      <span class="section-tag" style="color: var(--primary-blue);">MattyJacks.com Order Form</span>
+      <span class="badge-tag">MattyJacks Order Form</span>
       <h3 style="color: #0f172a; margin-bottom: 8px;">Order Your Custom Property Site</h3>
-      <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 0.9rem;">
-        Fill out your listing details below and our team will prepare your custom property site.
+      <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.9rem;">
+        Fill out your details below and our team will prepare your custom property site.
       </p>
 
       <form id="orderForm">
@@ -588,12 +393,10 @@
           <label for="agentName">Your Name / Agency</label>
           <input type="text" id="agentName" class="form-control" placeholder="e.g. Jane Doe - Example Realty" required />
         </div>
-
         <div class="form-group">
           <label for="propAddress">Property Address</label>
-          <input type="text" id="propAddress" class="form-control" placeholder="e.g. 77 Example Road, Chester NH 03036" required />
+          <input type="text" id="propAddress" class="form-control" placeholder="e.g. 77 Example Road, Chester NH" required />
         </div>
-
         <div class="form-group">
           <label for="planSelect">Select Package</label>
           <select id="planSelect" class="form-control">
@@ -601,12 +404,10 @@
             <option value="299">Single Property Starter ($299)</option>
           </select>
         </div>
-
         <div class="form-group">
-          <label for="agentEmail">Email Address for Preview Link</label>
+          <label for="agentEmail">Email Address</label>
           <input type="email" id="agentEmail" class="form-control" placeholder="agent@examplerealty.com" required />
         </div>
-
         <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; margin-top: 10px;">
           Submit Site Request
         </button>
@@ -614,22 +415,15 @@
     </div>
   </div>
 
-  <!-- Schedule Showing Modal -->
+  <!-- Showing Modal -->
   <div class="order-modal" id="showingModal">
     <div class="order-modal-card">
       <button class="modal-close" id="closeShowingModal">&times;</button>
-      <span class="section-tag" style="color: var(--primary-blue);">Private Tour Request</span>
+      <span class="badge-tag">Private Tour Request</span>
       <h3 style="color: #0f172a; margin-bottom: 8px;">Schedule a Private Showing</h3>
       <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.9rem;">
-        To arrange a private walkthrough of 77 Example Road, Chester NH 03036, contact Example Realty directly or submit your details.
+        Contact Example Realty directly to arrange a private walkthrough of 77 Example Road.
       </p>
-      
-      <div style="background: #f1f5f9; border: 1px solid #e2e8f0; padding: 16px; border-radius: 8px; margin-bottom: 24px;">
-        <div style="color: #0f172a; font-weight: 600; margin-bottom: 4px;">Listing Representative</div>
-        <div style="color: #475569; font-size: 0.9rem;">Agency: <strong style="color: #0f172a;">Example Realty</strong></div>
-        <div style="color: #475569; font-size: 0.9rem;">Phone: <strong style="color: #0f172a;">(603) 555-0199</strong></div>
-        <div style="color: #475569; font-size: 0.9rem;">Email: <strong style="color: #0f172a;">info@examplerealty.com</strong></div>
-      </div>
 
       <form id="showingForm">
         <div class="form-group">
@@ -641,7 +435,7 @@
           <input type="tel" id="visitorPhone" class="form-control" placeholder="(603) 555-0199" required />
         </div>
         <div class="form-group">
-          <label for="preferredDate">Preferred Date & Time</label>
+          <label for="preferredDate">Preferred Date &amp; Time</label>
           <input type="text" id="preferredDate" class="form-control" placeholder="e.g. Saturday afternoon" required />
         </div>
         <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
@@ -651,58 +445,14 @@
     </div>
   </div>
 
-  <!-- Real Estate Footer -->
-  <footer class="site-footer">
+  <!-- Footer -->
+  <footer style="background: #090d16; color: #64748b; padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.08); text-align: center; font-size: 0.88rem;">
     <div class="container">
-      <div class="footer-grid">
-        <div>
-          <div class="brand-logo" style="margin-bottom: 12px; color: #0f172a;">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5">
-              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-            </svg>
-            Example Realty
-          </div>
-          <p style="color: #64748b; max-width: 380px; font-size: 0.9rem;">
-            Listing details presented by Example Realty. Powered by <strong>MattyJacks.com</strong> single-property listing platform.
-          </p>
-        </div>
-
-        <div class="footer-col">
-          <h5>Property Details</h5>
-          <ul>
-            <li><a href="#photos">Photo Gallery</a></li>
-            <li><a href="#overview">Home Overview</a></li>
-            <li><a href="#features">Facts & Features</a></li>
-            <li><a href="#floorplan">Interactive Floorplan</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h5>Realtor Showcase</h5>
-          <ul>
-            <li><a href="#why-custom-sites">ROI Calculator</a></li>
-            <li><a href="#mattyjacks-pricing">Pricing Plans</a></li>
-            <li><a href="https://mattyjacks.com" target="_blank" rel="noopener">MattyJacks.com</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h5>Contact & Support</h5>
-          <ul>
-            <li>Email: info@examplerealty.com</li>
-            <li>Phone: (603) 555-0199</li>
-            <li>Location: Chester, New Hampshire, USA</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        &copy; 2026 Example Realty &amp; MattyJacks.com. Demo Property: 77 Example Road, Chester NH 03036. Equal Housing Opportunity. All Rights Reserved. &bull; <a href="/privacy" style="color: #64748b; text-decoration: underline;">Privacy Policy (NH RSA 507-H)</a>
-      </div>
+      &copy; 2026 Example Realty &amp; MattyJacks.com. Demo Property: 77 Example Road, Chester NH 03036. All Rights Reserved. &bull; <a href="privacy.html" style="color: #94a3b8; text-decoration: underline;">Privacy Policy</a> &bull; <a href="playbook.html" style="color: #94a3b8; text-decoration: underline;">Realtor Playbook</a>
     </div>
   </footer>
 
-  <!-- Interactive JavaScript -->
-  <script src="script.js"></script>
+  <!-- Modular JavaScript Engine -->
+  <script type="module" src="js/app.js"></script>
 </body>
 </html>

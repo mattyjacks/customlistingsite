@@ -1,0 +1,94 @@
+/* ==========================================================================
+   Template 2: Midnight Dark Luxury (Glassmorphism & Obsidian Vibe)
+   ========================================================================== */
+
+body.theme-midnight {
+  --bg-page: #0b0f19;
+  --bg-card: #141c2e;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  --border-light: rgba(255, 255, 255, 0.1);
+  --border-hover: rgba(56, 189, 248, 0.4);
+  --primary-blue: #38bdf8;
+  --primary-blue-hover: #0284c7;
+  --glass-bg: rgba(15, 23, 42, 0.85);
+  --glass-border: rgba(56, 189, 248, 0.2);
+}
+
+body.theme-midnight .site-header {
+  background: rgba(11, 15, 25, 0.9);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+  backdrop-filter: blur(16px);
+}
+
+body.theme-midnight .logo-text,
+body.theme-midnight .nav-link {
+  color: #f1f5f9;
+}
+
+body.theme-midnight .section-card,
+body.theme-midnight .sidebar-widget-card,
+body.theme-midnight .feature-category-card,
+body.theme-midnight .score-card {
+  background: rgba(20, 28, 46, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  color: #f8fafc;
+}
+
+body.theme-midnight .card-title,
+body.theme-midnight h1,
+body.theme-midnight h2,
+body.theme-midnight h3,
+body.theme-midnight h4,
+body.theme-midnight .property-price {
+  color: #ffffff;
+}
+
+body.theme-midnight .hero-banner {
+  height: 500px;
+  background: url('../images/hero.jpg') center/cover no-repeat;
+  border-radius: var(--radius-lg);
+  margin: 24px 0 32px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  box-shadow: 0 0 40px rgba(56, 189, 248, 0.15);
+}
+
+body.theme-midnight .hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(56, 189, 248, 0.1) 0%, rgba(11, 15, 25, 0.95) 90%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 40px;
+}
+
+body.theme-midnight .btn-primary {
+  background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+  color: #0b0f19;
+  font-weight: 800;
+  border: none;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.4);
+}
+
+body.theme-midnight .btn-outline {
+  background: rgba(255, 255, 255, 0.05);
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.4);
+}
+
+body.theme-midnight .data-table th,
+body.theme-midnight .data-table td {
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+  color: #e2e8f0;
+}
+
+body.theme-midnight .data-table th {
+  background: rgba(15, 23, 42, 0.8);
+  color: #38bdf8;
+}

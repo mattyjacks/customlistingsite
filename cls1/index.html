@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Pinnacle at Lake Winnipesaukee | Luxury Custom Property Site</title>
+  <meta name="description" content="Custom Listing Site powered by MattyJacks.com. Explore 42 Lakeview Ridge Rd, Meredith, NH - an ultra-luxury lakeside estate." />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Top Sticky Promotional Banner for MattyJacks.com -->
+  <div class="promo-top-bar" id="promoBar">
+    <span class="promo-badge">PROMOTIONAL DEMO</span>
+    <span>⚡ <strong>MattyJacks.com Showcase:</strong> We build dedicated, high-converting property websites custom crafted with AI tools for cheap!</span>
+    <a href="#mattyjacks-pricing" class="promo-cta-btn open-order-modal">Get Your Property Site ($499) →</a>
+    <button class="promo-close" id="promoCloseBtn" aria-label="Dismiss banner">&times;</button>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="site-header">
+    <div class="header-brand">
+      <div class="brand-logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        CustomListingSite
+      </div>
+      <div class="brand-subtitle">Crafted by <span>MattyJacks.com</span></div>
+    </div>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#overview" class="active">Overview</a></li>
+        <li><a href="#story">Property Story</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#floorplan">Floorplan & Tour</a></li>
+        <li><a href="#why-custom-sites">Why Dedicated Sites?</a></li>
+        <li><a href="#mattyjacks-pricing">Pricing</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button class="btn-secondary" onclick="alert('Showing scheduler initialized! Call listing agent directly at (603) 555-0199.')">Schedule Showing</button>
+      <button class="btn-primary open-order-modal">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </svg>
+        Get A Site Like This
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="overview">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <div class="property-badge-row">
+        <span class="badge-tag">Featured Lakefront Estate</span>
+        <span class="badge-location">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          Lake Winnipesaukee, New Hampshire
+        </span>
+      </div>
+
+      <h1 class="hero-title">The Pinnacle at Lake Winnipesaukee</h1>
+      <p class="hero-address">42 Lakeview Ridge Rd, Meredith, NH 03253</p>
+
+      <div class="hero-stats-grid">
+        <div class="stat-card">
+          <div class="stat-value highlight">$2,850,000</div>
+          <div class="stat-label">Asking Price</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">4</div>
+          <div class="stat-label">Bedrooms</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">5.5</div>
+          <div class="stat-label">Bathrooms</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">5,240</div>
+          <div class="stat-label">Sq Ft</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">220 FT</div>
+          <div class="stat-label">Prime Shoreline</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">1.8</div>
+          <div class="stat-label">Acres</div>
+        </div>
+      </div>
+
+      <div class="hero-ctas">
+        <a href="#gallery" class="btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+          </svg>
+          Explore HD Gallery
+        </a>
+        <a href="#why-custom-sites" class="btn-secondary">Realtors: Why Dedicated Sites Win Listings</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Spotlight Bar -->
+  <section class="spotlight-bar">
+    <div class="container spotlight-grid">
+      <div class="spotlight-item">
+        <div class="spotlight-icon">🌲</div>
+        <div class="spotlight-text">
+          <h4>Panoramic Alpine Views</h4>
+          <p>Overlooking the Ossipee Mountain Range & crystal waters.</p>
+        </div>
+      </div>
+      <div class="spotlight-item">
+        <div class="spotlight-icon">⚓</div>
+        <div class="spotlight-text">
+          <h4>Mahogany Boat Dock</h4>
+          <p>Deep-water slip with electric lift & sun terrace.</p>
+        </div>
+      </div>
+      <div class="spotlight-item">
+        <div class="spotlight-icon">🔥</div>
+        <div class="spotlight-text">
+          <h4>Granite Fieldstone Hearth</h4>
+          <p>Floor-to-ceiling double-sided outdoor & indoor fireplace.</p>
+        </div>
+      </div>
+      <div class="spotlight-item">
+        <div class="spotlight-icon">✨</div>
+        <div class="spotlight-text">
+          <h4>Crafted by MattyJacks</h4>
+          <p>Custom AI-powered website delivered in 24 hours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Property Story & Details -->
+  <section class="section-padding" id="story">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-image-wrap">
+          <img src="images/living_room.jpg" alt="Great Room at The Pinnacle" />
+        </div>
+        <div class="story-content">
+          <span class="section-tag">Architectural Masterpiece</span>
+          <h3>Where Rustic New Hampshire Elegance Meets Modern Luxury</h3>
+          <p>
+            Nestled along 220 feet of pristine shoreline on Lake Winnipesaukee, <em>The Pinnacle</em> represents the pinnacle of New Hampshire lakefront architecture. Built with locally quarried granite and native Douglas fir timber framing, this mastercrafted sanctuary offers floor-to-ceiling lakeside views, a professional chef's kitchen, and an expansive covered balcony for breathtaking sunset gatherings.
+          </p>
+          <p>
+            Every detail was engineered for luxury, comfort, and year-round mountain lifestyle entertainment.
+          </p>
+
+          <div class="features-accordion">
+            <div class="accordion-item active">
+              <div class="accordion-header">
+                Gourmet Chef's Kitchen & Dining
+                <span class="accordion-icon">▼</span>
+              </div>
+              <div class="accordion-content">
+                Features custom walnut cabinetry, Calacatta marble waterfall island, Sub-Zero dual refrigerator tower, Wolf 6-burner gas range, walk-in butler pantry, and wine cellar.
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header">
+                Primary Master Sanctuary & Balcony
+                <span class="accordion-icon">▼</span>
+              </div>
+              <div class="accordion-content">
+                Vaulted wood beam ceilings, private covered stone balcony, gas fireplace, spa bath with free-standing soaking tub overlooking the lake, and radiant warm stone flooring.
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header">
+                Outdoor Living & Dock Facilities
+                <span class="accordion-icon">▼</span>
+              </div>
+              <div class="accordion-content">
+                Heated bluestone patio with gas fire pit, custom mahogany boat dock with deep water slip, jet-ski lifts, outdoor kitchen, and private sandy beach access.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Photo Gallery -->
+  <section class="section-padding" id="gallery" style="background: rgba(11,15,25,0.5);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">High Definition Showcase</span>
+        <h2 class="section-title">Immersive Gallery</h2>
+        <p class="section-desc">Experience every angle of 42 Lakeview Ridge Rd in crisp detail.</p>
+      </div>
+
+      <div class="gallery-controls">
+        <button class="filter-btn active" data-filter="all">All Photos</button>
+        <button class="filter-btn" data-filter="exterior">Exterior & Shoreline</button>
+        <button class="filter-btn" data-filter="interior">Living Rooms</button>
+        <button class="filter-btn" data-filter="kitchen">Chef Kitchen</button>
+        <button class="filter-btn" data-filter="master">Master Suite</button>
+        <button class="filter-btn" data-filter="aerial">Aerial Views</button>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Rendered dynamically via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Lightbox Modal -->
+  <div class="lightbox-modal" id="lightboxModal">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxClose">&times;</button>
+      <button class="lightbox-nav lightbox-prev" id="lightboxPrev">‹</button>
+      <img src="" id="lightboxImg" alt="Gallery preview" />
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+      <button class="lightbox-nav lightbox-next" id="lightboxNext">›</button>
+    </div>
+  </div>
+
+  <!-- Interactive Floor Plan & Hotspots -->
+  <section class="section-padding" id="floorplan">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Architectural Layout</span>
+        <h2 class="section-title">Interactive Floorplan & Hotspots</h2>
+        <p class="section-desc">Select a floor level and click any pin to inspect view lines and key living areas.</p>
+      </div>
+
+      <div class="floorplan-container">
+        <div class="floorplan-tabs">
+          <button class="fp-tab-btn active" data-level="main">Main Living Level</button>
+          <button class="fp-tab-btn" data-level="upper">Upper Suite Level</button>
+          <button class="fp-tab-btn" data-level="grounds">Grounds & Shoreline</button>
+        </div>
+
+        <div class="floorplan-stage">
+          <div class="floorplan-graphic" id="fpGraphic">
+            <!-- Pins rendered dynamically via JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MATTYJACKS.COM PROMOTIONAL SECTION -->
+  <section class="section-padding mattyjacks-section" id="why-custom-sites">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" style="color: #a855f7;">MattyJacks.com Advantage</span>
+        <h2 class="section-title">Why Every Property Needs Its Own Dedicated Website</h2>
+        <p class="section-desc">
+          Stop burying luxury listings in cluttered MLS portals with rival agent ads. Elevate your seller presentations with a custom-crafted, single-property website.
+        </p>
+      </div>
+
+      <div class="comparison-grid">
+        <div class="comparison-card">
+          <h3 class="comparison-title">Standard MLS / Zillow Listing</h3>
+          <ul class="comparison-list">
+            <li><span class="icon-cross">✕</span> Cluttered with competing agent ads and popups</li>
+            <li><span class="icon-cross">✕</span> Standard small photos and slow video embeds</li>
+            <li><span class="icon-cross">✕</span> Leads routed to random paying agents</li>
+            <li><span class="icon-cross">✕</span> Generic layout that cheapens luxury properties</li>
+            <li><span class="icon-cross">✕</span> Zero personal branding for your agency</li>
+          </ul>
+        </div>
+
+        <div class="comparison-card highlighted">
+          <span class="badge-featured">The MattyJacks Secret</span>
+          <h3 class="comparison-title" style="color: #e9d5ff;">Dedicated Custom Listing Site</h3>
+          <ul class="comparison-list">
+            <li><span class="icon-check">✓</span> <strong>Custom Domain Name</strong> (e.g. <em>42LakeviewRidge.com</em>)</li>
+            <li><span class="icon-check">✓</span> <strong>100% Direct Leads</strong> - all inquiries go exclusively to you</li>
+            <li><span class="icon-check">✓</span> <strong>Custom Crafted with AI Tools</strong> for rapid 24-hr turnaround</li>
+            <li><span class="icon-check">✓</span> <strong>Win Seller Presentations</strong> by showing custom tech investment</li>
+            <li><span class="icon-check">✓</span> <strong>Unbeatable Price</strong> - starting at just $299 per property!</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Agent ROI Calculator -->
+      <div class="calculator-box">
+        <div class="calc-inputs">
+          <span class="section-tag">Interactive Calculator</span>
+          <h3 style="color: #fff; margin-bottom: 12px;">Calculate Your ROI on Custom Listing Sites</h3>
+          <p style="color: var(--text-muted); margin-bottom: 24px;">See how much a dedicated listing website increases your closed listing probability and agent commission value.</p>
+
+          <label for="propPriceSlider">Listing Price Range:</label>
+          <div class="calc-slider-val" id="priceDisplay">$2,850,000</div>
+          <input type="range" id="propPriceSlider" min="300000" max="5000000" step="50000" value="2850000" />
+        </div>
+
+        <div class="calc-results">
+          <div style="font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase;">Est. Agent Commission (2.5%)</div>
+          <div class="calc-results-num" id="calcCommission">$71,250</div>
+          <div class="calc-results-sub" style="margin-top: 10px;">
+            A $499 MattyJacks custom site yields an incredible <strong id="calcRoi" style="color: var(--primary-gold);">142x ROI</strong> by securing seller signatures!
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Tiers -->
+  <section class="section-padding" id="mattyjacks-pricing">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Affordable & Custom Crafted</span>
+        <h2 class="section-title">MattyJacks.com Pricing Packages</h2>
+        <p class="section-desc">Fast 24-hour turnaround, custom AI enhanced imagery, and custom domains included.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Starter Tier -->
+        <div class="pricing-card">
+          <div class="pricing-plan-name">Single Property Starter</div>
+          <div class="pricing-price">$299 <span>/ property</span></div>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Ideal for single-family home listings up to $750k.</p>
+          <ul class="pricing-features">
+            <li><span class="icon-check">✓</span> Custom Domain (.com)</li>
+            <li><span class="icon-check">✓</span> Responsive Mobile Design</li>
+            <li><span class="icon-check">✓</span> Direct Agent Lead Form</li>
+            <li><span class="icon-check">✓</span> Up to 20 HD Photo Gallery</li>
+            <li><span class="icon-check">✓</span> 48-Hour Delivery</li>
+          </ul>
+          <button class="btn-secondary open-order-modal">Order Starter Site</button>
+        </div>
+
+        <!-- Luxury Tier (Popular) -->
+        <div class="pricing-card popular">
+          <span class="badge-featured" style="background: var(--primary-gold); color: #0b0f19; top: 16px; right: 16px;">Most Popular</span>
+          <div class="pricing-plan-name">Luxury Property Pro</div>
+          <div class="pricing-price">$499 <span>/ property</span></div>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Perfect for luxury estates, lakefronts & high-end listings.</p>
+          <ul class="pricing-features">
+            <li><span class="icon-check">✓</span> <strong>Everything in Starter</strong></li>
+            <li><span class="icon-check">✓</span> <strong>AI Photo Enhancement & Staging</strong></li>
+            <li><span class="icon-check">✓</span> Interactive Floorplan Hotspots</li>
+            <li><span class="icon-check">✓</span> 360 Virtual Tour Integration</li>
+            <li><span class="icon-check">✓</span> Priority <strong>24-Hour Delivery</strong></li>
+          </ul>
+          <button class="btn-primary open-order-modal">Order Luxury Pro Site</button>
+        </div>
+
+        <!-- Agency Pass -->
+        <div class="pricing-card">
+          <div class="pricing-plan-name">Agent Unlimited Pass</div>
+          <div class="pricing-price">$1,299 <span>/ month</span></div>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Designed for top-producing agents & luxury brokerages.</p>
+          <ul class="pricing-features">
+            <li><span class="icon-check">✓</span> <strong>Unlimited Property Sites</strong></li>
+            <li><span class="icon-check">✓</span> Custom Agency Branding</li>
+            <li><span class="icon-check">✓</span> 12-Hour Priority Turnaround</li>
+            <li><span class="icon-check">✓</span> Dedicated MattyJacks Producer</li>
+          </ul>
+          <button class="btn-secondary open-order-modal">Contact For Agency Pass</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Order / Request Custom Site Modal -->
+  <div class="order-modal" id="orderModal">
+    <div class="order-modal-card">
+      <button class="modal-close" id="closeOrderModal">&times;</button>
+      <span class="section-tag" style="color: var(--primary-gold);">MattyJacks.com Order Form</span>
+      <h3 style="color: #fff; margin-bottom: 8px;">Order Your Custom Property Site</h3>
+      <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 0.9rem;">
+        Fill out your listing info below and our team will craft your custom property site within 24 hours!
+      </p>
+
+      <form id="orderForm">
+        <div class="form-group">
+          <label for="agentName">Your Name / Agency</label>
+          <input type="text" id="agentName" class="form-control" placeholder="e.g. Jane Doe - Lakes Region Realty" required />
+        </div>
+
+        <div class="form-group">
+          <label for="propAddress">Property Address</label>
+          <input type="text" id="propAddress" class="form-control" placeholder="e.g. 42 Lakeview Ridge Rd, Meredith, NH" required />
+        </div>
+
+        <div class="form-group">
+          <label for="planSelect">Select Package</label>
+          <select id="planSelect" class="form-control">
+            <option value="499">Luxury Property Pro ($499) - Recommended</option>
+            <option value="299">Single Property Starter ($299)</option>
+            <option value="1299">Agent Unlimited Pass ($1,299/mo)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="agentEmail">Email Address for Preview Link</label>
+          <input type="email" id="agentEmail" class="form-control" placeholder="jane@realty.com" required />
+        </div>
+
+        <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; margin-top: 10px;">
+          🚀 Submit Request & Generate Preview
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-logo" style="margin-bottom: 12px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            </svg>
+            Custom Listing Site
+          </div>
+          <p style="color: var(--text-muted); max-width: 380px;">
+            A product of <strong>MattyJacks.com</strong>. We craft bespoke, high-performing single-property websites powered by AI tools to help realtors win listings and sell properties faster.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Property Demo</h5>
+          <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#story">Property Story</a></li>
+            <li><a href="#gallery">HD Gallery</a></li>
+            <li><a href="#floorplan">Floorplan</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>MattyJacks</h5>
+          <ul>
+            <li><a href="#why-custom-sites">Why Custom Sites?</a></li>
+            <li><a href="#mattyjacks-pricing">Pricing Plans</a></li>
+            <li><a href="https://mattyjacks.com" target="_blank" rel="noopener">MattyJacks.com</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Contact & Support</h5>
+          <ul>
+            <li>Email: hello@mattyjacks.com</li>
+            <li>Phone: (603) 555-0199</li>
+            <li>Location: New Hampshire, USA</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        &copy; 2026 Custom Listing Site by MattyJacks.com. All Rights Reserved. Demo Property: 42 Lakeview Ridge Rd, Meredith, NH.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>

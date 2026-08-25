@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MattyJacks Cold Calling Playbook & Decision Tree</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Playbook & Decision Tree Styles */
+    .gate-container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: radial-gradient(circle at 50% 30%, #1e1b4b 0%, #0b0f19 70%);
+    }
+
+    .gate-card {
+      background: rgba(18, 24, 38, 0.9);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      max-width: 440px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(16px);
+    }
+
+    .gate-icon {
+      width: 64px;
+      height: 64px;
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid #a855f7;
+      color: #e9d5ff;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin: 0 auto 20px;
+    }
+
+    .gate-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .gate-subtitle {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+    }
+
+    .gate-error {
+      color: #f87171;
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      padding: 10px;
+      border-radius: var(--radius-md);
+      font-size: 0.85rem;
+      margin-bottom: 16px;
+      display: none;
+    }
+
+    /* Main Playbook Dashboard */
+    .playbook-wrapper {
+      display: none;
+      padding-bottom: 80px;
+    }
+
+    .playbook-header {
+      background: rgba(15, 23, 42, 0.95);
+      border-bottom: 1px solid var(--glass-border);
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+    }
+
+    .view-mode-tabs {
+      display: flex;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 4px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--glass-border);
+    }
+
+    .mode-tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 8px 20px;
+      border-radius: var(--radius-full);
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .mode-tab-btn.active {
+      background: var(--primary-gold);
+      color: #0b0f19;
+      box-shadow: 0 0 15px var(--primary-gold-glow);
+    }
+
+    .script-box {
+      background: #0f172a;
+      border: 1px solid var(--glass-border);
+      border-left: 4px solid var(--primary-gold);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      margin-top: 14px;
+      position: relative;
+    }
+
+    .script-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      color: #f1f5f9;
+      line-height: 1.7;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--glass-border);
+      color: var(--text-muted);
+      padding: 4px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+    .copy-btn:hover {
+      background: var(--primary-gold);
+      color: #0b0f19;
+    }
+
+    /* Decision Tree Specific Styles */
+    .dt-container {
+      background: var(--bg-card);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      position: relative;
+    }
+
+    .dt-stage-indicator {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .dt-step-pill {
+      background: rgba(168, 85, 247, 0.2);
+      border: 1px solid #a855f7;
+      color: #e9d5ff;
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .dt-agent-input {
+      background: #1e293b;
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      margin-bottom: 24px;
+    }
+
+    .dt-agent-input label {
+      font-size: 0.8rem;
+      color: var(--primary-gold);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .dt-agent-input input {
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 700;
+      width: 100%;
+      outline: none;
+    }
+
+    .dt-prompt-box {
+      background: linear-gradient(135deg, rgba(30, 27, 75, 0.8) 0%, rgba(15, 23, 42, 0.95) 100%);
+      border: 2px solid var(--primary-gold);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    .dt-prompt-title {
+      font-size: 0.85rem;
+      color: var(--primary-gold);
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .dt-prompt-speech {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: #ffffff;
+      line-height: 1.5;
+    }
+
+    .dt-options-heading {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dt-options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .dt-option-btn {
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      text-align: left;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .dt-option-btn:hover {
+      background: rgba(226, 177, 88, 0.15);
+      border-color: var(--primary-gold);
+      transform: translateY(-2px);
+    }
+
+    .dt-option-tag {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .dt-option-tag.green { color: #4ade80; }
+    .dt-option-tag.orange { color: #fbbf24; }
+    .dt-option-tag.red { color: #f87171; }
+    .dt-option-tag.blue { color: #38bdf8; }
+
+    .dt-option-text {
+      color: #fff;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .dt-timer {
+      font-family: 'JetBrains Mono', monospace;
+      background: rgba(255,255,255,0.08);
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      color: var(--accent-emerald);
+      font-size: 0.9rem;
+    }
+
+    /* Grid & Cards for Static View */
+    .branch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .branch-card {
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+    }
+
+    .branch-tag {
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid var(--accent-blue);
+      color: var(--accent-blue);
+      padding: 2px 10px;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .obj-card {
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+
+    .obj-trigger {
+      font-weight: 700;
+      color: var(--primary-gold);
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Password Protection Gate -->
+  <div class="gate-container" id="gateContainer">
+    <div class="gate-card">
+      <div class="gate-icon">🔒</div>
+      <h2 class="gate-title">Restricted Playbook</h2>
+      <p class="gate-subtitle">MattyJacks.com Real-Time Cold Calling Assistant</p>
+
+      <div class="gate-error" id="gateError">Invalid master password. Please try again.</div>
+
+      <form id="gateForm">
+        <div class="form-group" style="text-align: left;">
+          <label for="passInput">Enter Master Password</label>
+          <input type="password" id="passInput" class="form-control" placeholder="••••••••" required autofocus />
+        </div>
+        <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; margin-top: 10px;">
+          Unlock Playbook & Decision Tree
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Unlocked Playbook Dashboard -->
+  <div class="playbook-wrapper" id="playbookWrapper">
+    
+    <!-- Navigation & Mode Header -->
+    <header class="playbook-header">
+      <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <span style="font-weight: 800; font-size: 1.2rem; color: #fff;">MattyJacks Cold Call HQ</span>
+          
+          <div class="view-mode-tabs">
+            <button class="mode-tab-btn active" id="tabTreeMode">⚡ Real-Time Decision Tree</button>
+            <button class="mode-tab-btn" id="tabStaticMode">📖 Full Script Playbook</button>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <span class="dt-timer" id="callTimer">00:00</span>
+          <button class="btn-secondary" id="resetCallBtn" style="padding: 6px 14px; font-size: 0.8rem;">Reset Call 🔄</button>
+          <button class="btn-secondary" id="logoutBtn" style="padding: 6px 14px; font-size: 0.8rem;">Lock 🔒</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container" style="margin-top: 36px;">
+
+      <!-- VIEW 1: INTERACTIVE REAL-TIME DECISION TREE -->
+      <div id="decisionTreeSection">
+        
+        <!-- Live Agent Name Input & Quick Persona -->
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 20px; margin-bottom: 24px;">
+          <div class="dt-agent-input">
+            <label for="liveAgentName">Target Realtor Name:</label>
+            <input type="text" id="liveAgentName" value="Agent" placeholder="Type agent name (e.g. Sarah)..." />
+          </div>
+
+          <div class="dt-agent-input">
+            <label for="personaSelect">Quick Persona Switch:</label>
+            <select id="personaSelect" style="background: transparent; border: none; color: var(--primary-gold); font-size: 1.05rem; font-weight: 700; width: 100%; outline: none; cursor: pointer;">
+              <option value="standard">Standard Prospect</option>
+              <option value="top_producer">Top Producer (High Volume)</option>
+              <option value="new_agent">New Agent (Hungry Competitor)</option>
+              <option value="gatekeeper">Gatekeeper (Office Admin)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Decision Stage Box -->
+        <div class="dt-container">
+          <div class="dt-stage-indicator">
+            <span class="dt-step-pill" id="dtStepPill">STAGE 1: THE OPENER</span>
+            <span style="color: var(--text-muted); font-size: 0.85rem;" id="dtStepDesc">Pattern Interrupt Call Initiation</span>
+          </div>
+
+          <!-- Prompt Box -->
+          <div class="dt-prompt-box">
+            <div class="dt-prompt-title">
+              <span>SAY THIS OUT LOUD NOW:</span>
+              <button class="copy-btn" id="dtCopyBtn" onclick="copyDtText()">Copy Speech</button>
+            </div>
+            <div class="dt-prompt-speech" id="dtSpeechText">
+              "Hey <span class="agent-name-fill" style="color:var(--primary-gold);">Agent</span>, this is Matty. I know I’m calling you completely out of the blue, so I’ll keep this to 30 seconds. Do you have a brief moment?"
+            </div>
+          </div>
+
+          <!-- Responses & Branches -->
+          <div class="dt-options-heading">
+            <span>WHAT DID THE CLIENT / REALTOR SAY? (CLICK TO RESPOND):</span>
+          </div>
+
+          <div class="dt-options-grid" id="dtOptionsGrid">
+            <!-- Options dynamically populated by JS -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- VIEW 2: STATIC FULL PLAYBOOK -->
+      <div id="staticPlaybookSection" style="display: none;">
+        
+        <!-- Section 1: Strategy Overview -->
+        <section style="margin-bottom: 50px;">
+          <div style="background: linear-gradient(135deg, rgba(30,27,75,0.7) 0%, rgba(18,24,38,0.9) 100%); border: 1px solid rgba(168,85,247,0.3); border-radius: var(--radius-lg); padding: 32px;">
+            <h2 style="color: #fff; font-size: 1.4rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
+              <span style="color: var(--primary-gold);">🎯</span> 1. Core Strategy Overview
+            </h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+              <div>
+                <h4 style="color: var(--accent-blue); font-size: 0.95rem; text-transform: uppercase; margin-bottom: 6px;">Value Proposition</h4>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">
+                  You are not selling a technical service; you are providing a <strong>"Listing-Winning Weapon."</strong> Your goal is to help agents win premium listings by offering a marketing tier that Zillow and the MLS cannot match.
+                </p>
+              </div>
+              <div>
+                <h4 style="color: var(--accent-emerald); font-size: 0.95rem; text-transform: uppercase; margin-bottom: 6px;">Primary Objective</h4>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">
+                  Secure a <strong>5-minute screen-share demo</strong>. Do not sell the product on the cold call; sell the meeting.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2: Standard Script -->
+        <section style="margin-bottom: 60px;">
+          <div class="section-header" style="text-align: left; margin-bottom: 30px;">
+            <span class="section-tag">Cold Call Framework</span>
+            <h2 class="section-title">2. Script Builder: The Standard Flow</h2>
+          </div>
+
+          <!-- Opener -->
+          <div style="margin-bottom: 28px;">
+            <h3 style="color: #fff; font-size: 1.1rem; display: flex; align-items: center; gap: 8px;">
+              <span>Step 1: The Opener</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 400;">(Pattern Interrupt)</span>
+            </h3>
+            <div class="script-box">
+              <button class="copy-btn" onclick="copyScript(this)">Copy Script</button>
+              <div class="script-text">
+                "Hey <strong>[Agent Name]</strong>, this is Matty. I know I’m calling you completely out of the blue, so I’ll keep this to 30 seconds. Do you have a brief moment?"
+              </div>
+            </div>
+          </div>
+
+          <!-- Hook -->
+          <div style="margin-bottom: 28px;">
+            <h3 style="color: #fff; font-size: 1.1rem; display: flex; align-items: center; gap: 8px;">
+              <span>Step 2: The Hook</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 400;">(The 'X-Factor')</span>
+            </h3>
+            <div class="script-box">
+              <button class="copy-btn" onclick="copyScript(this)">Copy Script</button>
+              <div class="script-text">
+                "I run a development agency that builds high-end, standalone websites for individual properties. We’re finding that when agents show a seller their own dedicated site during a presentation, they win the listing over 90% of the time because it makes the seller feel like a VIP. Are you currently using standalone sites for your premium listings?"
+              </div>
+            </div>
+          </div>
+
+          <!-- Close -->
+          <div>
+            <h3 style="color: #fff; font-size: 1.1rem; display: flex; align-items: center; gap: 8px;">
+              <span>Step 3: The Close</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 400;">(Low Friction)</span>
+            </h3>
+            <div class="script-box">
+              <button class="copy-btn" onclick="copyScript(this)">Copy Script</button>
+              <div class="script-text">
+                "I’d love to take just 5 minutes next Tuesday to show you exactly how this looks. If you love it, we can talk about your next listing; if not, we part as friends. Do mornings or afternoons work better for you?"
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3: Situational Branching -->
+        <section style="margin-bottom: 60px;">
+          <div class="section-header" style="text-align: left; margin-bottom: 30px;">
+            <span class="section-tag">Adaptive Pitching</span>
+            <h2 class="section-title">3. Situational Branching</h2>
+          </div>
+
+          <div class="branch-grid">
+            <div class="branch-card">
+              <span class="branch-tag">Scenario A</span>
+              <h4 style="color: #fff; font-size: 1.1rem; margin-bottom: 6px;">The Gatekeeper (Office Admin)</h4>
+              <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 12px;"><strong>Goal:</strong> Gain info or a direct line.</p>
+              <div class="script-box" style="margin-top: 0;">
+                <button class="copy-btn" onclick="copyScript(this)">Copy</button>
+                <div class="script-text" style="font-size: 0.95rem;">
+                  "Hi, I'm putting together a custom property website demo for <strong>[Agent Name]</strong>. I imagine they're in the field right now—when is the best 60-second window to catch them at their desk, or is there a direct mobile number I can text the demo link to?"
+                </div>
+              </div>
+            </div>
+
+            <div class="branch-card">
+              <span class="branch-tag" style="border-color:var(--primary-gold); color:var(--primary-gold);">Scenario B</span>
+              <h4 style="color: #fff; font-size: 1.1rem; margin-bottom: 6px;">The Top Producer (High Volume)</h4>
+              <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 12px;"><strong>Angle:</strong> Efficiency and Luxury.</p>
+              <div class="script-box" style="margin-top: 0;">
+                <button class="copy-btn" onclick="copyScript(this)">Copy</button>
+                <div class="script-text" style="font-size: 0.95rem;">
+                  "A standard MLS link doesn't scream 'premium' for a million-dollar listing. I specialize in rapid development so you can offer elite marketing without adding any work to your plate. Let's do a 5-minute screen-share on Tuesday."
+                </div>
+              </div>
+            </div>
+
+            <div class="branch-card">
+              <span class="branch-tag" style="border-color:var(--accent-emerald); color:var(--accent-emerald);">Scenario C</span>
+              <h4 style="color: #fff; font-size: 1.1rem; margin-bottom: 6px;">The New Agent (Hungry Competitor)</h4>
+              <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 12px;"><strong>Angle:</strong> The Competitive Edge.</p>
+              <div class="script-box" style="margin-top: 0;">
+                <button class="copy-btn" onclick="copyScript(this)">Copy</button>
+                <div class="script-text" style="font-size: 0.95rem;">
+                  "When you’re up against veterans with 20 years of referrals, you need a shiny weapon. Sliding an iPad across the table and showing a dedicated property site levels the playing field instantly. I'll show you the template next week."
+                </div>
+              </div>
+            </div>
+
+            <div class="branch-card">
+              <span class="branch-tag" style="border-color:#a855f7; color:#e9d5ff;">Scenario D</span>
+              <h4 style="color: #fff; font-size: 1.1rem; margin-bottom: 6px;">"Market is Too Fast" Objection</h4>
+              <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 12px;"><strong>Angle:</strong> Future Lead Gen.</p>
+              <div class="script-box" style="margin-top: 0;">
+                <button class="copy-btn" onclick="copyScript(this)">Copy</button>
+                <div class="script-text" style="font-size: 0.95rem;">
+                  "You're right, the house will sell itself. This isn't for the current house—it's for the neighbors. When they see this premium site, you're the agent they call to list their home next. It turns one sale into three."
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 4: Objection Handling -->
+        <section style="margin-bottom: 60px;">
+          <div class="section-header" style="text-align: left; margin-bottom: 30px;">
+            <span class="section-tag">Overcoming Pushback</span>
+            <h2 class="section-title">4. Objection Handling</h2>
+          </div>
+
+          <div class="obj-card">
+            <div class="obj-trigger">🗣️ "Just email me."</div>
+            <div class="script-box" style="margin-top: 8px;">
+              <button class="copy-btn" onclick="copyScript(this)">Copy</button>
+              <div class="script-text">
+                "Happy to. To ensure it's relevant, what's your biggest frustration with listing presentations right now? I'll tailor the demo to that."
+              </div>
+            </div>
+          </div>
+
+          <div class="obj-card">
+            <div class="obj-trigger">🗣️ "Brokerage provides this."</div>
+            <div class="script-box" style="margin-top: 8px;">
+              <button class="copy-btn" onclick="copyScript(this)">Copy</button>
+              <div class="script-text">
+                "Brokerage pages look like every other listing. I build standalone assets that highlight the lifestyle of the home. It’s a completely different tier of marketing."
+              </div>
+            </div>
+          </div>
+
+          <div class="obj-card">
+            <div class="obj-trigger">🗣️ "No Budget."</div>
+            <div class="script-box" style="margin-top: 8px;">
+              <button class="copy-btn" onclick="copyScript(this)">Copy</button>
+              <div class="script-text">
+                "That's why I want to show it to you. Most agents use this to justify their commission. It’s an investment that pays for itself in one listing."
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 5: Post Call Workflow -->
+        <section>
+          <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); padding: 32px;">
+            <h2 style="color: #fff; font-size: 1.4rem; margin-bottom: 16px;">⚡ 5. Post-Call Workflow</h2>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 14px;">
+              <li><strong style="color:var(--accent-emerald);">IF YES:</strong> Immediately send calendar invite with Zoom/Meet link and demo site.</li>
+              <li><strong style="color:var(--accent-blue);">IF EMAIL ME:</strong> Send 3-sentence email with subject line <code>Listing-Winning Tool for [Agent Name]</code>. Follow up in 48 hrs.</li>
+              <li><strong style="color:var(--primary-gold);">LOG DATA:</strong> Track objections and interest levels to refine next batch.</li>
+            </ul>
+          </div>
+        </section>
+
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Real-Time Decision Tree Script Logic -->
+  <script>
+    // 1. Password Protection Gate
+    const gateContainer = document.getElementById('gateContainer');
+    const playbookWrapper = document.getElementById('playbookWrapper');
+    const gateForm = document.getElementById('gateForm');
+    const passInput = document.getElementById('passInput');
+    const gateError = document.getElementById('gateError');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    if (sessionStorage.getItem('playbook_auth') === 'true') {
+      showPlaybook();
+    }
+
+    gateForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (passInput.value.trim().toLowerCase() === 'password') {
+        sessionStorage.setItem('playbook_auth', 'true');
+        gateError.style.display = 'none';
+        showPlaybook();
+      } else {
+        gateError.style.display = 'block';
+        passInput.value = '';
+        passInput.focus();
+      }
+    });
+
+    logoutBtn?.addEventListener('click', () => {
+      sessionStorage.removeItem('playbook_auth');
+      playbookWrapper.style.display = 'none';
+      gateContainer.style.display = 'flex';
+      passInput.value = '';
+      gateError.style.display = 'none';
+    });
+
+    function showPlaybook() {
+      gateContainer.style.display = 'none';
+      playbookWrapper.style.display = 'block';
+    }
+
+    // 2. View Mode Tabs (Decision Tree vs Static)
+    const tabTreeMode = document.getElementById('tabTreeMode');
+    const tabStaticMode = document.getElementById('tabStaticMode');
+    const decisionTreeSection = document.getElementById('decisionTreeSection');
+    const staticPlaybookSection = document.getElementById('staticPlaybookSection');
+
+    tabTreeMode?.addEventListener('click', () => {
+      tabTreeMode.classList.add('active');
+      tabStaticMode.classList.remove('active');
+      decisionTreeSection.style.display = 'block';
+      staticPlaybookSection.style.display = 'none';
+    });
+
+    tabStaticMode?.addEventListener('click', () => {
+      tabStaticMode.classList.add('active');
+      tabTreeMode.classList.remove('active');
+      staticPlaybookSection.style.display = 'block';
+      decisionTreeSection.style.display = 'none';
+    });
+
+    // 3. Real-Time Call Timer
+    let timerSeconds = 0;
+    let timerInterval = null;
+
+    function startTimer() {
+      if (timerInterval) clearInterval(timerInterval);
+      timerSeconds = 0;
+      const timerEl = document.getElementById('callTimer');
+      timerInterval = setInterval(() => {
+        timerSeconds++;
+        const mins = String(Math.floor(timerSeconds / 60)).padStart(2, '0');
+        const secs = String(timerSeconds % 60).padStart(2, '0');
+        timerEl.textContent = `${mins}:${secs}`;
+      }, 1000);
+    }
+    startTimer();
+
+    document.getElementById('resetCallBtn')?.addEventListener('click', () => {
+      startTimer();
+      goToStage('opener');
+    });
+
+    // 4. Live Decision Tree Data Structure
+    const liveAgentNameInput = document.getElementById('liveAgentName');
+    const personaSelect = document.getElementById('personaSelect');
+
+    let currentAgentName = "Agent";
+
+    liveAgentNameInput?.addEventListener('input', () => {
+      currentAgentName = liveAgentNameInput.value.trim() || "Agent";
+      updateAgentNamesInDOM();
+    });
+
+    personaSelect?.addEventListener('change', () => {
+      const val = personaSelect.value;
+      if (val === 'gatekeeper') goToStage('gatekeeper');
+      else if (val === 'top_producer') goToStage('top_producer');
+      else if (val === 'new_agent') goToStage('new_agent');
+      else goToStage('opener');
+    });
+
+    function updateAgentNamesInDOM() {
+      document.querySelectorAll('.agent-name-fill').forEach(el => {
+        el.textContent = currentAgentName;
+      });
+    }
+
+    const decisionNodes = {
+      opener: {
+        pill: 'STAGE 1: THE OPENER',
+        desc: 'Pattern Interrupt Call Initiation',
+        speech: `"Hey <span class="agent-name-fill">${currentAgentName}</span>, this is Matty. I know I’m calling you completely out of the blue, so I’ll keep this to 30 seconds. Do you have a brief moment?"`,
+        options: [
+          { tag: 'GREEN', color: 'green', text: '"Sure / Go ahead / What is this about?"', next: 'hook' },
+          { tag: 'BLUE', color: 'blue', text: 'Reached Assistant / Admin', next: 'gatekeeper' },
+          { tag: 'ORANGE', color: 'orange', text: '"I’m busy / Just email me"', next: 'obj_email' },
+          { tag: 'RED', color: 'red', text: '"Not interested / Who is this?"', next: 'rescue_hook' }
+        ]
+      },
+      hook: {
+        pill: 'STAGE 2: THE HOOK (THE X-FACTOR)',
+        desc: 'Deliver core high-value proposition',
+        speech: `"I run a development agency that builds high-end, standalone websites for individual properties. We’re finding that when agents show a seller their own dedicated site during a presentation, they win the listing over 90% of the time because it makes the seller feel like a VIP. Are you currently using standalone sites for your premium listings?"`,
+        options: [
+          { tag: 'GREEN', color: 'green', text: '"No we don\'t / Sounds interesting / Tell me more"', next: 'close' },
+          { tag: 'ORANGE', color: 'orange', text: 'Objection: "Just email me info."', next: 'obj_email' },
+          { tag: 'ORANGE', color: 'orange', text: 'Objection: "Our brokerage already provides pages."', next: 'obj_brokerage' },
+          { tag: 'ORANGE', color: 'orange', text: 'Objection: "We don\'t have budget for that."', next: 'obj_budget' },
+          { tag: 'BLUE', color: 'blue', text: 'Objection: "The market is too fast right now."', next: 'obj_market_fast' }
+        ]
+      },
+      close: {
+        pill: 'STAGE 3: THE CLOSE (LOW FRICTION)',
+        desc: 'Lock in 5-minute screen-share demo',
+        speech: `"I’d love to take just 5 minutes next Tuesday to show you exactly how this looks. If you love it, we can talk about your next listing; if not, we part as friends. Do mornings or afternoons work better for you?"`,
+        options: [
+          { tag: 'SUCCESS 🎉', color: 'green', text: 'Agreed to Demo Meeting! (Lock Calendar)', next: 'outcome_success' },
+          { tag: 'ORANGE', color: 'orange', text: '"Send me an email first, then I\'ll decide."', next: 'outcome_email' },
+          { tag: 'BLUE', color: 'blue', text: 'Top Producer Pivot (High Volume)', next: 'top_producer' },
+          { tag: 'BLUE', color: 'blue', text: 'New Agent Pivot (Competitive Advantage)', next: 'new_agent' }
+        ]
+      },
+      gatekeeper: {
+        pill: 'SCENARIO A: GATEKEEPER',
+        desc: 'Bypass office admin to get direct window or cell',
+        speech: `"Hi, I'm putting together a custom property website demo for <span class="agent-name-fill">${currentAgentName}</span>. I imagine they're in the field right now—when is the best 60-second window to catch them at their desk, or is there a direct mobile number I can text the demo link to?"`,
+        options: [
+          { tag: 'GREEN', color: 'green', text: 'Got direct mobile # / desk time', next: 'opener' },
+          { tag: 'ORANGE', color: 'orange', text: '"Just email their inbox."', next: 'outcome_email' }
+        ]
+      },
+      top_producer: {
+        pill: 'SCENARIO B: TOP PRODUCER',
+        desc: 'Focus on Efficiency, Luxury & VIP Seller Feel',
+        speech: `"A standard MLS link doesn't scream 'premium' for a million-dollar listing. I specialize in rapid development so you can offer elite marketing without adding any work to your plate. Let's do a 5-minute screen-share on Tuesday."`,
+        options: [
+          { tag: 'GREEN', color: 'green', text: 'Agreed to Tuesday Demo', next: 'outcome_success' },
+          { tag: 'ORANGE', color: 'orange', text: 'Objection: "No budget / Busy"', next: 'obj_budget' }
+        ]
+      },
+      new_agent: {
+        pill: 'SCENARIO C: NEW AGENT',
+        desc: 'Focus on Competitive Edge against Veterans',
+        speech: `"When you’re up against veterans with 20 years of referrals, you need a shiny weapon. Sliding an iPad across the table and showing a dedicated property site levels the playing field instantly. I'll show you the template next week."`,
+        options: [
+          { tag: 'GREEN', color: 'green', text: 'Agreed to Tuesday Demo', next: 'outcome_success' },
+          { tag: 'ORANGE', color: 'orange', text: '"Email me the preview link first"', next: 'outcome_email' }
+        ]
+      },
+      obj_market_fast: {
+        pill: 'SCENARIO D: MARKET TOO FAST',
+        desc: 'Pivot to Future Lead Generation & Neighbors',
+        speech: `"You're right, the house will sell itself. This isn't for the current house—it's for the neighbors. When they see this premium site, you're the agent they call to list their home next. It turns one sale into three."`,
+        options: [
+          { tag: 'GREEN', color: 'green', text: '"Good point, let\'s see the demo."', next: 'close' },
+          { tag: 'ORANGE', color: 'orange', text: '"Email me details."', next: 'outcome_email' }
+        ]
+      },
+      obj_email: {
+        pill: 'OBJECTION: "JUST EMAIL ME"',
+        desc: 'Qualify interest before ending call',
+        speech: `"Happy to. To ensure it's relevant, what's your biggest frustration with listing presentations right now? I'll tailor the demo to that."`,
+        options: [
+          { tag: 'GREEN', color: 'green', text: 'Agent shared pain point -> Lock Demo', next: 'close' },
+          { tag: 'BLUE', color: 'blue', text: 'Send 3-sentence email template', next: 'outcome_email' }
+        ]
+      },
+      obj_brokerage: {
+        pill: 'OBJECTION: "BROKERAGE PROVIDES THIS"',
+        desc: 'Differentiate Standalone Luxury vs Generic MLS',
+        speech: `"Brokerage pages look like every other listing. I build standalone assets that highlight the lifestyle of the home. It’s a completely different tier of marketing."`,
+        options: [
+          { tag: 'GREEN', color: 'green', text: 'Agent curious -> Pitch Close', next: 'close' }
+        ]
+      },
+      obj_budget: {
+        pill: 'OBJECTION: "NO BUDGET"',
+        desc: 'Reframe as Commission Justification',
+        speech: `"That's why I want to show it to you. Most agents use this to justify their commission. It’s an investment that pays for itself in one listing."`,
+        options: [
+          { tag: 'GREEN', color: 'green', text: 'Agent sees ROI -> Pitch Close', next: 'close' }
+        ]
+      },
+      rescue_hook: {
+        pill: 'RESCUE PATTERN INTERRUPT',
+        desc: 'Pivot before client hangs up',
+        speech: `"I get it! Before you hang up—I'm not asking you to buy anything. I built a custom 1-page site for a New Hampshire estate that won the listing in 24 hours. Can I text you the 15-second link?"`,
+        options: [
+          { tag: 'GREEN', color: 'green', text: '"Sure text me the link."', next: 'outcome_email' },
+          { tag: 'RED', color: 'red', text: 'Hung up / Hard No', next: 'opener' }
+        ]
+      },
+      outcome_success: {
+        pill: '🎉 DEMO BOOKED SUCCESSFULLY!',
+        desc: 'Post-Call Next Steps',
+        speech: `<strong>CONGRATULATIONS!</strong><br/><br/>1. Send Calendar Invite with Zoom / Google Meet link.<br/>2. Include link to <code>customlistingsite/cls1/index.html</code>.<br/>3. Log agent response and set reminder for 1 hour before demo.`,
+        options: [
+          { tag: 'RESET', color: 'green', text: 'Start Next Cold Call 🚀', next: 'opener' }
+        ]
+      },
+      outcome_email: {
+        pill: '✉️ SEND 3-SENTENCE EMAIL TEMPLATE',
+        desc: 'Post-Call Follow-up Workflow',
+        speech: `<strong>SUBJECT:</strong> Listing-Winning Tool for <span class="agent-name-fill">${currentAgentName}</span><br/><br/>"Hi <span class="agent-name-fill">${currentAgentName}</span>, great speaking briefly. Here is the live example of a dedicated property site we built in 24 hrs: [Demo Link]. Let me know if mornings or afternoons work next Tuesday for a 5-minute screen-share."<br/><br/><em>* Set follow-up reminder for 48 hours.</em>`,
+        options: [
+          { tag: 'RESET', color: 'blue', text: 'Start Next Cold Call 🚀', next: 'opener' }
+        ]
+      }
+    };
+
+    function goToStage(stageKey) {
+      const node = decisionNodes[stageKey];
+      if (!node) return;
+
+      document.getElementById('dtStepPill').textContent = node.pill;
+      document.getElementById('dtStepDesc').textContent = node.desc;
+      document.getElementById('dtSpeechText').innerHTML = node.speech;
+
+      const grid = document.getElementById('dtOptionsGrid');
+      grid.innerHTML = '';
+
+      node.options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'dt-option-btn';
+        btn.innerHTML = `
+          <div class="dt-option-tag ${opt.color}">● ${opt.tag}</div>
+          <div class="dt-option-text">${opt.text}</div>
+        `;
+        btn.addEventListener('click', () => goToStage(opt.next));
+        grid.appendChild(btn);
+      });
+
+      updateAgentNamesInDOM();
+    }
+
+    function copyDtText() {
+      const text = document.getElementById('dtSpeechText').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('dtCopyBtn');
+        btn.textContent = 'Copied! ✓';
+        btn.style.background = 'var(--accent-emerald)';
+        btn.style.color = '#0b0f19';
+        setTimeout(() => {
+          btn.textContent = 'Copy Speech';
+          btn.style.background = '';
+          btn.style.color = '';
+        }, 2000);
+      });
+    }
+
+    function copyScript(btn) {
+      const scriptBox = btn.parentElement;
+      const text = scriptBox.querySelector('.script-text').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const orig = btn.textContent;
+        btn.textContent = 'Copied! ✓';
+        btn.style.background = 'var(--accent-emerald)';
+        btn.style.color = '#0b0f19';
+        setTimeout(() => {
+          btn.textContent = orig;
+          btn.style.background = '';
+          btn.style.color = '';
+        }, 2000);
+      });
+    }
+
+    // Initialize Tree at Stage 1
+    goToStage('opener');
+  </script>
+</body>
+</html>

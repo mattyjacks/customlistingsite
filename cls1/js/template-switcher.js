@@ -7,9 +7,8 @@ export function initTemplateSwitcher() {
   const body = document.body;
   const templates = ['editorial', 'midnight', 'coastal', 'swiss', 'heritage', 'blueprint'];
 
-  // Randomly select a theme on every page load/refresh
-  const randomTemplate = templates[Math.floor(Math.random() * templates.length)];
-  applyTemplate(randomTemplate);
+  // Always start on the first theme ('editorial')
+  applyTemplate('editorial');
 
   // Allow manual switching via toolbar buttons
   tplBtns.forEach(btn => {

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>77 Example Road | Executive Manor Gold Collection</title>
+  <title>77 Example Road | 5. Heritage Gold Manor Estate Template</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -14,12 +14,12 @@
   <header class="site-header">
     <div class="container header-container">
       <a href="index.html" class="brand-logo">
-        <span class="property-tag">EXECUTIVE MANOR COLLECTION</span>
+        <span class="property-tag">HERITAGE MANOR COLLECTION</span>
         <span class="logo-text">77 Example Road</span>
       </a>
       <nav class="main-nav">
         <ul>
-          <li><a href="index.html">← Back to Switcher</a></li>
+          <li><a href="index.html">← Back to Master Switcher</a></li>
         </ul>
       </nav>
       <button class="btn-primary open-showing-modal">Request Showing</button>
@@ -29,15 +29,148 @@
   <main class="main-content">
     <div class="container">
       
-      <!-- Gold-Framed Crest Hero -->
+      <!-- 1. Hero Banner Component -->
       <div class="heritage-framed-card text-center" style="border-width: 4px;">
-        <div style="font-size: 2rem; color: #d97706; margin-bottom: 8px;">🏰</div>
-        <span class="property-tag" style="color: #d97706; font-size: 0.85rem;">EXECUTIVE MANOR ESTATE COLLECTION</span>
+        <div style="font-size: 2.2rem; color: #d97706; margin-bottom: 8px;">🏰</div>
+        <span class="property-tag" style="color: #d97706; font-size: 0.85rem; font-family: 'Cinzel', serif;">HERITAGE GOLD MANOR ESTATE COLLECTION</span>
         <h1 style="font-size: 3rem; color: #064e3b; margin: 12px 0;">77 Example Road</h1>
-        <p style="color: #334155; font-size: 1.1rem; max-width: 600px; margin: 0 auto 20px;">
+        <p style="color: #334155; font-size: 1.15rem; max-width: 650px; margin: 0 auto 20px;">
           A distinguished Chester residence offering 3,850 square feet of refined architectural craft on 2.5 private acres.
         </p>
-        <div style="font-size: 2.4rem; font-weight: 800; color: #d97706;">$849,900</div>
+        <div style="font-size: 2.5rem; font-weight: 800; color: #d97706; font-family: 'Cinzel', serif;">$849,900</div>
+      </div>
+
+      <!-- 2. Residence Narrative Component -->
+      <div class="heritage-framed-card">
+        <h2 class="card-title">The Estate Narrative</h2>
+        <div style="font-size: 1.1rem; line-height: 1.9; color: #334155;">
+          <p style="margin-bottom: 16px;">
+            Welcome to <strong>77 Example Road</strong> in desirable Chester, NH. Presented by <strong>Example Realty</strong>, this exquisite 4-bedroom, 3.5-bath residence combines modern architectural clarity with 2.5 acres of secluded natural surroundings.
+          </p>
+          <div style="border-left: 3px solid #d97706; background: #fffbeb; padding: 16px; margin: 16px 0; font-family: 'Cinzel', serif; color: #064e3b; font-style: italic;">
+            "A regal estate of light-filled open spaces, natural hardwoods, and serene tree-lined views."
+          </div>
+          <p>
+            The gourmet kitchen features custom cabinetry, quartz waterfall island, gas range, and butler's pantry, creating a harmonious environment for daily living and grand entertaining.
+          </p>
+        </div>
+      </div>
+
+      <!-- 3. Interactive Media Showcase Component -->
+      <div class="heritage-framed-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap;">
+          <div>
+            <h2 class="card-title" style="margin-bottom: 4px;">Interactive Media &amp; Location Showcase</h2>
+            <p style="color: #475569; margin: 0; font-size: 0.9rem;">Inspect satellite imagery, 360° Street View, photo gallery, and live Google Maps embed.</p>
+          </div>
+          <button class="btn-outline toggleSplitBtn" style="font-size: 0.82rem; border-color: #d97706; color: #064e3b;">↕ Stacked View</button>
+        </div>
+
+        <div class="media-switcher-nav">
+          <button class="media-tab-btn active" data-view="dual">🗺 Map &amp; Street View Dual View</button>
+          <button class="media-tab-btn" data-view="photos">📷 Photos (10)</button>
+          <button class="media-tab-btn" data-view="streetview">🚗 Street View 360°</button>
+          <button class="media-tab-btn" data-view="map">📍 Satellite Map</button>
+          <button class="media-tab-btn" data-view="embed">🌍 Live Google Maps Embed</button>
+          <button class="media-tab-btn" data-view="blueprint">📐 2D Floorplan Blueprint</button>
+        </div>
+
+        <div class="media-view-panel media-panel-dual active">
+          <div class="dual-google-split">
+            <div class="google-panel"><img src="images/google_map.jpg" class="mapImage" alt="Map view" /></div>
+            <div class="google-panel"><img src="images/street_view.jpg" class="svImage" alt="Street View" /></div>
+          </div>
+        </div>
+
+        <div class="media-view-panel media-panel-photos">
+          <div class="photo-collage-grid">
+            <div class="collage-item hero-photo" data-index="0"><img src="images/hero.jpg" alt="Main Exterior" /><span class="photo-badge">Main Residence</span></div>
+            <div class="collage-item" data-index="1"><img src="images/google_map.jpg" alt="Satellite Map" /><span class="photo-badge">Satellite Map Pin</span></div>
+            <div class="collage-item" data-index="2"><img src="images/street_view.jpg" alt="Street View Angle" /><span class="photo-badge">Street View</span></div>
+            <div class="collage-item" data-index="3"><img src="images/living_room.jpg" alt="Living Room" /></div>
+            <div class="collage-item" data-index="7"><img src="images/patio_backyard.jpg" alt="Outdoor Patio" /><button class="view-all-photos-btn openGalleryBtn">View All 10 Photos ➔</button></div>
+          </div>
+        </div>
+
+        <div class="media-view-panel media-panel-streetview">
+          <div class="street-view-container"><div class="sv-viewport"><img src="images/street_view.jpg" class="svImage" alt="Street View Angle" /></div></div>
+        </div>
+
+        <div class="media-view-panel media-panel-map">
+          <div style="border-radius: var(--radius-md); overflow: hidden; height: 400px;"><img src="images/google_map.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Satellite Map View" /></div>
+        </div>
+
+        <div class="media-view-panel media-panel-embed">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11686.353381650388!2d-71.26620577749454!3d42.95779644053229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e2501a355fb5cb%3A0x6fb84e8e19c0175b!2sChester%2C%20NH%2003036!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" width="100%" height="400" style="border:2px solid #d97706; border-radius: 6px;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+        <div class="media-view-panel media-panel-blueprint">
+          <div style="background: #0a192f; border: 2px solid #d97706; padding: 16px; border-radius: 6px; text-align: center;">
+            <img src="images/floorplan.jpg" style="max-width: 100%; border-radius: 4px;" alt="2D Architectural Blueprint" />
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Interactive Floorplan Hotspots Component -->
+      <div class="heritage-framed-card">
+        <h2 class="card-title">Interactive Estate Room Hotspots</h2>
+        <div class="floorplan-container">
+          <div class="floorplan-tabs">
+            <button class="fp-tab-btn active" data-level="main">Main Level</button>
+            <button class="fp-tab-btn" data-level="upper">Upper Level</button>
+            <button class="fp-tab-btn" data-level="grounds">Grounds</button>
+          </div>
+          <div class="floorplan-stage"><div class="floorplan-graphic fpGraphic"></div></div>
+        </div>
+      </div>
+
+      <!-- 5. Specifications & Facts Grid Component -->
+      <div class="heritage-framed-card">
+        <h2 class="card-title">Estate Facts &amp; Specifications</h2>
+        <div class="features-categories-grid">
+          <div class="feature-category-card" style="border-top: 3px solid #d97706;">
+            <h3 style="color: #064e3b;">Interior Features</h3>
+            <ul>
+              <li><strong>Bedrooms:</strong> 4 Bedrooms</li>
+              <li><strong>Bathrooms:</strong> 3 Full, 1 Half Bath</li>
+              <li><strong>Flooring:</strong> Hardwood &amp; Natural Stone</li>
+              <li><strong>Heating:</strong> Forced Air / Heat Pump</li>
+              <li><strong>Cooling:</strong> Multi-Zone Central AC</li>
+            </ul>
+          </div>
+          <div class="feature-category-card" style="border-top: 3px solid #d97706;">
+            <h3 style="color: #064e3b;">Kitchen &amp; Appliances</h3>
+            <ul>
+              <li><strong>Cabinetry:</strong> Custom Slate-Blue Hardwood</li>
+              <li><strong>Countertops:</strong> Blue Mosaic &amp; Quartz</li>
+              <li><strong>Appliances:</strong> Stainless Gas Range</li>
+              <li><strong>Pantry:</strong> Butler's Walk-in Pantry</li>
+            </ul>
+          </div>
+          <div class="feature-category-card" style="border-top: 3px solid #d97706;">
+            <h3 style="color: #064e3b;">Grounds &amp; Structure</h3>
+            <ul>
+              <li><strong>Construction:</strong> Vertical Wood Siding</li>
+              <li><strong>Lot Size:</strong> 2.5 Private Acres</li>
+              <li><strong>Parking:</strong> 2-Car Garage + Driveway</li>
+              <li><strong>Utilities:</strong> Private Well &amp; Septic</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Price History Table Component -->
+      <div class="heritage-framed-card">
+        <h2 class="card-title">Price &amp; Tax Assessment History</h2>
+        <div class="history-table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Date</th><th>Event</th><th>Price</th><th>Price/SqFt</th><th>Source</th></tr></thead>
+            <tbody>
+              <tr><td>Aug 22, 2026</td><td><span class="event-badge listed">Listed for Sale</span></td><td><strong style="color: #d97706;">$849,900</strong></td><td>$220</td><td>Rockingham MLS</td></tr>
+              <tr><td>May 14, 2021</td><td><span class="event-badge sold">Sold</span></td><td>$615,000</td><td>$160</td><td>Public Records</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
     </div>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>77 Example Road | Swiss Contemporary Modernist Grid</title>
+  <title>77 Example Road | 4. Swiss Modernist Grid Template</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet" />
@@ -14,12 +14,12 @@
   <header class="site-header">
     <div class="container header-container">
       <a href="index.html" class="brand-logo">
-        <span class="property-tag" style="color: #e11d48;">SWISS MODERNIST</span>
+        <span class="property-tag" style="color: #e11d48;">SWISS MODERNIST GRID</span>
         <span class="logo-text">77 EXAMPLE ROAD</span>
       </a>
       <nav class="main-nav">
         <ul>
-          <li><a href="index.html">← BACK TO SWITCHER</a></li>
+          <li><a href="index.html">← BACK TO MASTER SWITCHER</a></li>
         </ul>
       </nav>
       <button class="btn-primary open-showing-modal">REQUEST SHOWING</button>
@@ -29,13 +29,12 @@
   <main class="main-content">
     <div class="container">
       
-      <!-- Giant Title Header -->
+      <!-- 1. Hero Banner Component -->
       <div class="swiss-header-hero">
-        <span style="font-weight: 800; color: #e11d48; text-transform: uppercase;">CONTEMPORARY RESIDENCE SHOWCASE</span>
+        <span style="font-weight: 800; color: #e11d48; text-transform: uppercase;">SWISS CONTEMPORARY MODERNIST SHOWCASE</span>
         <h1 class="swiss-giant-title">77 EXAMPLE ROAD</h1>
       </div>
 
-      <!-- 50/50 Asymmetrical Split Hero -->
       <div class="swiss-asymmetric-grid">
         <div class="swiss-hero-left"></div>
         <div class="swiss-hero-right">
@@ -43,11 +42,145 @@
             <div style="font-size: 0.9rem; font-weight: 800; color: #71717a; text-transform: uppercase;">OFFERED AT</div>
             <div class="swiss-metric-big">$849,900</div>
           </div>
-          <div style="margin-top: 24px; font-weight: 700;">
-            CHESTER, NEW HAMPSHIRE &bull; 4 BEDS &bull; 3.5 BATHS &bull; 3,850 SQFT
+          <div style="margin-top: 24px; font-weight: 700; line-height: 1.6;">
+            CHESTER, NEW HAMPSHIRE &bull; 4 BEDS &bull; 3.5 BATHS &bull; 3,850 SQFT &bull; 2.5 ACRES
           </div>
+          <button class="btn-primary open-showing-modal" style="margin-top: 24px;">BOOK SHOWING ➔</button>
         </div>
       </div>
+
+      <!-- 2. Residence Narrative Component -->
+      <section class="section-card">
+        <h2 class="card-title">THE RESIDENCE NARRATIVE</h2>
+        <div style="font-size: 1.1rem; line-height: 1.8; color: #09090b;">
+          <p style="margin-bottom: 16px;">
+            WELCOME TO <strong>77 EXAMPLE ROAD</strong> IN CHESTER, NH. PRESENTED BY <strong>EXAMPLE REALTY</strong>, THIS EXQUISITE 4-BEDROOM, 3.5-BATH RESIDENCE COMBINES MODERN ARCHITECTURAL CLARITY WITH 2.5 ACRES OF SECLUDED NATURAL SURROUNDINGS.
+          </p>
+          <div style="border: 2px solid #09090b; padding: 16px; margin: 16px 0; background: #f4f4f5; font-weight: 800;">
+            "A MASTERPIECE OF LIGHT-FILLED OPEN SPACES, NATURAL HARDWOODS, AND SERENE TREE-LINED VIEWS."
+          </div>
+          <p>
+            THE GOURMET KITCHEN FEATURES CUSTOM CABINETRY, QUARTZ WATERFALL ISLAND, GAS RANGE, AND BUTLER'S PANTRY, CREATING A HARMONIOUS ENVIRONMENT FOR DAILY LIVING AND ENTERTAINING.
+          </p>
+        </div>
+      </section>
+
+      <!-- 3. Interactive Media Showcase Component -->
+      <section class="section-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap;">
+          <div>
+            <h2 class="card-title" style="margin-bottom: 4px;">INTERACTIVE MEDIA &amp; LOCATION SHOWCASE</h2>
+            <p style="margin-bottom: 0; font-weight: 600;">INSPECT SATELLITE IMAGERY, STREET VIEW 360°, PHOTO GALLERY, AND GOOGLE MAPS EMBED.</p>
+          </div>
+          <button class="btn-outline toggleSplitBtn" style="font-size: 0.82rem; font-weight: 800;">↕ STACKED VIEW</button>
+        </div>
+
+        <div class="media-switcher-nav">
+          <button class="media-tab-btn active" data-view="dual">🗺 DUAL VIEW</button>
+          <button class="media-tab-btn" data-view="photos">📷 PHOTOS (10)</button>
+          <button class="media-tab-btn" data-view="streetview">🚗 STREET VIEW 360°</button>
+          <button class="media-tab-btn" data-view="map">📍 SATELLITE MAP</button>
+          <button class="media-tab-btn" data-view="embed">🌍 LIVE MAP EMBED</button>
+          <button class="media-tab-btn" data-view="blueprint">📐 BLUEPRINT</button>
+        </div>
+
+        <div class="media-view-panel media-panel-dual active">
+          <div class="dual-google-split">
+            <div class="google-panel"><img src="images/google_map.jpg" class="mapImage" alt="Map view" /></div>
+            <div class="google-panel"><img src="images/street_view.jpg" class="svImage" alt="Street View" /></div>
+          </div>
+        </div>
+
+        <div class="media-view-panel media-panel-photos">
+          <div class="photo-collage-grid">
+            <div class="collage-item hero-photo" data-index="0"><img src="images/hero.jpg" alt="Main Exterior" /><span class="photo-badge">Main Residence</span></div>
+            <div class="collage-item" data-index="1"><img src="images/google_map.jpg" alt="Satellite Map" /><span class="photo-badge">Satellite Map Pin</span></div>
+            <div class="collage-item" data-index="2"><img src="images/street_view.jpg" alt="Street View Angle" /><span class="photo-badge">Street View</span></div>
+            <div class="collage-item" data-index="3"><img src="images/living_room.jpg" alt="Living Room" /></div>
+            <div class="collage-item" data-index="7"><img src="images/patio_backyard.jpg" alt="Outdoor Patio" /><button class="view-all-photos-btn openGalleryBtn">View All 10 Photos ➔</button></div>
+          </div>
+        </div>
+
+        <div class="media-view-panel media-panel-streetview">
+          <div class="street-view-container"><div class="sv-viewport"><img src="images/street_view.jpg" class="svImage" alt="Street View Angle" /></div></div>
+        </div>
+
+        <div class="media-view-panel media-panel-map">
+          <div style="border: 2px solid #09090b; overflow: hidden; height: 400px;"><img src="images/google_map.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Satellite Map View" /></div>
+        </div>
+
+        <div class="media-view-panel media-panel-embed">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11686.353381650388!2d-71.26620577749454!3d42.95779644053229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e2501a355fb5cb%3A0x6fb84e8e19c0175b!2sChester%2C%20NH%2003036!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" width="100%" height="400" style="border:3px solid #09090b;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+        <div class="media-view-panel media-panel-blueprint">
+          <div style="background: #0a192f; border: 2px solid #09090b; padding: 16px; text-align: center;">
+            <img src="images/floorplan.jpg" style="max-width: 100%;" alt="2D Architectural Blueprint" />
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Interactive Floorplan Hotspots Component -->
+      <section class="section-card">
+        <h2 class="card-title">INTERACTIVE ROOM HOTSPOTS</h2>
+        <div class="floorplan-container">
+          <div class="floorplan-tabs">
+            <button class="fp-tab-btn active" data-level="main">MAIN LEVEL</button>
+            <button class="fp-tab-btn" data-level="upper">UPPER LEVEL</button>
+            <button class="fp-tab-btn" data-level="grounds">GROUNDS</button>
+          </div>
+          <div class="floorplan-stage"><div class="floorplan-graphic fpGraphic"></div></div>
+        </div>
+      </section>
+
+      <!-- 5. Specifications & Facts Grid Component -->
+      <section class="section-card">
+        <h2 class="card-title">SPECIFICATIONS &amp; FACTS</h2>
+        <div class="features-categories-grid">
+          <div class="feature-category-card" style="border: 2px solid #09090b;">
+            <h3 style="color: #e11d48;">INTERIOR FEATURES</h3>
+            <ul>
+              <li><strong>BEDROOMS:</strong> 4 BEDROOMS</li>
+              <li><strong>BATHROOMS:</strong> 3 FULL, 1 HALF BATH</li>
+              <li><strong>FLOORING:</strong> HARDWOOD &amp; STONE</li>
+              <li><strong>HEATING:</strong> FORCED AIR / HEAT PUMP</li>
+              <li><strong>COOLING:</strong> CENTRAL AC</li>
+            </ul>
+          </div>
+          <div class="feature-category-card" style="border: 2px solid #09090b;">
+            <h3 style="color: #e11d48;">KITCHEN &amp; APPLIANCES</h3>
+            <ul>
+              <li><strong>CABINETRY:</strong> SLATE-BLUE HARDWOOD</li>
+              <li><strong>COUNTERTOPS:</strong> QUARTZ WATERFALL</li>
+              <li><strong>APPLIANCES:</strong> STAINLESS GAS RANGE</li>
+              <li><strong>PANTRY:</strong> BUTLER'S PANTRY</li>
+            </ul>
+          </div>
+          <div class="feature-category-card" style="border: 2px solid #09090b;">
+            <h3 style="color: #e11d48;">GROUNDS &amp; STRUCTURE</h3>
+            <ul>
+              <li><strong>CONSTRUCTION:</strong> VERTICAL WOOD SIDING</li>
+              <li><strong>LOT SIZE:</strong> 2.5 PRIVATE ACRES</li>
+              <li><strong>PARKING:</strong> 2-CAR GARAGE + DRIVEWAY</li>
+              <li><strong>UTILITIES:</strong> PRIVATE WELL &amp; SEPTIC</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. Price History Table Component -->
+      <section class="section-card">
+        <h2 class="card-title">PRICE &amp; TAX ASSESSMENT HISTORY</h2>
+        <div class="history-table-wrap">
+          <table class="data-table" style="border: 2px solid #09090b;">
+            <thead><tr><th>DATE</th><th>EVENT</th><th>PRICE</th><th>PRICE/SQFT</th><th>SOURCE</th></tr></thead>
+            <tbody>
+              <tr><td>AUG 22, 2026</td><td><span class="event-badge listed">LISTED FOR SALE</span></td><td><strong style="color: #e11d48;">$849,900</strong></td><td>$220</td><td>ROCKINGHAM MLS</td></tr>
+              <tr><td>MAY 14, 2021</td><td><span class="event-badge sold">SOLD</span></td><td>$615,000</td><td>$160</td><td>PUBLIC RECORDS</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
     </div>
   </main>

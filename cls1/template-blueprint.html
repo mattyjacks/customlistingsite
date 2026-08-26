@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>77 Example Road | Architectural Blueprint Floorplan Template</title>
+  <title>77 Example Road | 6. Blueprint Architectural Studio Template</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
@@ -19,7 +19,7 @@
       </a>
       <nav class="main-nav">
         <ul>
-          <li><a href="index.html" style="color: #64ffda;">← BACK TO SWITCHER</a></li>
+          <li><a href="index.html" style="color: #64ffda;">← BACK TO MASTER SWITCHER</a></li>
         </ul>
       </nav>
       <button class="btn-primary open-showing-modal">REQUEST SHOWING</button>
@@ -28,42 +28,160 @@
 
   <main class="main-content">
     <div class="container">
+      
+      <!-- 1. Hero Banner Component -->
       <section class="section-card">
-        <span style="font-family: monospace; color: #64ffda; font-size: 0.8rem; letter-spacing: 0.1em;">DRAWING NO. A-101 // ARCHITECTURAL BLUEPRINT</span>
-        <h1 style="font-size: 2.5rem; color: #fff; margin: 6px 0;">2D Architectural Floor Plan &amp; Layout Blueprint</h1>
-        <p style="color: #8892b0; margin-bottom: 24px;">Scaled architectural blueprint rendering for 77 Example Road (3,850 Sq Ft Total Living Area).</p>
+        <span style="font-family: monospace; color: #64ffda; font-size: 0.8rem; letter-spacing: 0.1em;">DRAWING NO. A-101 // ARCHITECTURAL STUDIO</span>
+        <h1 style="font-size: 2.5rem; color: #fff; margin: 6px 0;">Blueprint Architectural Studio &bull; 77 Example Road</h1>
+        <p style="color: #8892b0; margin-bottom: 24px;">Scaled architectural layout blueprint for 77 Example Road (3,850 Sq Ft Total Living Area &bull; Offered at $849,900).</p>
 
         <div class="blueprint-img-stage">
           <img src="images/floorplan.jpg" alt="Architectural 2D Floor Plan Blueprint" />
         </div>
 
         <div class="blueprint-specs-grid">
-          <div class="blueprint-spec-box">
-            <div class="val">28'6" x 22'0"</div>
-            <div class="lbl">Living Room</div>
+          <div class="blueprint-spec-box"><div class="val">28'6" x 22'0"</div><div class="lbl">Living Room</div></div>
+          <div class="blueprint-spec-box"><div class="val">20'0" x 18'0"</div><div class="lbl">Gourmet Kitchen</div></div>
+          <div class="blueprint-spec-box"><div class="val">18'0" x 14'0"</div><div class="lbl">Formal Dining</div></div>
+          <div class="blueprint-spec-box"><div class="val">18'0" x 20'0"</div><div class="lbl">Master Bedroom Suite</div></div>
+          <div class="blueprint-spec-box"><div class="val">38'0" x 15'0"</div><div class="lbl">Outdoor Patio &amp; Deck</div></div>
+          <div class="blueprint-spec-box"><div class="val">32'0" x 24'0"</div><div class="lbl">Attached Garage</div></div>
+        </div>
+      </section>
+
+      <!-- 2. Residence Narrative Component -->
+      <section class="section-card">
+        <h2 class="card-title" style="color: #fff;">ARCHITECTURAL NARRATIVE &amp; SPECIFICATIONS</h2>
+        <div style="font-family: monospace; font-size: 0.95rem; line-height: 1.8; color: #8892b0;">
+          <p style="margin-bottom: 16px;">
+            PROJECT: 77 EXAMPLE ROAD, CHESTER NH 03036. DESIGNED BY EXAMPLE REALTY ARCHITECTURAL STUDIO. COMBINING 3,850 SQFT OF LIGHT-FILLED LIVING AREA WITH 2.5 PRIVATE WOODED ACRES.
+          </p>
+          <div style="background: rgba(100, 255, 218, 0.05); border: 1px dashed #64ffda; padding: 16px; margin: 16px 0; color: #64ffda;">
+            "SPECIFICATION HIGHLIGHT: A MASTERPIECE OF LIGHT-FILLED OPEN SPACES, NATURAL HARDWOODS, AND SERENE TREE-LINED VIEWS."
           </div>
-          <div class="blueprint-spec-box">
-            <div class="val">20'0" x 18'0"</div>
-            <div class="lbl">Gourmet Kitchen</div>
+          <p>
+            GOURMET KITCHEN SPEC: CUSTOM SLATE-BLUE HARDWOOD CABINETRY, QUARTZ WATERFALL ISLAND, STAINLESS GAS RANGE, AND BUTLER'S PANTRY.
+          </p>
+        </div>
+      </section>
+
+      <!-- 3. Interactive Media Showcase Component -->
+      <section class="section-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap;">
+          <div>
+            <h2 class="card-title" style="color: #fff; margin-bottom: 4px;">SITE MEDIA &amp; GOOGLE MAPS SHOWCASE</h2>
+            <p style="color: #8892b0; margin: 0; font-family: monospace; font-size: 0.85rem;">INSPECT SATELLITE MAP, STREET VIEW 360°, PHOTO GALLERY &amp; LIVE EMBED.</p>
           </div>
-          <div class="blueprint-spec-box">
-            <div class="val">18'0" x 14'0"</div>
-            <div class="lbl">Formal Dining</div>
+          <button class="btn-outline toggleSplitBtn" style="font-size: 0.82rem; font-family: monospace; color: #64ffda; border-color: #64ffda;">↕ STACKED VIEW</button>
+        </div>
+
+        <div class="media-switcher-nav">
+          <button class="media-tab-btn active" data-view="dual">🗺 DUAL VIEW</button>
+          <button class="media-tab-btn" data-view="photos">📷 PHOTOS (10)</button>
+          <button class="media-tab-btn" data-view="streetview">🚗 STREET VIEW 360°</button>
+          <button class="media-tab-btn" data-view="map">📍 SATELLITE MAP</button>
+          <button class="media-tab-btn" data-view="embed">🌍 LIVE MAP EMBED</button>
+          <button class="media-tab-btn" data-view="blueprint">📐 BLUEPRINT</button>
+        </div>
+
+        <div class="media-view-panel media-panel-dual active">
+          <div class="dual-google-split">
+            <div class="google-panel"><img src="images/google_map.jpg" class="mapImage" alt="Map view" /></div>
+            <div class="google-panel"><img src="images/street_view.jpg" class="svImage" alt="Street View" /></div>
           </div>
-          <div class="blueprint-spec-box">
-            <div class="val">18'0" x 20'0"</div>
-            <div class="lbl">Master Bedroom Suite</div>
+        </div>
+
+        <div class="media-view-panel media-panel-photos">
+          <div class="photo-collage-grid">
+            <div class="collage-item hero-photo" data-index="0"><img src="images/hero.jpg" alt="Main Exterior" /><span class="photo-badge">Main Residence</span></div>
+            <div class="collage-item" data-index="1"><img src="images/google_map.jpg" alt="Satellite Map" /><span class="photo-badge">Satellite Map Pin</span></div>
+            <div class="collage-item" data-index="2"><img src="images/street_view.jpg" alt="Street View Angle" /><span class="photo-badge">Street View</span></div>
+            <div class="collage-item" data-index="3"><img src="images/living_room.jpg" alt="Living Room" /></div>
+            <div class="collage-item" data-index="7"><img src="images/patio_backyard.jpg" alt="Outdoor Patio" /><button class="view-all-photos-btn openGalleryBtn">View All 10 Photos ➔</button></div>
           </div>
-          <div class="blueprint-spec-box">
-            <div class="val">38'0" x 15'0"</div>
-            <div class="lbl">Outdoor Patio &amp; Deck</div>
-          </div>
-          <div class="blueprint-spec-box">
-            <div class="val">32'0" x 24'0"</div>
-            <div class="lbl">Attached Garage</div>
+        </div>
+
+        <div class="media-view-panel media-panel-streetview">
+          <div class="street-view-container"><div class="sv-viewport"><img src="images/street_view.jpg" class="svImage" alt="Street View Angle" /></div></div>
+        </div>
+
+        <div class="media-view-panel media-panel-map">
+          <div style="border-radius: var(--radius-md); overflow: hidden; height: 400px;"><img src="images/google_map.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Satellite Map View" /></div>
+        </div>
+
+        <div class="media-view-panel media-panel-embed">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11686.353381650388!2d-71.26620577749454!3d42.95779644053229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e2501a355fb5cb%3A0x6fb84e8e19c0175b!2sChester%2C%20NH%2003036!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" width="100%" height="400" style="border:1px dashed #64ffda; border-radius: 4px;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+        <div class="media-view-panel media-panel-blueprint">
+          <div style="background: #0a192f; border: 2px solid #64ffda; padding: 16px; border-radius: 4px; text-align: center;">
+            <img src="images/floorplan.jpg" style="max-width: 100%; border-radius: 4px;" alt="2D Architectural Blueprint" />
           </div>
         </div>
       </section>
+
+      <!-- 4. Interactive Floorplan Hotspots Component -->
+      <section class="section-card">
+        <h2 class="card-title" style="color: #fff;">BLUEPRINT ROOM HOTSPOTS</h2>
+        <div class="floorplan-container">
+          <div class="floorplan-tabs">
+            <button class="fp-tab-btn active" data-level="main">MAIN LEVEL</button>
+            <button class="fp-tab-btn" data-level="upper">UPPER LEVEL</button>
+            <button class="fp-tab-btn" data-level="grounds">GROUNDS</button>
+          </div>
+          <div class="floorplan-stage"><div class="floorplan-graphic fpGraphic"></div></div>
+        </div>
+      </section>
+
+      <!-- 5. Specifications & Facts Grid Component -->
+      <section class="section-card">
+        <h2 class="card-title" style="color: #fff;">STRUCTURE FACTS &amp; TECHNICAL SPECIFICATIONS</h2>
+        <div class="features-categories-grid">
+          <div class="feature-category-card" style="background: rgba(100,255,218,0.03); border: 1px dashed rgba(100,255,218,0.3);">
+            <h3 style="color: #64ffda; font-family: monospace;">INTERIOR SPECIFICATIONS</h3>
+            <ul style="font-family: monospace; color: #8892b0;">
+              <li><strong style="color: #fff;">BEDROOMS:</strong> 4 BEDROOMS</li>
+              <li><strong style="color: #fff;">BATHROOMS:</strong> 3 FULL, 1 HALF BATH</li>
+              <li><strong style="color: #fff;">FLOORING:</strong> HARDWOOD &amp; NATURAL STONE</li>
+              <li><strong style="color: #fff;">HEATING:</strong> FORCED AIR / HEAT PUMP</li>
+              <li><strong style="color: #fff;">COOLING:</strong> MULTI-ZONE CENTRAL AC</li>
+            </ul>
+          </div>
+          <div class="feature-category-card" style="background: rgba(100,255,218,0.03); border: 1px dashed rgba(100,255,218,0.3);">
+            <h3 style="color: #64ffda; font-family: monospace;">KITCHEN SPECIFICATIONS</h3>
+            <ul style="font-family: monospace; color: #8892b0;">
+              <li><strong style="color: #fff;">CABINETRY:</strong> SLATE-BLUE HARDWOOD</li>
+              <li><strong style="color: #fff;">COUNTERTOPS:</strong> QUARTZ WATERFALL</li>
+              <li><strong style="color: #fff;">APPLIANCES:</strong> STAINLESS GAS RANGE</li>
+              <li><strong style="color: #fff;">PANTRY:</strong> BUTLER'S WALK-IN PANTRY</li>
+            </ul>
+          </div>
+          <div class="feature-category-card" style="background: rgba(100,255,218,0.03); border: 1px dashed rgba(100,255,218,0.3);">
+            <h3 style="color: #64ffda; font-family: monospace;">LOT &amp; UTILITY SPECIFICATIONS</h3>
+            <ul style="font-family: monospace; color: #8892b0;">
+              <li><strong style="color: #fff;">CONSTRUCTION:</strong> VERTICAL WOOD SIDING</li>
+              <li><strong style="color: #fff;">LOT SIZE:</strong> 2.5 PRIVATE ACRES</li>
+              <li><strong style="color: #fff;">PARKING:</strong> 2-CAR GARAGE + DRIVEWAY</li>
+              <li><strong style="color: #fff;">UTILITIES:</strong> PRIVATE WELL &amp; SEPTIC</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. Price History Table Component -->
+      <section class="section-card">
+        <h2 class="card-title" style="color: #fff;">VALUATION &amp; TRANSACTION HISTORY LOG</h2>
+        <div class="history-table-wrap">
+          <table class="data-table" style="font-family: monospace;">
+            <thead><tr><th>DATE</th><th>EVENT</th><th>PRICE</th><th>PRICE/SQFT</th><th>SOURCE</th></tr></thead>
+            <tbody>
+              <tr><td>AUG 22, 2026</td><td><span class="event-badge listed">LISTED FOR SALE</span></td><td><strong style="color: #64ffda;">$849,900</strong></td><td>$220</td><td>ROCKINGHAM MLS</td></tr>
+              <tr><td>MAY 14, 2021</td><td><span class="event-badge sold">SOLD</span></td><td>$615,000</td><td>$160</td><td>PUBLIC RECORDS</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
     </div>
   </main>
 

@@ -22,46 +22,58 @@ export function initFloorplan() {
     ]
   };
 
-  const fpGraphics = document.querySelectorAll('.fpGraphic');
-  const fpTabs = document.querySelectorAll('.fp-tab-btn');
-
-  function renderFloorplan(level) {
-    fpGraphics.forEach(fpGraphic => {
-      fpGraphic.innerHTML = '';
-      const pins = floorplanData[level] || [];
-      pins.forEach((pin, i) => {
-        const pinEl = document.createElement('div');
-        pinEl.className = 'fp-pin';
-        pinEl.style.top = pin.top;
-        pinEl.style.left = pin.left;
-        pinEl.textContent = i + 1;
-        pinEl.title = pin.label;
-        
-        pinEl.addEventListener('click', () => {
-          const lightboxModal = document.getElementById('lightboxModal');
-          const lightboxImg = document.getElementById('lightboxImg');
-          const lightboxCaption = document.getElementById('lightboxCaption');
-          if (lightboxModal && lightboxImg && lightboxCaption) {
-            lightboxImg.src = pin.img;
-            lightboxCaption.textContent = `Room Preview: ${pin.label}`;
-            lightboxModal.classList.add('active');
-          }
-        });
-        
-        fpGraphic.appendChild(pinEl);
+  function renderFloorplanStage(fpGraphic, level) {
+    if (!fpGraphic) return;
+    fpGraphic.innerHTML = '';
+    const pins = floorplanData[level] || [];
+    pins.forEach((pin, i) => {
+      const pinEl = document.createElement('div');
+      pinEl.className = 'fp-pin';
+      pinEl.style.top = pin.top;
+      pinEl.style.left = pin.left;
+      pinEl.textContent = i + 1;
+      pinEl.title = pin.label;
+      
+      pinEl.addEventListener('click', () => {
+        const lightboxModal = document.getElementById('lightboxModal');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxCaption = document.getElementById('lightboxCaption');
+        if (lightboxModal && lightboxImg && lightboxCaption) {
+          lightboxImg.src = pin.img;
+          lightboxCaption.textContent = `Room Preview: ${pin.label}`;
+          lightboxModal.classList.add('active');
+        }
       });
+      
+      fpGraphic.appendChild(pinEl);
     });
   }
 
-  fpTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      fpTabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      renderFloorplan(tab.dataset.level);
+  function renderAllFloorplans(level = 'main') {
+    const containers = document.querySelectorAll('.floorplan-container');
+    containers.forEach(container => {
+      const graphic = container.querySelector('.fpGraphic');
+      const activeTab = container.querySelector('.fp-tab-btn.active');
+      const currentLevel = activeTab ? activeTab.dataset.level : level;
+      renderFloorplanStage(graphic, currentLevel);
+    });
+  }
+
+  const floorplanContainers = document.querySelectorAll('.floorplan-container');
+  floorplanContainers.forEach(container => {
+    const tabs = container.querySelectorAll('.fp-tab-btn');
+    const graphic = container.querySelector('.fpGraphic');
+    
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        renderFloorplanStage(graphic, tab.dataset.level);
+      });
     });
   });
 
-  renderFloorplan('main');
+  renderAllFloorplans('main');
 
   // 2. Coastal Resort Walkthrough Tabs Engine
   const coastalTabs = document.querySelectorAll('.coastal-tab-btn');

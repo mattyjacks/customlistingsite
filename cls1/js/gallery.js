@@ -4,8 +4,8 @@
 
 export const galleryItems = [
   { title: '77 Example Road Exterior & Private Lawn', category: 'EXTERIOR', src: 'images/hero.jpg' },
-  { title: 'Google Maps Satellite Property Pin & Boundaries', category: 'GOOGLE MAP', src: 'images/google_map.jpg' },
-  { title: 'Google Street View Roadside Camera Angle', category: 'STREET VIEW', src: 'images/street_view.jpg' },
+  { title: 'Satellite Map View & Property Boundaries', category: 'SATELLITE MAP', src: 'images/google_map.jpg' },
+  { title: 'Street View 360° Panorama Camera Angle', category: 'STREET VIEW', src: 'images/street_view.jpg' },
   { title: 'Sun-Filled Living Area with Beam Ceilings', category: 'INTERIOR', src: 'images/living_room.jpg' },
   { title: 'Gourmet Kitchen with Quartz Waterfall Countertops', category: 'KITCHEN', src: 'images/kitchen.jpg' },
   { title: 'Dining Room with Floor-to-Ceiling Forest Views', category: 'DINING', src: 'images/dining_room.jpg' },
@@ -21,7 +21,7 @@ export function initGallery() {
   const lightboxModal = document.getElementById('lightboxModal');
   const lightboxImg = document.getElementById('lightboxImg');
   const lightboxCaption = document.getElementById('lightboxCaption');
-  const openGalleryBtn = document.getElementById('openGalleryBtn');
+  const openGalleryBtns = document.querySelectorAll('.openGalleryBtn');
   const collageItems = document.querySelectorAll('.collage-item');
 
   function openLightbox(index) {
@@ -44,12 +44,12 @@ export function initGallery() {
     });
   });
 
-  if (openGalleryBtn) {
-    openGalleryBtn.addEventListener('click', (e) => {
+  openGalleryBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
       e.stopPropagation();
       openLightbox(0);
     });
-  }
+  });
 
   document.getElementById('lightboxClose')?.addEventListener('click', () => {
     lightboxModal?.classList.remove('active');

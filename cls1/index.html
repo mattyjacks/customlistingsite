@@ -20,8 +20,8 @@
   <div class="template-switcher-bar" id="templateSwitcherBar">
     <div class="container switcher-container">
       <div class="switcher-left">
-        <span class="switcher-badge">BESPOKE FLOW SWITCHER</span>
-        <span class="switcher-title">Select a template style (Each features a unique layout flow):</span>
+        <span class="switcher-badge">BESPOKE TEMPLATE SWITCHER</span>
+        <span class="switcher-title">Select a template style (Each features a complete super-site layout):</span>
       </div>
       <div class="template-buttons" id="templateBtnGroup">
         <button class="tpl-btn active" data-template="editorial">
@@ -60,7 +60,7 @@
         <ul>
           <li><a href="#hero" class="nav-link active">Home</a></li>
           <li><a href="#overview" class="nav-link">Overview</a></li>
-          <li><a href="#media-showcase" class="nav-link">Google Maps &amp; Street View</a></li>
+          <li><a href="#media-showcase" class="nav-link">Map &amp; Street View</a></li>
           <li><a href="#floorplan" class="nav-link">Floorplan</a></li>
           <li><a href="#mattyjacks-showcase" class="nav-link highlight-link">Get A Site Like This</a></li>
         </ul>
@@ -75,13 +75,13 @@
   </header>
 
   <!-- ==========================================================================
-       TEMPLATE FLOW 1: MODERN EDITORIAL (ARCHITECTURAL DIGEST MAGAZINE FLOW)
+       TEMPLATE FLOW 1: MODERN EDITORIAL (ARCHITECTURAL DIGEST MAGAZINE SUPER-SITE)
        ========================================================================== -->
   <div class="template-flow flow-editorial">
     <main class="main-content">
       <div class="container">
         
-        <!-- Editorial Hero Splash Banner -->
+        <!-- Hero Banner -->
         <section class="editorial-hero-splash" id="hero">
           <div class="hero-overlay">
             <span class="badge-tag" style="background: rgba(255,255,255,0.2); color: #fff; border: 1px solid rgba(255,255,255,0.3); width: fit-content;">EDITORIAL FEATURE</span>
@@ -91,7 +91,7 @@
           </div>
         </section>
 
-        <!-- Narrative Article Flow -->
+        <!-- Narrative Section -->
         <section class="section-card" id="overview">
           <h2 class="card-title">The Residence Narrative</h2>
           <div style="font-size: 1.1rem; line-height: 1.9; color: var(--text-muted);">
@@ -107,106 +107,88 @@
           </div>
         </section>
 
-        <!-- Zillow-Style Media & Google Maps / Street View Switcher Section -->
+        <!-- Interactive Media & Location Showcase (Dual Map, Street View, Live Embed, Blueprint) -->
         <section class="section-card" id="media-showcase">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap;">
             <div>
-              <h2 class="card-title" style="margin-bottom: 4px;">Google Maps &amp; Street View Showcase</h2>
-              <p class="card-subtitle" style="margin-bottom: 0;">Inspect satellite imagery, Street View 360° pan, and photography.</p>
+              <h2 class="card-title" style="margin-bottom: 4px;">Interactive Map, Street View &amp; Media</h2>
+              <p class="card-subtitle" style="margin-bottom: 0;">Inspect satellite imagery, 360° Street View, photography, and live Google Maps embed.</p>
             </div>
-            <button class="btn-outline" id="toggleSplitBtn" style="font-size: 0.82rem;">↕ Stacked View</button>
+            <button class="btn-outline toggleSplitBtn" style="font-size: 0.82rem;">↕ Stacked View</button>
           </div>
 
           <div class="media-switcher-nav">
-            <button class="media-tab-btn active" data-view="dual">🗺 Google Map &amp; Street View Dual Mode</button>
+            <button class="media-tab-btn active" data-view="dual">🗺 Map &amp; Street View Dual View</button>
             <button class="media-tab-btn" data-view="photos">📷 Photos (10)</button>
-            <button class="media-tab-btn" data-view="streetview">🚗 Street View 360° Only</button>
-            <button class="media-tab-btn" data-view="map">📍 Google Satellite Map Only</button>
+            <button class="media-tab-btn" data-view="streetview">🚗 Street View 360°</button>
+            <button class="media-tab-btn" data-view="map">📍 Satellite Map</button>
+            <button class="media-tab-btn" data-view="embed">🌍 Live Google Maps Embed</button>
             <button class="media-tab-btn" data-view="blueprint">📐 2D Floor Plan Blueprint</button>
           </div>
 
-          <!-- PANEL 1: Dual Split Google View (Google Maps Satellite + Google Street View) -->
-          <div class="media-view-panel active" id="media-panel-dual">
-            <div class="dual-google-split" id="dualViewContainer">
-              
-              <!-- Left Panel: Google Maps Satellite -->
+          <!-- Dual View Panel -->
+          <div class="media-view-panel media-panel-dual active">
+            <div class="dual-google-split">
               <div class="google-panel">
                 <div class="google-badge">
-                  <span>📍 Google Maps Satellite Hybrid &bull; 77 Example Rd, Chester NH</span>
+                  <span>📍 Satellite Map View &bull; 77 Example Rd, Chester NH</span>
                 </div>
-                <img src="images/google_map.jpg" id="mapImage" alt="Google Maps Satellite view of 77 Example Road property" />
+                <img src="images/google_map.jpg" class="mapImage" alt="Satellite view of 77 Example Road property" />
                 <div class="google-controls">
-                  <button class="g-btn" id="mapZoomIn">➕ Zoom In</button>
-                  <button class="g-btn" id="mapZoomOut">➖ Zoom Out</button>
+                  <button class="g-btn mapZoomIn">➕ Zoom In</button>
+                  <button class="g-btn mapZoomOut">➖ Zoom Out</button>
                 </div>
               </div>
-
-              <!-- Right Panel: Google Street View -->
               <div class="google-panel">
                 <div class="google-badge">
-                  <span>🚗 Google Street View 360&deg; Panorama</span>
+                  <span>🚗 Street View 360&deg; Panorama</span>
                 </div>
-                <img src="images/street_view.jpg" id="svImage" alt="Google Street View camera view of 77 Example Road" />
+                <img src="images/street_view.jpg" class="svImage" alt="Street View camera view of 77 Example Road" />
                 <div class="google-controls">
-                  <button class="g-btn" id="svPanLeft">◄ Pan</button>
-                  <button class="g-btn" id="svPanRight">Pan ►</button>
-                  <button class="g-btn" id="svZoomIn">➕ Zoom</button>
-                  <button class="g-btn" id="svZoomOut">➖ Zoom</button>
+                  <button class="g-btn svPanLeft">◄ Pan</button>
+                  <button class="g-btn svPanRight">Pan ►</button>
+                  <button class="g-btn svZoomIn">➕ Zoom</button>
+                  <button class="g-btn svZoomOut">➖ Zoom</button>
                 </div>
               </div>
-
             </div>
           </div>
 
-          <!-- PANEL 2: Photos Grid -->
-          <div class="media-view-panel" id="media-panel-photos">
+          <!-- Photos Grid Panel -->
+          <div class="media-view-panel media-panel-photos">
             <div class="photo-collage-grid">
-              <div class="collage-item hero-photo" data-index="0">
-                <img src="images/hero.jpg" alt="Main Exterior" />
-                <span class="photo-badge">Main Residence</span>
-              </div>
-              <div class="collage-item" data-index="1">
-                <img src="images/google_map.jpg" alt="Google Maps Satellite" />
-                <span class="photo-badge">Google Maps Pin</span>
-              </div>
-              <div class="collage-item" data-index="2">
-                <img src="images/street_view.jpg" alt="Street View Angle" />
-                <span class="photo-badge">Street View</span>
-              </div>
-              <div class="collage-item" data-index="3">
-                <img src="images/living_room.jpg" alt="Living Room" />
-              </div>
-              <div class="collage-item" data-index="7">
-                <img src="images/patio_backyard.jpg" alt="Outdoor Patio" />
-                <button class="view-all-photos-btn" id="openGalleryBtn">View All 10 Photos ➔</button>
-              </div>
+              <div class="collage-item hero-photo" data-index="0"><img src="images/hero.jpg" alt="Main Exterior" /><span class="photo-badge">Main Residence</span></div>
+              <div class="collage-item" data-index="1"><img src="images/google_map.jpg" alt="Satellite Map" /><span class="photo-badge">Satellite Map Pin</span></div>
+              <div class="collage-item" data-index="2"><img src="images/street_view.jpg" alt="Street View Angle" /><span class="photo-badge">Street View</span></div>
+              <div class="collage-item" data-index="3"><img src="images/living_room.jpg" alt="Living Room" /></div>
+              <div class="collage-item" data-index="7"><img src="images/patio_backyard.jpg" alt="Outdoor Patio" /><button class="view-all-photos-btn openGalleryBtn">View All 10 Photos ➔</button></div>
             </div>
           </div>
 
-          <!-- PANEL 3: Street View Only -->
-          <div class="media-view-panel" id="media-panel-streetview">
+          <!-- Street View Panel -->
+          <div class="media-view-panel media-panel-streetview">
             <div class="street-view-container">
               <div class="sv-overlay-top">
-                <div class="sv-address-badge">
-                  <span class="live-dot"></span>
-                  <span>77 Example Road, Chester NH 03036 &bull; Google Street View Imagery &copy; 2026</span>
-                </div>
+                <div class="sv-address-badge"><span class="live-dot"></span><span>77 Example Road, Chester NH 03036 &bull; Street View Panorama</span></div>
               </div>
-              <div class="sv-viewport">
-                <img src="images/street_view.jpg" alt="Google Street View Angle" />
-              </div>
+              <div class="sv-viewport"><img src="images/street_view.jpg" class="svImage" alt="Street View Angle" /></div>
             </div>
           </div>
 
-          <!-- PANEL 4: Google Maps Satellite Only -->
-          <div class="media-view-panel" id="media-panel-map">
-            <div style="border-radius: var(--radius-md); overflow: hidden; height: 480px; position: relative;">
-              <img src="images/google_map.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Google Maps Satellite View" />
+          <!-- Satellite Map Panel -->
+          <div class="media-view-panel media-panel-map">
+            <div style="border-radius: var(--radius-md); overflow: hidden; height: 480px;"><img src="images/google_map.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Satellite Map View" /></div>
+          </div>
+
+          <!-- Real Live Google Maps Embed Panel -->
+          <div class="media-view-panel media-panel-embed">
+            <div style="border-radius: var(--radius-md); overflow: hidden;">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11686.353381650388!2d-71.26620577749454!3d42.95779644053229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e2501a355fb5cb%3A0x6fb84e8e19c0175b!2sChester%2C%20NH%2003036!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" width="100%" height="480" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
 
-          <!-- PANEL 5: 2D Blueprint Floorplan -->
-          <div class="media-view-panel" id="media-panel-blueprint">
+          <!-- Blueprint Panel -->
+          <div class="media-view-panel media-panel-blueprint">
             <div style="background: #0a192f; border: 2px solid #64ffda; padding: 16px; border-radius: var(--radius-md); text-align: center;">
               <img src="images/floorplan.jpg" style="max-width: 100%; border-radius: 4px;" alt="2D Architectural Blueprint" />
             </div>
@@ -214,26 +196,67 @@
 
         </section>
 
-        <!-- Minimalist Specs Ribbon -->
+        <!-- Floorplan Hotspots -->
+        <section class="section-card" id="floorplan">
+          <h2 class="card-title">Interactive Floorplan &amp; Room Hotspots</h2>
+          <div class="floorplan-container">
+            <div class="floorplan-tabs">
+              <button class="fp-tab-btn active" data-level="main">Main Level</button>
+              <button class="fp-tab-btn" data-level="upper">Upper Level</button>
+              <button class="fp-tab-btn" data-level="grounds">Grounds</button>
+            </div>
+            <div class="floorplan-stage">
+              <div class="floorplan-graphic fpGraphic"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Specifications & Facts Grid -->
         <section class="section-card">
-          <h2 class="card-title">Residence Summary</h2>
-          <div class="quick-facts-grid">
-            <div class="fact-box">
-              <span class="fact-icon">🛏</span>
-              <div><div class="fact-label">Bedrooms</div><div class="fact-val">4 Beds</div></div>
+          <h2 class="card-title">Home Facts &amp; Specifications</h2>
+          <div class="features-categories-grid">
+            <div class="feature-category-card">
+              <h3>Interior Features</h3>
+              <ul>
+                <li><strong>Bedrooms:</strong> 4 Bedrooms</li>
+                <li><strong>Bathrooms:</strong> 3 Full, 1 Half Bath</li>
+                <li><strong>Flooring:</strong> Hardwood &amp; Natural Stone</li>
+                <li><strong>Heating:</strong> Forced Air / Heat Pump</li>
+                <li><strong>Cooling:</strong> Multi-Zone Central AC</li>
+              </ul>
             </div>
-            <div class="fact-box">
-              <span class="fact-icon">🛁</span>
-              <div><div class="fact-label">Bathrooms</div><div class="fact-val">3.5 Baths</div></div>
+            <div class="feature-category-card">
+              <h3>Kitchen &amp; Appliances</h3>
+              <ul>
+                <li><strong>Cabinetry:</strong> Custom Slate-Blue Hardwood</li>
+                <li><strong>Countertops:</strong> Blue Mosaic &amp; Quartz</li>
+                <li><strong>Appliances:</strong> Stainless Gas Range</li>
+                <li><strong>Pantry:</strong> Butler's Walk-in Pantry</li>
+              </ul>
             </div>
-            <div class="fact-box">
-              <span class="fact-icon">📐</span>
-              <div><div class="fact-label">Area</div><div class="fact-val">3,850 Sq Ft</div></div>
+            <div class="feature-category-card">
+              <h3>Grounds &amp; Structure</h3>
+              <ul>
+                <li><strong>Construction:</strong> Vertical Wood Siding</li>
+                <li><strong>Lot Size:</strong> 2.5 Private Acres</li>
+                <li><strong>Parking:</strong> 2-Car Garage + Driveway</li>
+                <li><strong>Utilities:</strong> Private Well &amp; Septic</li>
+              </ul>
             </div>
-            <div class="fact-box">
-              <span class="fact-icon">🌲</span>
-              <div><div class="fact-label">Lot</div><div class="fact-val">2.5 Acres</div></div>
-            </div>
+          </div>
+        </section>
+
+        <!-- Price History Table -->
+        <section class="section-card">
+          <h2 class="card-title">Price &amp; Tax Assessment History</h2>
+          <div class="history-table-wrap">
+            <table class="data-table">
+              <thead><tr><th>Date</th><th>Event</th><th>Price</th><th>Price/SqFt</th><th>Source</th></tr></thead>
+              <tbody>
+                <tr><td>Aug 22, 2026</td><td><span class="event-badge listed">Listed for Sale</span></td><td><strong>$849,900</strong></td><td>$220</td><td>Rockingham MLS</td></tr>
+                <tr><td>May 14, 2021</td><td><span class="event-badge sold">Sold</span></td><td>$615,000</td><td>$160</td><td>Public Records</td></tr>
+              </tbody>
+            </table>
           </div>
         </section>
 
@@ -242,68 +265,58 @@
   </div>
 
   <!-- ==========================================================================
-       TEMPLATE FLOW 2: MIDNIGHT DARK LUXURY (INTERACTIVE DASHBOARD FLOW)
+       TEMPLATE FLOW 2: MIDNIGHT DARK LUXURY (SUPER-SITE FLOW)
        ========================================================================== -->
   <div class="template-flow flow-midnight">
     <main class="main-content">
       <div class="container">
+        
         <div class="midnight-metric-ribbon">
-          <div class="midnight-metric-card">
-            <div class="midnight-metric-val">$849,900</div>
-            <div class="midnight-metric-lbl">Listing Price</div>
-          </div>
-          <div class="midnight-metric-card">
-            <div class="midnight-metric-val">4 Beds</div>
-            <div class="midnight-metric-lbl">Bedrooms</div>
-          </div>
-          <div class="midnight-metric-card">
-            <div class="midnight-metric-val">3.5 Baths</div>
-            <div class="midnight-metric-lbl">Bathrooms</div>
-          </div>
-          <div class="midnight-metric-card">
-            <div class="midnight-metric-val">3,850</div>
-            <div class="midnight-metric-lbl">Sq Footage</div>
-          </div>
-          <div class="midnight-metric-card">
-            <div class="midnight-metric-val">2.5 Ac</div>
-            <div class="midnight-metric-lbl">Private Acres</div>
-          </div>
+          <div class="midnight-metric-card"><div class="midnight-metric-val">$849,900</div><div class="midnight-metric-lbl">Listing Price</div></div>
+          <div class="midnight-metric-card"><div class="midnight-metric-val">4 Beds</div><div class="midnight-metric-lbl">Bedrooms</div></div>
+          <div class="midnight-metric-card"><div class="midnight-metric-val">3.5 Baths</div><div class="midnight-metric-lbl">Bathrooms</div></div>
+          <div class="midnight-metric-card"><div class="midnight-metric-val">3,850</div><div class="midnight-metric-lbl">Sq Footage</div></div>
+          <div class="midnight-metric-card"><div class="midnight-metric-val">2.5 Ac</div><div class="midnight-metric-lbl">Private Acres</div></div>
         </div>
 
-        <div class="listing-detail-layout">
-          <div class="listing-main-col">
-            <section class="section-card" id="floorplan">
-              <h2 class="card-title" style="color: #fff;">Interactive Dark Room Hotspots</h2>
-              <div class="floorplan-container">
-                <div class="floorplan-stage">
-                  <div class="floorplan-graphic fpGraphic"></div>
-                </div>
-              </div>
-            </section>
+        <section class="section-card">
+          <h2 class="card-title" style="color: #fff;">Interactive Media, Maps &amp; Street View</h2>
+          <div class="media-switcher-nav">
+            <button class="media-tab-btn active" data-view="dual">🗺 Map &amp; Street View Dual View</button>
+            <button class="media-tab-btn" data-view="photos">📷 Photos (10)</button>
+            <button class="media-tab-btn" data-view="embed">🌍 Live Google Maps Embed</button>
+            <button class="media-tab-btn" data-view="blueprint">📐 2D Floorplan Blueprint</button>
           </div>
 
-          <aside class="listing-sidebar">
-            <div class="sidebar-widget-card">
-              <div class="widget-header">
-                <h3 style="color: #fff;">Direct Representative</h3>
-                <p style="color: #94a3b8;">Example Realty Direct Desk</p>
-              </div>
-              <button class="btn-primary open-showing-modal" style="width: 100%; justify-content: center;">
-                Request Private Showing
-              </button>
+          <div class="media-view-panel media-panel-dual active">
+            <div class="dual-google-split">
+              <div class="google-panel"><img src="images/google_map.jpg" class="mapImage" alt="Map view" /></div>
+              <div class="google-panel"><img src="images/street_view.jpg" class="svImage" alt="Street View" /></div>
             </div>
-          </aside>
-        </div>
+          </div>
+          <div class="media-view-panel media-panel-embed">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11686.353381650388!2d-71.26620577749454!3d42.95779644053229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e2501a355fb5cb%3A0x6fb84e8e19c0175b!2sChester%2C%20NH%2003036!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </section>
+
+        <section class="section-card">
+          <h2 class="card-title" style="color: #fff;">Interactive Dark Room Hotspots</h2>
+          <div class="floorplan-container">
+            <div class="floorplan-stage"><div class="floorplan-graphic fpGraphic"></div></div>
+          </div>
+        </section>
+
       </div>
     </main>
   </div>
 
   <!-- ==========================================================================
-       TEMPLATE FLOW 3: COASTAL HAMPTONS RESORT (TABBED WALKTHROUGH FLOW)
+       TEMPLATE FLOW 3: COASTAL HAMPTONS RESORT (SUPER-SITE FLOW)
        ========================================================================== -->
   <div class="template-flow flow-coastal">
     <main class="main-content">
       <div class="container">
+        
         <section class="section-card text-center" style="background: #ffffff; border: 1px solid #e0f2fe;">
           <span class="badge-tag" style="background: #e0f2fe; color: #0284c7;">COASTAL RESORT ESTATE</span>
           <h1 style="font-size: 2.8rem; color: #0f172a; margin: 8px 0;">77 Example Road</h1>
@@ -314,7 +327,7 @@
         <section class="section-card">
           <h2 class="card-title">Virtual Resort Walkthrough</h2>
           <div class="coastal-walkthrough-nav">
-            <button class="coastal-tab-btn active" data-panel="panel-map">📍 1. Google Maps &amp; Lot</button>
+            <button class="coastal-tab-btn active" data-panel="panel-map">📍 1. Satellite Map &amp; Lot</button>
             <button class="coastal-tab-btn" data-panel="panel-grounds">🌲 2. Outdoor Patio &amp; Street View</button>
             <button class="coastal-tab-btn" data-panel="panel-living">🛋 3. Living &amp; Dining</button>
             <button class="coastal-tab-btn" data-panel="panel-kitchen">🍳 4. Chef's Kitchen</button>
@@ -322,15 +335,15 @@
 
           <div class="coastal-tab-panel active" id="panel-map">
             <div>
-              <h3>Google Maps 2.5-Acre Satellite Boundaries</h3>
+              <h3>Satellite Hybrid 2.5-Acre Boundaries</h3>
               <p style="color: #475569; margin: 12px 0 16px;">Detailed satellite hybrid map overview showing North Pond, Raymond Road, Example Road frontage, and dense pine forest boundaries.</p>
             </div>
-            <img src="images/google_map.jpg" class="coastal-panel-img" alt="Google Map Satellite" />
+            <img src="images/google_map.jpg" class="coastal-panel-img" alt="Satellite Map" />
           </div>
 
           <div class="coastal-tab-panel" id="panel-grounds">
             <div>
-              <h3>Google Street View Roadside Entrance</h3>
+              <h3>Street View Roadside Entrance</h3>
               <p style="color: #475569; margin: 12px 0 16px;">Set back from Example Road with a private stone driveway entrance, mature oak and pine trees, and 2.5 private acres.</p>
             </div>
             <img src="images/street_view.jpg" class="coastal-panel-img" alt="Street View" />
@@ -352,12 +365,21 @@
             <img src="images/kitchen.jpg" class="coastal-panel-img" alt="Kitchen" />
           </div>
         </section>
+
+        <!-- Live Google Maps Embed -->
+        <section class="section-card">
+          <h2 class="card-title">Live Google Maps Location Embed</h2>
+          <div style="border-radius: var(--radius-md); overflow: hidden;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11686.353381650388!2d-71.26620577749454!3d42.95779644053229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e2501a355fb5cb%3A0x6fb84e8e19c0175b!2sChester%2C%20NH%2003036!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </section>
+
       </div>
     </main>
   </div>
 
   <!-- ==========================================================================
-       TEMPLATE FLOW 4: SWISS CONTEMPORARY MODERNIST (ASYMMETRICAL GRID FLOW)
+       TEMPLATE FLOW 4: SWISS CONTEMPORARY MODERNIST (SUPER-SITE FLOW)
        ========================================================================== -->
   <div class="template-flow flow-swiss">
     <main class="main-content">
@@ -380,12 +402,18 @@
             <button class="btn-primary open-showing-modal" style="margin-top: 24px;">BOOK SHOWING ➔</button>
           </div>
         </div>
+
+        <!-- Live Embed Section -->
+        <section class="section-card">
+          <h2 class="card-title">GOOGLE MAPS EMBED LOCATION</h2>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11686.353381650388!2d-71.26620577749454!3d42.95779644053229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e2501a355fb5cb%3A0x6fb84e8e19c0175b!2sChester%2C%20NH%2003036!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" width="100%" height="400" style="border:3px solid #09090b;" allowfullscreen="" loading="lazy"></iframe>
+        </section>
       </div>
     </main>
   </div>
 
   <!-- ==========================================================================
-       TEMPLATE FLOW 5: EXECUTIVE MANOR (GOLD-FRAMED ESTATE COLLECTION FLOW)
+       TEMPLATE FLOW 5: EXECUTIVE MANOR (SUPER-SITE FLOW)
        ========================================================================== -->
   <div class="template-flow flow-heritage">
     <main class="main-content">
@@ -399,12 +427,17 @@
           </p>
           <div style="font-size: 2.4rem; font-weight: 800; color: #d97706;">$849,900</div>
         </div>
+
+        <div class="heritage-framed-card">
+          <h3 style="color: #064e3b; margin-bottom: 12px;">Live Location &amp; Google Maps Embed</h3>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11686.353381650388!2d-71.26620577749454!3d42.95779644053229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e2501a355fb5cb%3A0x6fb84e8e19c0175b!2sChester%2C%20NH%2003036!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" width="100%" height="400" style="border:2px solid #d97706; border-radius: 6px;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
       </div>
     </main>
   </div>
 
   <!-- ==========================================================================
-       TEMPLATE FLOW 6: ARCHITECTURAL BLUEPRINT FLOORPLAN FLOW
+       TEMPLATE FLOW 6: ARCHITECTURAL BLUEPRINT FLOORPLAN FLOW (SUPER-SITE)
        ========================================================================== -->
   <div class="template-flow flow-blueprint">
     <main class="main-content">
@@ -419,31 +452,19 @@
           </div>
 
           <div class="blueprint-specs-grid">
-            <div class="blueprint-spec-box">
-              <div class="val">28'6" x 22'0"</div>
-              <div class="lbl">Living Room</div>
-            </div>
-            <div class="blueprint-spec-box">
-              <div class="val">20'0" x 18'0"</div>
-              <div class="lbl">Gourmet Kitchen</div>
-            </div>
-            <div class="blueprint-spec-box">
-              <div class="val">18'0" x 14'0"</div>
-              <div class="lbl">Formal Dining</div>
-            </div>
-            <div class="blueprint-spec-box">
-              <div class="val">18'0" x 20'0"</div>
-              <div class="lbl">Master Bedroom Suite</div>
-            </div>
-            <div class="blueprint-spec-box">
-              <div class="val">38'0" x 15'0"</div>
-              <div class="lbl">Outdoor Patio &amp; Deck</div>
-            </div>
-            <div class="blueprint-spec-box">
-              <div class="val">32'0" x 24'0"</div>
-              <div class="lbl">Attached Garage</div>
-            </div>
+            <div class="blueprint-spec-box"><div class="val">28'6" x 22'0"</div><div class="lbl">Living Room</div></div>
+            <div class="blueprint-spec-box"><div class="val">20'0" x 18'0"</div><div class="lbl">Gourmet Kitchen</div></div>
+            <div class="blueprint-spec-box"><div class="val">18'0" x 14'0"</div><div class="lbl">Formal Dining</div></div>
+            <div class="blueprint-spec-box"><div class="val">18'0" x 20'0"</div><div class="lbl">Master Bedroom Suite</div></div>
+            <div class="blueprint-spec-box"><div class="val">38'0" x 15'0"</div><div class="lbl">Outdoor Patio &amp; Deck</div></div>
+            <div class="blueprint-spec-box"><div class="val">32'0" x 24'0"</div><div class="lbl">Attached Garage</div></div>
           </div>
+        </section>
+
+        <!-- Live Google Maps Embed -->
+        <section class="section-card">
+          <h2 class="card-title" style="color: #fff;">Site Map Location &amp; Google Maps Embed</h2>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11686.353381650388!2d-71.26620577749454!3d42.95779644053229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e2501a355fb5cb%3A0x6fb84e8e19c0175b!2sChester%2C%20NH%2003036!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" width="100%" height="400" style="border:1px dashed #64ffda; border-radius: 4px;" allowfullscreen="" loading="lazy"></iframe>
         </section>
       </div>
     </main>
@@ -459,7 +480,7 @@
         <span class="showcase-tag">MattyJacks.com Platform</span>
         <h2 class="showcase-title">Want A Bespoke Website For Your Home Listing?</h2>
         <p class="showcase-subtitle">
-          Stand out from generic Zillow &amp; MLS listings with a dedicated single-property domain tailored specifically for your seller's property.
+          Stand out from generic portal listings with a dedicated single-property domain tailored specifically for your seller's property.
         </p>
       </div>
 
@@ -495,8 +516,8 @@
           <ul class="pricing-features">
             <li><span class="icon-check">✓</span> Custom Domain (.com)</li>
             <li><span class="icon-check">✓</span> 6 Bespoke Design Templates</li>
-            <li><span class="icon-check">✓</span> Google Maps &amp; Street View Dual Mode</li>
-            <li><span class="icon-check">✓</span> High-Res Photo Gallery</li>
+            <li><span class="icon-check">✓</span> Satellite Map &amp; Street View 360°</li>
+            <li><span class="icon-check">✓</span> Live Google Maps Embed Integration</li>
             <li><span class="icon-check">✓</span> Architectural Blueprint Renderings</li>
           </ul>
           <button class="btn-primary open-order-modal" style="width: 100%; justify-content: center;">Order Starter Site</button>
@@ -511,7 +532,7 @@
           <ul class="pricing-features">
             <li><span class="icon-check">✓</span> <strong>Everything in Starter</strong></li>
             <li><span class="icon-check">✓</span> <strong>Interactive Floorplan Hotspots</strong></li>
-            <li><span class="icon-check">✓</span> Google Maps Satellite Hybrid + Street View Dual Split</li>
+            <li><span class="icon-check">✓</span> Satellite Map + Street View Dual Split</li>
             <li><span class="icon-check">✓</span> 2D Blueprint Architectural Diagrams</li>
             <li><span class="icon-check">✓</span> VIP Agent Branding Options</li>
           </ul>

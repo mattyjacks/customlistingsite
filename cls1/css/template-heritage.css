@@ -99,3 +99,24 @@ body.theme-heritage .btn-primary:hover {
   color: #000;
   box-shadow: 0 4px 16px rgba(217, 119, 6, 0.4);
 }
+
+@media (max-width: 768px) {
+  body.theme-heritage .heritage-framed-card {
+    padding: 20px 16px;
+    margin-bottom: 20px;
+  }
+  body.theme-heritage .heritage-framed-card h1 {
+    font-size: 2rem !important;
+  }
+  body.theme-heritage .hero-banner {
+    height: 360px;
+    margin: 16px 0 20px;
+  }
+  body.theme-heritage .hero-overlay {
+    padding: 20px 16px;
+  }
+  body.theme-heritage .hero-overlay h1 {
+    font-size: 1.8rem !important;
+  }
+}
+

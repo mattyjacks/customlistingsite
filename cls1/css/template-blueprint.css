@@ -112,3 +112,20 @@ body.theme-blueprint .btn-primary:hover {
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
+
+@media (max-width: 768px) {
+  body.theme-blueprint h1 {
+    font-size: 1.8rem !important;
+  }
+  .blueprint-specs-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .blueprint-spec-box {
+    padding: 10px;
+  }
+  .blueprint-spec-box .val {
+    font-size: 1.1rem;
+  }
+}
+

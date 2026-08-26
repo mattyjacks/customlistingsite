@@ -92,3 +92,25 @@ body.theme-midnight .data-table th {
   background: rgba(15, 23, 42, 0.8);
   color: #38bdf8;
 }
+
+@media (max-width: 768px) {
+  body.theme-midnight .midnight-metric-ribbon {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    padding: 12px;
+  }
+  body.theme-midnight .midnight-metric-val {
+    font-size: 1.25rem;
+  }
+  body.theme-midnight .hero-banner {
+    height: 360px;
+    margin: 16px 0 20px;
+  }
+  body.theme-midnight .hero-overlay {
+    padding: 20px 16px;
+  }
+  body.theme-midnight .hero-overlay h1 {
+    font-size: 1.8rem !important;
+  }
+}
+

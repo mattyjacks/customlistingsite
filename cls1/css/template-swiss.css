@@ -96,6 +96,23 @@ body.theme-swiss .btn-primary:hover {
     height: auto;
   }
   body.theme-swiss .hero-img-col {
-    height: 300px;
+    height: 260px;
+  }
+  body.theme-swiss .swiss-giant-title {
+    font-size: 2rem !important;
+  }
+  body.theme-swiss .swiss-asymmetric-grid {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  body.theme-swiss .swiss-hero-left {
+    height: 260px;
+  }
+  body.theme-swiss .swiss-hero-right {
+    padding: 24px;
+  }
+  body.theme-swiss .swiss-metric-big {
+    font-size: 2.2rem;
   }
 }
+

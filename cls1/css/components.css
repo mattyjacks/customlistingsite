@@ -986,5 +986,80 @@
   .mobile-action-bar {
     display: flex;
   }
+  body {
+    padding-bottom: 70px;
+  }
+  .section-card {
+    padding: 20px 16px;
+    margin-bottom: 20px;
+    border-radius: var(--radius-md);
+  }
+  .card-title {
+    font-size: 1.25rem;
+  }
+  .editorial-hero-splash {
+    height: 380px;
+    margin-bottom: 20px;
+    border-radius: var(--radius-md);
+  }
+  .editorial-hero-splash .hero-overlay {
+    padding: 20px 16px;
+  }
+  .editorial-hero-splash .hero-overlay h1 {
+    font-size: 1.8rem !important;
+  }
+  .editorial-hero-splash .hero-overlay p {
+    font-size: 0.95rem !important;
+  }
+  .editorial-hero-splash .hero-overlay .hero-price {
+    font-size: 1.6rem !important;
+  }
+  .media-switcher-nav {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding: 6px;
+  }
+  .media-tab-btn {
+    white-space: nowrap;
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+  .dual-google-split {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: 540px;
+  }
+  .google-panel {
+    height: 260px;
+  }
+  .photo-collage-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    height: auto;
+  }
+  .collage-item.hero-photo {
+    grid-column: span 2;
+    height: 220px;
+  }
+  .collage-item {
+    height: 140px;
+  }
+  .floorplan-stage {
+    height: 320px;
+  }
+  .fp-pin {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+  .history-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .data-table {
+    min-width: 500px;
+  }
 }
+
 

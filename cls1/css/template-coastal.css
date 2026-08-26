@@ -74,3 +74,26 @@ body.theme-coastal .btn-primary:hover {
   background: #0369a1;
   box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
 }
+
+@media (max-width: 768px) {
+  body.theme-coastal .hero-banner {
+    height: 360px;
+    margin: 16px 0 20px;
+  }
+  body.theme-coastal .hero-overlay {
+    padding: 20px 16px;
+  }
+  body.theme-coastal .hero-overlay h1 {
+    font-size: 1.8rem !important;
+  }
+  body.theme-coastal .coastal-walkthrough-nav {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px;
+  }
+  body.theme-coastal .coastal-tab-btn {
+    white-space: nowrap;
+  }
+}
+

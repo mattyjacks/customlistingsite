@@ -62,6 +62,8 @@
           <li><a href="#overview" class="nav-link">Overview</a></li>
           <li><a href="#media-showcase" class="nav-link">Map &amp; Media</a></li>
           <li><a href="#floorplan" class="nav-link">Floorplan</a></li>
+          <li><a href="#neighborhood" class="nav-link">Neighborhood</a></li>
+          <li><a href="#mortgage" class="nav-link">Mortgage Calc</a></li>
           <li><a href="#mattyjacks-showcase" class="nav-link highlight-link">Get A Site Like This</a></li>
         </ul>
       </nav>
@@ -200,7 +202,132 @@
           </div>
         </section>
 
-        <!-- 5. Specifications & Facts Grid Component -->
+        <!-- 5. Neighborhood & Schools Component -->
+        <section class="section-card" id="neighborhood">
+          <h2 class="card-title">Neighborhood, Schools &amp; Location Highlights</h2>
+          <p class="card-subtitle">Explore top-rated local schools, outdoor parks, shopping, and regional commute distances.</p>
+          
+          <div class="nb-filter-nav">
+            <button class="nb-filter-btn active" data-category="all">All Highlights</button>
+            <button class="nb-filter-btn" data-category="schools">🎓 Top Schools</button>
+            <button class="nb-filter-btn" data-category="nature">🌲 Nature &amp; Parks</button>
+            <button class="nb-filter-btn" data-category="commute">🚗 Regional Commute</button>
+          </div>
+
+          <div class="nb-grid">
+            <div class="nb-item" data-category="schools">
+              <div class="nb-icon">🎓</div>
+              <div class="nb-info">
+                <div class="nb-title">Chester Academy</div>
+                <div class="nb-desc">Grades K-8 &bull; 1.2 miles away</div>
+              </div>
+              <div class="school-score-badge">9/10</div>
+            </div>
+
+            <div class="nb-item" data-category="schools">
+              <div class="nb-icon">🏫</div>
+              <div class="nb-info">
+                <div class="nb-title">Pinkerton Academy</div>
+                <div class="nb-desc">Grades 9-12 &bull; 6.5 miles away</div>
+              </div>
+              <div class="school-score-badge">8/10</div>
+            </div>
+
+            <div class="nb-item" data-category="nature">
+              <div class="nb-icon">🌲</div>
+              <div class="nb-info">
+                <div class="nb-title">Raymond Town Forest</div>
+                <div class="nb-desc">Hiking &amp; Nature Trails &bull; 3 mins (1.1 mi)</div>
+              </div>
+            </div>
+
+            <div class="nb-item" data-category="nature">
+              <div class="nb-icon">🌊</div>
+              <div class="nb-info">
+                <div class="nb-title">North Pond Beach</div>
+                <div class="nb-desc">Boating &amp; Waterfront &bull; 4 mins (1.5 mi)</div>
+              </div>
+            </div>
+
+            <div class="nb-item" data-category="commute">
+              <div class="nb-icon">✈️</div>
+              <div class="nb-info">
+                <div class="nb-title">Manchester-Boston Airport</div>
+                <div class="nb-desc">Regional Airport &bull; 22 mins (16.4 mi)</div>
+              </div>
+            </div>
+
+            <div class="nb-item" data-category="commute">
+              <div class="nb-icon">🏙</div>
+              <div class="nb-info">
+                <div class="nb-title">Downtown Boston, MA</div>
+                <div class="nb-desc">Metropolitan Center &bull; 55 mins (51.5 mi)</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 6. Mortgage Estimator Component -->
+        <section class="section-card" id="mortgage">
+          <h2 class="card-title">Interactive Mortgage &amp; Payment Estimator</h2>
+          <p class="card-subtitle">Calculate your estimated monthly payment for 77 Example Road based on home price, down payment, and loan terms.</p>
+          
+          <div class="mortgage-calculator-box">
+            <div class="mortgage-grid">
+              <div class="mortgage-inputs">
+                <div class="mortgage-field">
+                  <label>Home Purchase Price ($)</label>
+                  <input type="number" class="mortgage-price-input" value="849900" step="5000" />
+                </div>
+                <div class="mortgage-field">
+                  <label>Down Payment (%)</label>
+                  <input type="number" class="mortgage-down-input" value="20" min="0" max="80" />
+                </div>
+                <div class="mortgage-field">
+                  <label>Interest Rate (%)</label>
+                  <input type="number" class="mortgage-rate-input" value="6.5" step="0.1" />
+                </div>
+                <div class="mortgage-field">
+                  <label>Loan Term</label>
+                  <select class="mortgage-term-select">
+                    <option value="30">30-Year Fixed</option>
+                    <option value="15">15-Year Fixed</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="mortgage-results">
+                <div>
+                  <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">ESTIMATED MONTHLY PAYMENT</div>
+                  <div class="mortgage-total-val">$4,297/mo</div>
+                  
+                  <div class="mortgage-bar-container">
+                    <div class="mortgage-bar-segment bar-pi" style="width: 75%;"></div>
+                    <div class="mortgage-bar-segment bar-tax" style="width: 18%;"></div>
+                    <div class="mortgage-bar-segment bar-ins" style="width: 7%;"></div>
+                  </div>
+                </div>
+
+                <div class="mortgage-breakdown-list">
+                  <div class="mortgage-breakdown-item">
+                    <span><span class="legend-dot" style="background: #2563eb;"></span>Principal &amp; Interest:</span>
+                    <strong class="mortgage-pi-val">$4,297</strong>
+                  </div>
+                  <div class="mortgage-breakdown-item">
+                    <span><span class="legend-dot" style="background: #059669;"></span>Property Tax (Est.):</span>
+                    <strong class="mortgage-tax-val">$850</strong>
+                  </div>
+                  <div class="mortgage-breakdown-item">
+                    <span><span class="legend-dot" style="background: #f59e0b;"></span>Homeowner's Insurance:</span>
+                    <strong class="mortgage-ins-val">$212</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 7. Specifications & Facts Grid Component -->
         <section class="section-card">
           <h2 class="card-title">Home Facts &amp; Specifications</h2>
           <div class="features-categories-grid">
@@ -235,7 +362,7 @@
           </div>
         </section>
 
-        <!-- 6. Price History Table Component -->
+        <!-- 8. Price History Table Component -->
         <section class="section-card">
           <h2 class="card-title">Price &amp; Tax Assessment History</h2>
           <div class="history-table-wrap">
@@ -330,9 +457,7 @@
           </div>
 
           <div class="media-view-panel media-panel-streetview">
-            <div class="street-view-container">
-              <div class="sv-viewport"><img src="images/street_view.jpg" class="svImage" alt="Street View Angle" /></div>
-            </div>
+            <div class="street-view-container"><div class="sv-viewport"><img src="images/street_view.jpg" class="svImage" alt="Street View Angle" /></div></div>
           </div>
 
           <div class="media-view-panel media-panel-map">
@@ -363,7 +488,114 @@
           </div>
         </section>
 
-        <!-- 5. Home Facts & Specifications Grid Component -->
+        <!-- 5. Neighborhood & Schools Component -->
+        <section class="section-card">
+          <h2 class="card-title" style="color: #fff;">Neighborhood, Schools &amp; Location Highlights</h2>
+          <p style="color: #94a3b8; margin-bottom: 20px;">Top-rated local schools, outdoor parks, shopping, and regional commute distances.</p>
+          
+          <div class="nb-filter-nav">
+            <button class="nb-filter-btn active" data-category="all">All Highlights</button>
+            <button class="nb-filter-btn" data-category="schools">🎓 Top Schools</button>
+            <button class="nb-filter-btn" data-category="nature">🌲 Nature &amp; Parks</button>
+            <button class="nb-filter-btn" data-category="commute">🚗 Regional Commute</button>
+          </div>
+
+          <div class="nb-grid">
+            <div class="nb-item" data-category="schools">
+              <div class="nb-icon">🎓</div>
+              <div class="nb-info">
+                <div class="nb-title" style="color: #fff;">Chester Academy</div>
+                <div class="nb-desc" style="color: #94a3b8;">Grades K-8 &bull; 1.2 miles away</div>
+              </div>
+              <div class="school-score-badge">9/10</div>
+            </div>
+
+            <div class="nb-item" data-category="schools">
+              <div class="nb-icon">🏫</div>
+              <div class="nb-info">
+                <div class="nb-title" style="color: #fff;">Pinkerton Academy</div>
+                <div class="nb-desc" style="color: #94a3b8;">Grades 9-12 &bull; 6.5 miles away</div>
+              </div>
+              <div class="school-score-badge">8/10</div>
+            </div>
+
+            <div class="nb-item" data-category="nature">
+              <div class="nb-icon">🌲</div>
+              <div class="nb-info">
+                <div class="nb-title" style="color: #fff;">Raymond Town Forest</div>
+                <div class="nb-desc" style="color: #94a3b8;">Hiking Trails &bull; 3 mins (1.1 mi)</div>
+              </div>
+            </div>
+
+            <div class="nb-item" data-category="commute">
+              <div class="nb-icon">✈️</div>
+              <div class="nb-info">
+                <div class="nb-title" style="color: #fff;">Manchester-Boston Airport</div>
+                <div class="nb-desc" style="color: #94a3b8;">Airport &bull; 22 mins (16.4 mi)</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 6. Mortgage Estimator Component -->
+        <section class="section-card">
+          <h2 class="card-title" style="color: #fff;">Interactive Mortgage &amp; Payment Estimator</h2>
+          <div class="mortgage-calculator-box">
+            <div class="mortgage-grid">
+              <div class="mortgage-inputs">
+                <div class="mortgage-field">
+                  <label style="color: #94a3b8;">Home Purchase Price ($)</label>
+                  <input type="number" class="mortgage-price-input" value="849900" step="5000" />
+                </div>
+                <div class="mortgage-field">
+                  <label style="color: #94a3b8;">Down Payment (%)</label>
+                  <input type="number" class="mortgage-down-input" value="20" min="0" max="80" />
+                </div>
+                <div class="mortgage-field">
+                  <label style="color: #94a3b8;">Interest Rate (%)</label>
+                  <input type="number" class="mortgage-rate-input" value="6.5" step="0.1" />
+                </div>
+                <div class="mortgage-field">
+                  <label style="color: #94a3b8;">Loan Term</label>
+                  <select class="mortgage-term-select">
+                    <option value="30">30-Year Fixed</option>
+                    <option value="15">15-Year Fixed</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="mortgage-results" style="background: rgba(15, 23, 42, 0.8);">
+                <div>
+                  <div style="font-size: 0.85rem; font-weight: 700; color: #38bdf8; text-transform: uppercase;">ESTIMATED MONTHLY PAYMENT</div>
+                  <div class="mortgage-total-val" style="color: #38bdf8;">$4,297/mo</div>
+                  
+                  <div class="mortgage-bar-container" style="background: rgba(255,255,255,0.1);">
+                    <div class="mortgage-bar-segment bar-pi" style="width: 75%;"></div>
+                    <div class="mortgage-bar-segment bar-tax" style="width: 18%;"></div>
+                    <div class="mortgage-bar-segment bar-ins" style="width: 7%;"></div>
+                  </div>
+                </div>
+
+                <div class="mortgage-breakdown-list" style="color: #94a3b8;">
+                  <div class="mortgage-breakdown-item">
+                    <span><span class="legend-dot" style="background: #38bdf8;"></span>Principal &amp; Interest:</span>
+                    <strong class="mortgage-pi-val" style="color: #fff;">$4,297</strong>
+                  </div>
+                  <div class="mortgage-breakdown-item">
+                    <span><span class="legend-dot" style="background: #059669;"></span>Property Tax (Est.):</span>
+                    <strong class="mortgage-tax-val" style="color: #fff;">$850</strong>
+                  </div>
+                  <div class="mortgage-breakdown-item">
+                    <span><span class="legend-dot" style="background: #f59e0b;"></span>Insurance:</span>
+                    <strong class="mortgage-ins-val" style="color: #fff;">$212</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 7. Specifications & Facts Grid Component -->
         <section class="section-card">
           <h2 class="card-title" style="color: #fff;">Home Facts &amp; Specifications</h2>
           <div class="features-categories-grid">
@@ -398,7 +630,7 @@
           </div>
         </section>
 
-        <!-- 6. Price History Table Component -->
+        <!-- 8. Price History Table Component -->
         <section class="section-card">
           <h2 class="card-title" style="color: #fff;">Price &amp; Tax Assessment History</h2>
           <div class="history-table-wrap">
@@ -546,7 +778,23 @@
           </div>
         </section>
 
-        <!-- 5. Specifications & Facts Grid Component -->
+        <!-- 5. Neighborhood & Schools Component -->
+        <section class="section-card">
+          <h2 class="card-title">Neighborhood &amp; Local Amenities</h2>
+          <div class="nb-grid">
+            <div class="nb-item">
+              <div class="nb-icon">🎓</div>
+              <div class="nb-info"><div class="nb-title">Chester Academy (K-8)</div><div class="nb-desc">1.2 miles away</div></div>
+              <div class="school-score-badge">9/10</div>
+            </div>
+            <div class="nb-item">
+              <div class="nb-icon">🌲</div>
+              <div class="nb-info"><div class="nb-title">Raymond Town Forest</div><div class="nb-desc">3 mins</div></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 6. Specifications & Facts Grid Component -->
         <section class="section-card">
           <h2 class="card-title">Home Facts &amp; Specifications</h2>
           <div class="features-categories-grid">
@@ -581,7 +829,7 @@
           </div>
         </section>
 
-        <!-- 6. Price History Table Component -->
+        <!-- 7. Price History Table Component -->
         <section class="section-card">
           <h2 class="card-title">Price &amp; Tax Assessment History</h2>
           <div class="history-table-wrap">
@@ -1106,6 +1354,15 @@
             <label for="propPriceSlider">Target Listing Price:</label>
             <div class="calc-slider-val" id="priceDisplay">$849,900</div>
             <input type="range" id="propPriceSlider" min="200000" max="3000000" step="25000" value="849900" />
+
+            <div class="form-group" style="margin-top: 20px;">
+              <label for="customDomainInput" style="color: #fff; font-weight: 600;">Test Your Client's Custom Domain Name:</label>
+              <input type="text" id="customDomainInput" class="form-control" placeholder="e.g. 77exampleroad.com" style="background: #1e293b; color: #fff; border-color: rgba(255,255,255,0.2);" />
+            </div>
+            <div class="domain-preview-bar">
+              <span style="color: #94a3b8;">LIVE SITE URL PREVIEW:</span>
+              <span id="domainPreviewText">https://www.77exampleroad.com</span>
+            </div>
           </div>
 
           <div class="calc-results">
@@ -1154,6 +1411,12 @@
 
     </div>
   </section>
+
+  <!-- Mobile Floating Action Bar -->
+  <div class="mobile-action-bar">
+    <button class="btn-primary open-showing-modal" style="flex: 1; justify-content: center;">Schedule Showing</button>
+    <button class="btn-outline open-order-modal" style="flex: 1; justify-content: center; background: #ffffff;">Order Custom Site</button>
+  </div>
 
   <!-- Full Gallery Lightbox Modal -->
   <div class="lightbox-modal" id="lightboxModal">

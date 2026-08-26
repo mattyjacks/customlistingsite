@@ -8,6 +8,7 @@ import { initFloorplan } from './floorplan.js';
 import { initCalculator } from './calculator.js';
 import { initModals } from './modals.js';
 import { initStreetView } from './street-view.js';
+import { initNeighborhood } from './neighborhood.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('[App] Initializing Bespoke Custom Property Site Engine with Street View...');
@@ -17,4 +18,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initCalculator();
   initModals();
   initStreetView();
+  initNeighborhood();
 });

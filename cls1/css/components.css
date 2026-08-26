@@ -758,3 +758,233 @@
   border-radius: var(--radius-md);
   font-size: 0.9rem;
 }
+
+/* ==========================================================================
+   Modular Component: Interactive Mortgage & Monthly Payment Calculator
+   ========================================================================== */
+.mortgage-calculator-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-top: 16px;
+}
+
+.mortgage-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .mortgage-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mortgage-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.mortgage-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mortgage-field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.mortgage-field input,
+.mortgage-field select {
+  padding: 8px 12px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  background: var(--bg-page);
+  color: var(--text-main);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.mortgage-results {
+  background: var(--bg-page);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mortgage-total-val {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--primary-blue);
+  margin-bottom: 12px;
+}
+
+.mortgage-bar-container {
+  height: 10px;
+  width: 100%;
+  background: #e2e8f0;
+  border-radius: 999px;
+  overflow: hidden;
+  display: flex;
+  margin: 12px 0 16px;
+}
+
+.mortgage-bar-segment {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.bar-pi { background: #2563eb; }
+.bar-tax { background: #059669; }
+.bar-ins { background: #f59e0b; }
+
+.mortgage-breakdown-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.88rem;
+}
+
+.mortgage-breakdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+/* ==========================================================================
+   Modular Component: Neighborhood & School Ratings Showcase
+   ========================================================================== */
+.nb-filter-nav {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.nb-filter-btn {
+  background: transparent;
+  border: 1px solid var(--border-light);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.nb-filter-btn:hover,
+.nb-filter-btn.active {
+  background: var(--primary-blue);
+  color: #ffffff;
+  border-color: var(--primary-blue);
+}
+
+.nb-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.nb-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  background: var(--bg-page);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  transition: transform var(--transition-fast);
+}
+
+.nb-item:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary-blue);
+}
+
+.nb-icon {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+.nb-info {
+  flex-grow: 1;
+}
+
+.nb-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  margin-bottom: 2px;
+}
+
+.nb-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.school-score-badge {
+  background: #059669;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Realtor Custom Domain Live Preview Bar
+   ========================================================================== */
+.domain-preview-bar {
+  background: #090d16;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  padding: 12px 18px;
+  margin: 20px 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #64ffda;
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+
+/* Mobile Quick Action Floating Bar */
+.mobile-action-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(9, 13, 22, 0.95);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 12px 16px;
+  z-index: 1000;
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .mobile-action-bar {
+    display: flex;
+  }
+}
+

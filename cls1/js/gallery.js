@@ -4,10 +4,15 @@
 
 export const galleryItems = [
   { title: '77 Example Road Exterior & Private Lawn', category: 'EXTERIOR', src: 'images/hero.jpg' },
+  { title: 'Google Maps Satellite Property Pin & Boundaries', category: 'GOOGLE MAP', src: 'images/google_map.jpg' },
+  { title: 'Google Street View Roadside Camera Angle', category: 'STREET VIEW', src: 'images/street_view.jpg' },
   { title: 'Sun-Filled Living Area with Beam Ceilings', category: 'INTERIOR', src: 'images/living_room.jpg' },
   { title: 'Gourmet Kitchen with Quartz Waterfall Countertops', category: 'KITCHEN', src: 'images/kitchen.jpg' },
+  { title: 'Dining Room with Floor-to-Ceiling Forest Views', category: 'DINING', src: 'images/dining_room.jpg' },
   { title: 'Primary Suite Sanctuary & Spa Bath', category: 'BATHROOM', src: 'images/master_suite.jpg' },
-  { title: 'Aerial Estate View & Wooded Acreage', category: 'EXTERIOR', src: 'images/aerial.jpg' }
+  { title: 'Private Outdoor Patio & Stone Fireplace', category: 'EXTERIOR', src: 'images/patio_backyard.jpg' },
+  { title: 'Aerial Estate View & Wooded Acreage', category: 'EXTERIOR', src: 'images/aerial.jpg' },
+  { title: 'Architectural 2D Blueprint & Room Dimensions', category: 'FLOORPLAN', src: 'images/floorplan.jpg' }
 ];
 
 let currentGalleryIndex = 0;

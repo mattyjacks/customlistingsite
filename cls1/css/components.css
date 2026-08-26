@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Modular CSS: Components & Layout Flow Elements
+   Modular CSS: Components & Dual Split Google Maps / Street View Engine
    ========================================================================== */
 
 /* Main Listing Layout */
@@ -39,6 +39,138 @@
   color: var(--text-muted);
   font-size: 0.9rem;
   margin-bottom: 20px;
+}
+
+/* Zillow-Style Media View Switcher Bar */
+.media-switcher-nav {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  background: rgba(0, 0, 0, 0.04);
+  padding: 4px;
+  border-radius: var(--radius-md);
+  flex-wrap: wrap;
+}
+
+.media-tab-btn {
+  background: transparent;
+  border: none;
+  padding: 8px 18px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all var(--transition-fast);
+}
+
+.media-tab-btn:hover {
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.media-tab-btn.active {
+  background: #ffffff;
+  color: var(--primary-blue);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.media-view-panel {
+  display: none;
+}
+
+.media-view-panel.active {
+  display: block;
+}
+
+/* Dual Split Google Maps & Street View Layout */
+.dual-google-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  height: 480px;
+  background: #090d16;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+
+.dual-google-split.stacked-mode {
+  grid-template-columns: 1fr;
+  height: 800px;
+}
+
+@media (max-width: 768px) {
+  .dual-google-split {
+    grid-template-columns: 1fr;
+    height: 700px;
+  }
+}
+
+.google-panel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+}
+
+.google-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.google-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(9, 13, 22, 0.85);
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 700;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.google-controls {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background: rgba(9, 13, 22, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-sm);
+  padding: 6px;
+  display: flex;
+  gap: 6px;
+  z-index: 10;
+}
+
+.g-btn {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.g-btn:hover {
+  background: var(--primary-blue);
 }
 
 /* Template Flow Containers */

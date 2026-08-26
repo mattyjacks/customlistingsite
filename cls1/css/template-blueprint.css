@@ -1,0 +1,114 @@
+/* ==========================================================================
+   Template 6: Architectural Blueprint Floorplan Style
+   ========================================================================== */
+
+body.theme-blueprint {
+  --bg-page: #0a192f;
+  --bg-card: #112240;
+  --text-main: #e6f1ff;
+  --text-muted: #8892b0;
+  --text-dim: #a8b2d1;
+  --primary-blue: #64ffda;
+  --primary-blue-hover: #4cdbba;
+  --border-light: rgba(100, 255, 218, 0.2);
+  --border-hover: rgba(100, 255, 218, 0.5);
+  --font-heading: 'Inter', sans-serif;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+}
+
+body.theme-blueprint .site-header {
+  background: rgba(10, 25, 47, 0.95);
+  border-bottom: 2px dashed rgba(100, 255, 218, 0.3);
+}
+
+body.theme-blueprint .logo-text,
+body.theme-blueprint .nav-link {
+  color: #64ffda;
+  font-family: 'JetBrains Mono', monospace, sans-serif;
+}
+
+body.theme-blueprint h1,
+body.theme-blueprint h2,
+body.theme-blueprint h3,
+body.theme-blueprint .card-title,
+body.theme-blueprint .property-price {
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+}
+
+body.theme-blueprint .section-card {
+  background: #112240;
+  border: 1px dashed rgba(100, 255, 218, 0.3);
+  box-shadow: 0 10px 30px rgba(2, 12, 27, 0.7);
+  position: relative;
+}
+
+body.theme-blueprint .section-card::before {
+  content: 'ARCHITECTURAL PLAN // 77 EXAMPLE RD';
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 0.68rem;
+  color: rgba(100, 255, 218, 0.4);
+  font-family: monospace;
+  letter-spacing: 0.1em;
+}
+
+body.theme-blueprint .blueprint-img-stage {
+  background: #0a192f;
+  border: 2px solid #64ffda;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  text-align: center;
+  position: relative;
+}
+
+body.theme-blueprint .blueprint-img-stage img {
+  max-width: 100%;
+  border-radius: 4px;
+  filter: contrast(1.1) brightness(0.95);
+}
+
+body.theme-blueprint .btn-primary {
+  background: transparent;
+  color: #64ffda;
+  border: 1px solid #64ffda;
+  font-family: monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+body.theme-blueprint .btn-primary:hover {
+  background: rgba(100, 255, 218, 0.1);
+  box-shadow: 0 0 16px rgba(100, 255, 218, 0.3);
+}
+
+.blueprint-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.blueprint-spec-box {
+  background: rgba(100, 255, 218, 0.05);
+  border: 1px solid rgba(100, 255, 218, 0.2);
+  padding: 16px;
+  border-radius: 4px;
+}
+
+.blueprint-spec-box .val {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #64ffda;
+  font-family: monospace;
+}
+
+.blueprint-spec-box .lbl {
+  font-size: 0.75rem;
+  color: #8892b0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}

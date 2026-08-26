@@ -5,7 +5,7 @@
 export function initTemplateSwitcher() {
   const tplBtns = document.querySelectorAll('.tpl-btn');
   const body = document.body;
-  const templates = ['editorial', 'midnight', 'coastal', 'swiss', 'heritage'];
+  const templates = ['editorial', 'midnight', 'coastal', 'swiss', 'heritage', 'blueprint'];
 
   // Randomly select a theme on every page load/refresh
   const randomTemplate = templates[Math.floor(Math.random() * templates.length)];
@@ -21,7 +21,7 @@ export function initTemplateSwitcher() {
 
   function applyTemplate(templateName) {
     // 1. Remove all theme classes
-    body.classList.remove('theme-editorial', 'theme-midnight', 'theme-coastal', 'theme-swiss', 'theme-heritage');
+    body.classList.remove('theme-editorial', 'theme-midnight', 'theme-coastal', 'theme-swiss', 'theme-heritage', 'theme-blueprint');
     // Add active theme class
     body.classList.add(`theme-${templateName}`);
 
@@ -44,6 +44,6 @@ export function initTemplateSwitcher() {
       }
     });
 
-    console.log(`[Template Switcher] Randomly selected & applied template flow: theme-${templateName} / flow-${templateName}`);
+    console.log(`[Template Switcher] Applied template flow: theme-${templateName} / flow-${templateName}`);
   }
 }

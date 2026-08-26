@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>77 Example Road | Coastal Hamptons Resort Template</title>
+  <title>77 Example Road | Coastal Hamptons Tabbed Walkthrough</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -26,13 +26,34 @@
     </div>
   </header>
 
-  <main class="container" style="padding-top: 32px;">
-    <div class="hero-banner">
-      <div class="hero-overlay">
-        <h1>77 Example Road</h1>
-        <p style="font-size: 1.1rem; margin-bottom: 8px;">Chester, NH &bull; Coastal Navy &amp; Sandy Beige Vibe</p>
-        <div class="hero-price" style="font-size: 2.2rem; font-weight: 800; color: #fff;">$849,900</div>
-      </div>
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- Multi-Step Tabbed Virtual Walkthrough -->
+      <section class="section-card">
+        <h2 class="card-title">Virtual Resort Walkthrough</h2>
+        <div class="coastal-walkthrough-nav">
+          <button class="coastal-tab-btn active" data-panel="panel-grounds-standalone">🌲 1. Grounds &amp; Lawn</button>
+          <button class="coastal-tab-btn" data-panel="panel-living-standalone">🛋 2. Living &amp; Interior</button>
+        </div>
+
+        <div class="coastal-tab-panel active" id="panel-grounds-standalone">
+          <div>
+            <h3>2.5 Private Wooded Acres</h3>
+            <p style="color: #475569; margin: 12px 0 16px;">Enjoy pristine natural privacy with manicured walkways, expansive wooden entry bridge, and peaceful tree-lined views.</p>
+          </div>
+          <img src="images/hero.jpg" class="coastal-panel-img" alt="Grounds" />
+        </div>
+
+        <div class="coastal-tab-panel" id="panel-living-standalone">
+          <div>
+            <h3>Sun-Filled Open Concept Living</h3>
+            <p style="color: #475569; margin: 12px 0 16px;">Vaulted beam ceilings, premium hardwood flooring, and expansive window walls connecting indoor and outdoor environments.</p>
+          </div>
+          <img src="images/living_room.jpg" class="coastal-panel-img" alt="Living Room" />
+        </div>
+      </section>
+
     </div>
   </main>
 

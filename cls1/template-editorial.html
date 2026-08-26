@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>77 Example Road | Modern Editorial Luxury Template</title>
+  <title>77 Example Road | Modern Editorial Magazine Flow</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -20,29 +20,42 @@
       <nav class="main-nav">
         <ul>
           <li><a href="index.html">← Back to Switcher</a></li>
-          <li><a href="#overview" class="nav-link">Overview</a></li>
-          <li><a href="#photos" class="nav-link">Gallery</a></li>
         </ul>
       </nav>
       <button class="btn-primary open-showing-modal">Request Showing</button>
     </div>
   </header>
 
-  <main class="container" style="padding-top: 32px;">
-    <div class="hero-banner">
-      <div class="hero-overlay">
-        <h1>77 Example Road</h1>
-        <p style="font-size: 1.1rem; margin-bottom: 8px;">Chester, New Hampshire &bull; 2.5 Private Acres</p>
-        <div class="hero-price">$849,900</div>
-      </div>
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- Editorial Hero Splash Banner -->
+      <section class="editorial-hero-splash">
+        <div class="hero-overlay">
+          <span class="badge-tag" style="background: rgba(255,255,255,0.2); color: #fff; border: 1px solid rgba(255,255,255,0.3); width: fit-content;">EDITORIAL FEATURE</span>
+          <h1 style="font-size: 3.2rem; margin-bottom: 8px;">77 Example Road</h1>
+          <p style="font-size: 1.2rem; opacity: 0.9;">Chester, New Hampshire 03036 &bull; 2.5 Private Acres</p>
+          <div class="hero-price" style="font-size: 2.4rem; color: #fef3c7; font-weight: 700;">$849,900</div>
+        </div>
+      </section>
+
+      <!-- Narrative Article Flow -->
+      <section class="section-card">
+        <h2 class="card-title">The Residence Narrative</h2>
+        <div style="font-size: 1.1rem; line-height: 1.9; color: var(--text-muted);">
+          <p style="margin-bottom: 20px;">
+            Welcome to <strong>77 Example Road</strong> in desirable Chester, NH. Presented by <strong>Example Realty</strong>, this exquisite 4-bedroom, 3.5-bath residence combines modern architectural clarity with 2.5 acres of secluded natural surroundings.
+          </p>
+          <div class="editorial-story-quote">
+            "A masterpiece of light-filled open spaces, natural hardwoods, and serene tree-lined views."
+          </div>
+          <p>
+            The gourmet kitchen features custom cabinetry, quartz waterfall island, gas range, and butler's pantry, creating a harmonious environment for daily living and grand entertaining.
+          </p>
+        </div>
+      </section>
+
     </div>
-    
-    <section class="section-card" id="overview">
-      <h2 class="card-title">Architectural Editorial Summary</h2>
-      <p style="font-size: 1.1rem; line-height: 1.8;">
-        An exquisite sanctuary featuring Playfair Display typography, generous editorial spacing, and refined luxury finishings tailored for discerning buyers.
-      </p>
-    </section>
   </main>
 
   <script type="module" src="js/app.js"></script>

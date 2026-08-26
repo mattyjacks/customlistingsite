@@ -1,30 +1,41 @@
 /* ==========================================================================
-   Modular JS: Template Switcher Engine
+   Modular JS: Template Switcher & Dynamic Layout Flow Engine (Random On Refresh)
    ========================================================================== */
 
 export function initTemplateSwitcher() {
   const tplBtns = document.querySelectorAll('.tpl-btn');
   const body = document.body;
+  const templates = ['editorial', 'midnight', 'coastal', 'swiss', 'heritage'];
 
-  // Retrieve stored template or default to 'editorial'
-  const savedTemplate = localStorage.getItem('selected_property_template') || 'editorial';
-  applyTemplate(savedTemplate);
+  // Randomly select a theme on every page load/refresh
+  const randomTemplate = templates[Math.floor(Math.random() * templates.length)];
+  applyTemplate(randomTemplate);
 
+  // Allow manual switching via toolbar buttons
   tplBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const templateName = btn.dataset.template;
       applyTemplate(templateName);
-      localStorage.setItem('selected_property_template', templateName);
     });
   });
 
   function applyTemplate(templateName) {
-    // Remove all theme classes
+    // 1. Remove all theme classes
     body.classList.remove('theme-editorial', 'theme-midnight', 'theme-coastal', 'theme-swiss', 'theme-heritage');
     // Add active theme class
     body.classList.add(`theme-${templateName}`);
 
-    // Update active state on toolbar buttons
+    // 2. Toggle active layout flow container visibility
+    const flows = document.querySelectorAll('.template-flow');
+    flows.forEach(flow => {
+      if (flow.classList.contains(`flow-${templateName}`)) {
+        flow.style.display = 'block';
+      } else {
+        flow.style.display = 'none';
+      }
+    });
+
+    // 3. Update active state on toolbar buttons
     tplBtns.forEach(b => {
       if (b.dataset.template === templateName) {
         b.classList.add('active');
@@ -33,6 +44,6 @@ export function initTemplateSwitcher() {
       }
     });
 
-    console.log(`[Template Switcher] Applied template: theme-${templateName}`);
+    console.log(`[Template Switcher] Randomly selected & applied template flow: theme-${templateName} / flow-${templateName}`);
   }
 }

@@ -1,10 +1,11 @@
 /* ==========================================================================
-   Modular JS: Floorplan Hotspot Pins & Levels
+   Modular JS: Floorplan Hotspot Pins & Coastal Walkthrough Tabs
    ========================================================================== */
 
 import { galleryItems } from './gallery.js';
 
 export function initFloorplan() {
+  // 1. Interactive Floorplan Pins Logic
   const floorplanData = {
     main: [
       { top: '45%', left: '30%', label: 'Sun-Filled Living Area', img: 'images/living_room.jpg' },
@@ -21,34 +22,34 @@ export function initFloorplan() {
     ]
   };
 
-  const fpGraphic = document.getElementById('fpGraphic');
+  const fpGraphics = document.querySelectorAll('.fpGraphic');
   const fpTabs = document.querySelectorAll('.fp-tab-btn');
 
   function renderFloorplan(level) {
-    if (!fpGraphic) return;
-    fpGraphic.innerHTML = '';
-    
-    const pins = floorplanData[level] || [];
-    pins.forEach((pin, i) => {
-      const pinEl = document.createElement('div');
-      pinEl.className = 'fp-pin';
-      pinEl.style.top = pin.top;
-      pinEl.style.left = pin.left;
-      pinEl.textContent = i + 1;
-      pinEl.title = pin.label;
-      
-      pinEl.addEventListener('click', () => {
-        const lightboxModal = document.getElementById('lightboxModal');
-        const lightboxImg = document.getElementById('lightboxImg');
-        const lightboxCaption = document.getElementById('lightboxCaption');
-        if (lightboxModal && lightboxImg && lightboxCaption) {
-          lightboxImg.src = pin.img;
-          lightboxCaption.textContent = `Room Preview: ${pin.label}`;
-          lightboxModal.classList.add('active');
-        }
+    fpGraphics.forEach(fpGraphic => {
+      fpGraphic.innerHTML = '';
+      const pins = floorplanData[level] || [];
+      pins.forEach((pin, i) => {
+        const pinEl = document.createElement('div');
+        pinEl.className = 'fp-pin';
+        pinEl.style.top = pin.top;
+        pinEl.style.left = pin.left;
+        pinEl.textContent = i + 1;
+        pinEl.title = pin.label;
+        
+        pinEl.addEventListener('click', () => {
+          const lightboxModal = document.getElementById('lightboxModal');
+          const lightboxImg = document.getElementById('lightboxImg');
+          const lightboxCaption = document.getElementById('lightboxCaption');
+          if (lightboxModal && lightboxImg && lightboxCaption) {
+            lightboxImg.src = pin.img;
+            lightboxCaption.textContent = `Room Preview: ${pin.label}`;
+            lightboxModal.classList.add('active');
+          }
+        });
+        
+        fpGraphic.appendChild(pinEl);
       });
-      
-      fpGraphic.appendChild(pinEl);
     });
   }
 
@@ -61,4 +62,20 @@ export function initFloorplan() {
   });
 
   renderFloorplan('main');
+
+  // 2. Coastal Resort Walkthrough Tabs Engine
+  const coastalTabs = document.querySelectorAll('.coastal-tab-btn');
+  const coastalPanels = document.querySelectorAll('.coastal-tab-panel');
+
+  coastalTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const targetPanelId = tab.dataset.panel;
+      coastalTabs.forEach(t => t.classList.remove('active'));
+      coastalPanels.forEach(p => p.classList.remove('active'));
+
+      tab.classList.add('active');
+      const activePanel = document.getElementById(targetPanelId);
+      if (activePanel) activePanel.classList.add('active');
+    });
+  });
 }

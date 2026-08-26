@@ -20,24 +20,24 @@
   <div class="template-switcher-bar" id="templateSwitcherBar">
     <div class="container switcher-container">
       <div class="switcher-left">
-        <span class="switcher-badge">DESIGN TEMPLATE SWITCHER</span>
-        <span class="switcher-title">Select a bespoke custom property website style:</span>
+        <span class="switcher-badge">BESPOKE FLOW SWITCHER</span>
+        <span class="switcher-title">Select a template style (Each features a unique layout flow):</span>
       </div>
       <div class="template-buttons" id="templateBtnGroup">
         <button class="tpl-btn active" data-template="editorial">
-          <span class="tpl-icon">🏛</span> Modern Editorial
+          <span class="tpl-icon">🏛</span> 1. Magazine Story
         </button>
         <button class="tpl-btn" data-template="midnight">
-          <span class="tpl-icon">🌙</span> Midnight Luxury
+          <span class="tpl-icon">🌙</span> 2. Dark Dashboard
         </button>
         <button class="tpl-btn" data-template="coastal">
-          <span class="tpl-icon">🌊</span> Coastal Hamptons
+          <span class="tpl-icon">🌊</span> 3. Tabbed Walkthrough
         </button>
         <button class="tpl-btn" data-template="swiss">
-          <span class="tpl-icon">📐</span> Swiss Modernist
+          <span class="tpl-icon">📐</span> 4. Asymmetrical Grid
         </button>
         <button class="tpl-btn" data-template="heritage">
-          <span class="tpl-icon">🏰</span> Executive Manor
+          <span class="tpl-icon">🏰</span> 5. Gold Manor Estate
         </button>
       </div>
     </div>
@@ -48,7 +48,7 @@
     <div class="container header-container">
       <div class="header-left">
         <a href="#" class="brand-logo" title="77 Example Road">
-          <span class="property-tag">BESPOKE RESIDENCE SHOWCASE</span>
+          <span class="property-tag">EXCLUSIVE RESIDENCE</span>
           <span class="logo-text">77 Example Road</span>
         </a>
       </div>
@@ -58,7 +58,6 @@
           <li><a href="#hero" class="nav-link active">Home</a></li>
           <li><a href="#overview" class="nav-link">Overview</a></li>
           <li><a href="#photos" class="nav-link">Gallery</a></li>
-          <li><a href="#features" class="nav-link">Features</a></li>
           <li><a href="#floorplan" class="nav-link">Floorplan</a></li>
           <li><a href="#mattyjacks-showcase" class="nav-link highlight-link">Get A Site Like This</a></li>
         </ul>
@@ -72,237 +71,355 @@
     </div>
   </header>
 
-  <!-- MAIN BESPOKE HOME SHOWCASE CONTENT -->
-  <main class="main-content">
-    <div class="container">
-
-      <!-- Dynamic Hero Banner Splash -->
-      <section class="hero-banner" id="hero">
-        <div class="hero-img-col"></div>
-        <div class="hero-overlay hero-text-col">
-          <span class="badge-tag" style="background: rgba(255,255,255,0.2); color: #fff; border: 1px solid rgba(255,255,255,0.3); max-width: fit-content;">EXCLUSIVE CHESTER LISTING</span>
-          <h1>77 Example Road</h1>
-          <p style="font-size: 1.1rem; opacity: 0.9; margin-bottom: 12px;">Chester, New Hampshire 03036 &bull; 2.5 Private Acres</p>
-          <div class="hero-price">$849,900</div>
-        </div>
-      </section>
-
-      <!-- 2-Column Detail Layout -->
-      <div class="listing-detail-layout">
+  <!-- ==========================================================================
+       TEMPLATE FLOW 1: MODERN EDITORIAL (ARCHITECTURAL DIGEST MAGAZINE FLOW)
+       ========================================================================== -->
+  <div class="template-flow flow-editorial">
+    <main class="main-content">
+      <div class="container">
         
-        <!-- Left Column: Primary Property Narrative & Details -->
-        <div class="listing-main-col">
-          
-          <!-- Key Specs Pill Box -->
-          <div class="section-card" id="overview">
-            <h2 class="card-title">Property Highlights</h2>
-            <div class="quick-facts-grid" style="margin-top: 0;">
-              <div class="fact-box">
-                <span class="fact-icon">🛏</span>
-                <div>
-                  <div class="fact-label">Bedrooms</div>
-                  <div class="fact-val">4 Beds</div>
-                </div>
-              </div>
-              <div class="fact-box">
-                <span class="fact-icon">🛁</span>
-                <div>
-                  <div class="fact-label">Bathrooms</div>
-                  <div class="fact-val">3.5 Baths</div>
-                </div>
-              </div>
-              <div class="fact-box">
-                <span class="fact-icon">📐</span>
-                <div>
-                  <div class="fact-label">Living Area</div>
-                  <div class="fact-val">3,850 Sq Ft</div>
-                </div>
-              </div>
-              <div class="fact-box">
-                <span class="fact-icon">🌲</span>
-                <div>
-                  <div class="fact-label">Lot Size</div>
-                  <div class="fact-val">2.5 Acres</div>
-                </div>
-              </div>
+        <!-- Editorial Hero Splash Banner -->
+        <section class="editorial-hero-splash" id="hero">
+          <div class="hero-overlay">
+            <span class="badge-tag" style="background: rgba(255,255,255,0.2); color: #fff; border: 1px solid rgba(255,255,255,0.3); width: fit-content;">EDITORIAL FEATURE</span>
+            <h1 style="font-size: 3.2rem; margin-bottom: 8px;">77 Example Road</h1>
+            <p style="font-size: 1.2rem; opacity: 0.9;">Chester, New Hampshire 03036 &bull; 2.5 Private Acres</p>
+            <div class="hero-price" style="font-size: 2.4rem; color: #fef3c7; font-weight: 700;">$849,900</div>
+          </div>
+        </section>
+
+        <!-- Narrative Article Flow -->
+        <section class="section-card" id="overview">
+          <h2 class="card-title">The Residence Narrative</h2>
+          <div style="font-size: 1.1rem; line-height: 1.9; color: var(--text-muted);">
+            <p style="margin-bottom: 20px;">
+              Welcome to <strong>77 Example Road</strong> in desirable Chester, NH. Presented by <strong>Example Realty</strong>, this exquisite 4-bedroom, 3.5-bath residence combines modern architectural clarity with 2.5 acres of secluded natural surroundings.
+            </p>
+            <div class="editorial-story-quote">
+              "A masterpiece of light-filled open spaces, natural hardwoods, and serene tree-lined views."
+            </div>
+            <p>
+              The gourmet kitchen features custom cabinetry, quartz waterfall island, gas range, and butler's pantry, creating a harmonious environment for daily living and grand entertaining.
+            </p>
+          </div>
+        </section>
+
+        <!-- Editorial Split Photo Showcase -->
+        <section class="section-card" id="photos">
+          <h2 class="card-title">Architectural Photography</h2>
+          <div class="photo-collage-grid">
+            <div class="collage-item hero-photo" data-index="0">
+              <img src="images/hero.jpg" alt="Main Exterior" />
+              <span class="photo-badge">Main Frontage</span>
+            </div>
+            <div class="collage-item" data-index="1">
+              <img src="images/living_room.jpg" alt="Living Room" />
+            </div>
+            <div class="collage-item" data-index="2">
+              <img src="images/kitchen.jpg" alt="Kitchen" />
+            </div>
+            <div class="collage-item" data-index="3">
+              <img src="images/master_suite.jpg" alt="Master Suite" />
+            </div>
+            <div class="collage-item" data-index="4">
+              <img src="images/aerial.jpg" alt="Aerial View" />
+              <button class="view-all-photos-btn" id="openGalleryBtn">View Gallery ➔</button>
             </div>
           </div>
+        </section>
 
-          <!-- Narrative Description ("About This Home") -->
-          <section class="section-card">
-            <h2 class="card-title">Architectural Narrative</h2>
-            <div style="font-size: 1.05rem; line-height: 1.8; color: var(--text-muted);">
-              <p style="margin-bottom: 16px;">
-                Welcome to <strong>77 Example Road</strong> in desirable Chester, NH! Presented by <strong>Example Realty</strong>, this exquisite 4-bedroom, 3.5-bath residence offers modern architectural elegance on 2.5 private acres.
-              </p>
-              <p style="margin-bottom: 16px;">
-                The home features a functional open-concept layout with light-filled living space, vaulted beam ceilings, and premium hardwood flooring. The gourmet kitchen is outfitted with custom cabinetry, quartz waterfall island, gas range, and butler's pantry.
-              </p>
-              <p>
-                Enjoy peaceful wooded surroundings with expansive outdoor patio, 2-car garage, and top-tier Rockingham County school district access.
-              </p>
+        <!-- Minimalist Specs Ribbon -->
+        <section class="section-card">
+          <h2 class="card-title">Residence Summary</h2>
+          <div class="quick-facts-grid">
+            <div class="fact-box">
+              <span class="fact-icon">🛏</span>
+              <div><div class="fact-label">Bedrooms</div><div class="fact-val">4 Beds</div></div>
             </div>
-          </section>
-
-          <!-- Photo Gallery Grid -->
-          <section class="section-card" id="photos">
-            <h2 class="card-title">Photography Showcase</h2>
-            <p class="card-subtitle">Click any image to launch the full-screen high-res gallery lightbox.</p>
-            
-            <div class="photo-collage-grid">
-              <div class="collage-item hero-photo" data-index="0">
-                <img src="images/hero.jpg" alt="77 Example Road Main Exterior" />
-                <span class="photo-badge">Main Residence Exterior</span>
-              </div>
-              <div class="collage-item" data-index="1">
-                <img src="images/living_room.jpg" alt="Living Room" />
-              </div>
-              <div class="collage-item" data-index="2">
-                <img src="images/kitchen.jpg" alt="Gourmet Kitchen" />
-              </div>
-              <div class="collage-item" data-index="3">
-                <img src="images/master_suite.jpg" alt="Master Bath" />
-              </div>
-              <div class="collage-item" data-index="4">
-                <img src="images/aerial.jpg" alt="Aerial Lot View" />
-                <button class="view-all-photos-btn" id="openGalleryBtn">
-                  View All 5 Photos ➔
-                </button>
-              </div>
+            <div class="fact-box">
+              <span class="fact-icon">🛁</span>
+              <div><div class="fact-label">Bathrooms</div><div class="fact-val">3.5 Baths</div></div>
             </div>
-          </section>
-
-          <!-- Expandable Facts & Features -->
-          <section class="section-card" id="features">
-            <h2 class="card-title">Residence Specifications</h2>
-            
-            <div class="features-categories-grid">
-              <div class="feature-category-card">
-                <h3>Interior Finishings</h3>
-                <ul>
-                  <li><strong>Bedrooms:</strong> 4 Bedrooms</li>
-                  <li><strong>Bathrooms:</strong> 3 Full, 1 Half Bath</li>
-                  <li><strong>Flooring:</strong> Hardwood &amp; Natural Stone Tile</li>
-                  <li><strong>Heating:</strong> Baseboard Electric / Forced Air</li>
-                  <li><strong>Cooling:</strong> Central Air Conditioning</li>
-                </ul>
-              </div>
-
-              <div class="feature-category-card">
-                <h3>Gourmet Kitchen</h3>
-                <ul>
-                  <li><strong>Cabinetry:</strong> Custom Slate-Blue Hardwood</li>
-                  <li><strong>Countertops:</strong> Blue Mosaic &amp; Quartz</li>
-                  <li><strong>Appliances:</strong> Stainless Steel Gas Range</li>
-                  <li><strong>Sink:</strong> Stainless Steel Double Basin</li>
-                </ul>
-              </div>
-
-              <div class="feature-category-card">
-                <h3>Grounds &amp; Structure</h3>
-                <ul>
-                  <li><strong>Construction:</strong> Vertical Wood Siding</li>
-                  <li><strong>Lot Size:</strong> 2.5 Private Acres</li>
-                  <li><strong>Parking:</strong> 2-Car Garage + Driveway</li>
-                  <li><strong>Utilities:</strong> Private Well &amp; Septic</li>
-                </ul>
-              </div>
+            <div class="fact-box">
+              <span class="fact-icon">📐</span>
+              <div><div class="fact-label">Area</div><div class="fact-val">3,850 Sq Ft</div></div>
             </div>
-          </section>
-
-          <!-- Interactive Floor Plan & Hotspots -->
-          <section class="section-card" id="floorplan">
-            <h2 class="card-title">Interactive Floorplan &amp; Hotspots</h2>
-            <p class="card-subtitle">Select a level and click any pin to inspect room preview shots.</p>
-
-            <div class="floorplan-container">
-              <div class="floorplan-tabs">
-                <button class="fp-tab-btn active" data-level="main">Main Level</button>
-                <button class="fp-tab-btn" data-level="upper">Upper Bedroom Level</button>
-                <button class="fp-tab-btn" data-level="grounds">Exterior &amp; Grounds</button>
-              </div>
-
-              <div class="floorplan-stage">
-                <div class="floorplan-graphic" id="fpGraphic"></div>
-              </div>
-            </div>
-          </section>
-
-          <!-- Price & Tax History -->
-          <section class="section-card">
-            <h2 class="card-title">Price &amp; Market History</h2>
-            <div class="history-table-wrap">
-              <table class="data-table">
-                <thead>
-                  <tr>
-                    <th>Date</th>
-                    <th>Event</th>
-                    <th>Price</th>
-                    <th>Price/SqFt</th>
-                    <th>Source</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Aug 22, 2026</td>
-                    <td><span class="event-badge listed">Listed for Sale</span></td>
-                    <td><strong>$849,900</strong></td>
-                    <td>$220</td>
-                    <td>Rockingham MLS</td>
-                  </tr>
-                  <tr>
-                    <td>May 14, 2021</td>
-                    <td><span class="event-badge sold">Sold</span></td>
-                    <td>$615,000</td>
-                    <td>$160</td>
-                    <td>Public Records</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </section>
-
-        </div>
-
-        <!-- Right Column: Sticky Bespoke Showing Sidebar -->
-        <aside class="listing-sidebar">
-          <div class="sidebar-widget-card">
-            <div class="widget-header">
-              <h3>Schedule Showing</h3>
-              <p>Arrange a private tour with Example Realty</p>
-            </div>
-
-            <div class="agent-profile-row">
-              <div class="agent-avatar">ER</div>
-              <div class="agent-details">
-                <div class="agent-name">Example Realty Agent</div>
-                <div class="agent-title">Listing Representative</div>
-              </div>
-            </div>
-
-            <button class="btn-primary open-showing-modal" style="width: 100%; justify-content: center; margin-bottom: 12px;">
-              Request Private Tour
-            </button>
-            
-            <div style="font-size: 0.82rem; color: var(--text-dim); text-align: center;">
-              Direct Phone: <strong>(603) 555-0199</strong><br/>
-              Email: <strong>info@examplerealty.com</strong>
+            <div class="fact-box">
+              <span class="fact-icon">🌲</span>
+              <div><div class="fact-label">Lot</div><div class="fact-val">2.5 Acres</div></div>
             </div>
           </div>
-        </aside>
+        </section>
 
       </div>
+    </main>
+  </div>
 
-    </div>
-  </main>
+  <!-- ==========================================================================
+       TEMPLATE FLOW 2: MIDNIGHT DARK LUXURY (INTERACTIVE DASHBOARD FLOW)
+       ========================================================================== -->
+  <div class="template-flow flow-midnight">
+    <main class="main-content">
+      <div class="container">
+        
+        <!-- Sticky Glassmorphic Metric Ribbon -->
+        <div class="midnight-metric-ribbon">
+          <div class="midnight-metric-card">
+            <div class="midnight-metric-val">$849,900</div>
+            <div class="midnight-metric-lbl">Listing Price</div>
+          </div>
+          <div class="midnight-metric-card">
+            <div class="midnight-metric-val">4 Beds</div>
+            <div class="midnight-metric-lbl">Bedrooms</div>
+          </div>
+          <div class="midnight-metric-card">
+            <div class="midnight-metric-val">3.5 Baths</div>
+            <div class="midnight-metric-lbl">Bathrooms</div>
+          </div>
+          <div class="midnight-metric-card">
+            <div class="midnight-metric-val">3,850</div>
+            <div class="midnight-metric-lbl">Sq Footage</div>
+          </div>
+          <div class="midnight-metric-card">
+            <div class="midnight-metric-val">2.5 Ac</div>
+            <div class="midnight-metric-lbl">Private Acres</div>
+          </div>
+        </div>
 
-  <!-- BOTTOM REALTOR SHOWCASE & SALES PITCH SECTION ("We Can Build A Website For You") -->
+        <!-- 2-Column Dark Control Dashboard -->
+        <div class="listing-detail-layout">
+          
+          <div class="listing-main-col">
+            <!-- Dark Interactive Room Hotspots Stage -->
+            <section class="section-card" id="floorplan">
+              <h2 class="card-title" style="color: #fff;">Interactive Dark Room Hotspots</h2>
+              <p class="card-subtitle" style="color: #94a3b8;">Click pins to inspect high-res room previews.</p>
+
+              <div class="floorplan-container">
+                <div class="floorplan-tabs">
+                  <button class="fp-tab-btn active" data-level="main">Main Level</button>
+                  <button class="fp-tab-btn" data-level="upper">Upper Level</button>
+                  <button class="fp-tab-btn" data-level="grounds">Grounds</button>
+                </div>
+                <div class="floorplan-stage">
+                  <div class="floorplan-graphic fpGraphic"></div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Dark Specifications Table -->
+            <section class="section-card">
+              <h2 class="card-title" style="color: #fff;">Technical Specifications</h2>
+              <div class="history-table-wrap">
+                <table class="data-table">
+                  <thead>
+                    <tr><th>Feature</th><th>Specification</th><th>Details</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Architecture</td><td>Single Family Residence</td><td>2022 Custom Construction</td></tr>
+                    <tr><td>Interior</td><td>3,850 Sq Ft</td><td>Vaulted Beams, Quartz Island</td></tr>
+                    <tr><td>Heating/Cooling</td><td>Forced Air / Central AC</td><td>Multi-zone climate control</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </div>
+
+          <!-- Sticky Dark Sidebar -->
+          <aside class="listing-sidebar">
+            <div class="sidebar-widget-card">
+              <div class="widget-header">
+                <h3 style="color: #fff;">Direct Representative</h3>
+                <p style="color: #94a3b8;">Example Realty Direct Desk</p>
+              </div>
+              <button class="btn-primary open-showing-modal" style="width: 100%; justify-content: center;">
+                Request Private Showing
+              </button>
+            </div>
+          </aside>
+
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- ==========================================================================
+       TEMPLATE FLOW 3: COASTAL HAMPTONS RESORT (TABBED WALKTHROUGH FLOW)
+       ========================================================================== -->
+  <div class="template-flow flow-coastal">
+    <main class="main-content">
+      <div class="container">
+        
+        <!-- Coastal Resort Header Splash -->
+        <section class="section-card text-center" style="background: #ffffff; border: 1px solid #e0f2fe;">
+          <span class="badge-tag" style="background: #e0f2fe; color: #0284c7;">COASTAL RESORT ESTATE</span>
+          <h1 style="font-size: 2.8rem; color: #0f172a; margin: 8px 0;">77 Example Road</h1>
+          <p style="color: #475569; font-size: 1.1rem; margin-bottom: 16px;">Chester, New Hampshire &bull; 2.5 Private Wooded Acres</p>
+          <div style="font-size: 2rem; font-weight: 800; color: #0284c7;">$849,900</div>
+        </section>
+
+        <!-- Multi-Step Tabbed Virtual Walkthrough -->
+        <section class="section-card">
+          <h2 class="card-title">Virtual Resort Walkthrough</h2>
+          <p class="card-subtitle">Select a area below to explore room highlights and features.</p>
+
+          <div class="coastal-walkthrough-nav">
+            <button class="coastal-tab-btn active" data-panel="panel-grounds">🌲 1. Grounds &amp; Lawn</button>
+            <button class="coastal-tab-btn" data-panel="panel-living">🛋 2. Living &amp; Interior</button>
+            <button class="coastal-tab-btn" data-panel="panel-kitchen">🍳 3. Chef's Kitchen</button>
+            <button class="coastal-tab-btn" data-panel="panel-suite">🛏 4. Master Suite</button>
+          </div>
+
+          <!-- Walkthrough Panels -->
+          <div class="coastal-tab-panel active" id="panel-grounds">
+            <div>
+              <h3>2.5 Private Wooded Acres</h3>
+              <p style="color: #475569; margin: 12px 0 16px;">Enjoy pristine natural privacy with manicured walkways, expansive wooden entry bridge, and peaceful tree-lined views.</p>
+              <ul style="list-style: disc; margin-left: 20px; color: #0f172a;">
+                <li>2-Car attached garage with asphalt driveway</li>
+                <li>Rockingham County quiet surroundings</li>
+              </ul>
+            </div>
+            <img src="images/hero.jpg" class="coastal-panel-img" alt="Grounds" />
+          </div>
+
+          <div class="coastal-tab-panel" id="panel-living">
+            <div>
+              <h3>Sun-Filled Open Concept Living</h3>
+              <p style="color: #475569; margin: 12px 0 16px;">Vaulted beam ceilings, premium hardwood flooring, and expansive window walls connecting indoor and outdoor environments.</p>
+            </div>
+            <img src="images/living_room.jpg" class="coastal-panel-img" alt="Living Room" />
+          </div>
+
+          <div class="coastal-tab-panel" id="panel-kitchen">
+            <div>
+              <h3>Gourmet Chef's Kitchen</h3>
+              <p style="color: #475569; margin: 12px 0 16px;">Custom slate-blue cabinetry, quartz waterfall island, gas range, double basin stainless sink, and walk-in butler's pantry.</p>
+            </div>
+            <img src="images/kitchen.jpg" class="coastal-panel-img" alt="Kitchen" />
+          </div>
+
+          <div class="coastal-tab-panel" id="panel-suite">
+            <div>
+              <h3>Primary Suite &amp; Spa Bath</h3>
+              <p style="color: #475569; margin: 12px 0 16px;">Restful master sanctuary with walk-in closet space and dual-vanity bathroom finishings.</p>
+            </div>
+            <img src="images/master_suite.jpg" class="coastal-panel-img" alt="Master Suite" />
+          </div>
+
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- ==========================================================================
+       TEMPLATE FLOW 4: SWISS CONTEMPORARY MODERNIST (ASYMMETRICAL GRID FLOW)
+       ========================================================================== -->
+  <div class="template-flow flow-swiss">
+    <main class="main-content">
+      <div class="container">
+        
+        <!-- Giant 72px Title Header -->
+        <div class="swiss-header-hero">
+          <span style="font-weight: 800; color: #e11d48; text-transform: uppercase; letter-spacing: 0.1em;">CONTEMPORARY RESIDENCE SHOWCASE</span>
+          <h1 class="swiss-giant-title">77 EXAMPLE ROAD</h1>
+        </div>
+
+        <!-- 50/50 Asymmetrical Split Hero -->
+        <div class="swiss-asymmetric-grid">
+          <div class="swiss-hero-left"></div>
+          <div class="swiss-hero-right">
+            <div>
+              <div style="font-size: 0.9rem; font-weight: 800; color: #71717a; text-transform: uppercase;">OFFERED AT</div>
+              <div class="swiss-metric-big">$849,900</div>
+            </div>
+            <div style="margin-top: 24px; font-weight: 700; line-height: 1.6;">
+              CHESTER, NEW HAMPSHIRE &bull; 4 BEDS &bull; 3.5 BATHS &bull; 3,850 SQFT
+            </div>
+            <button class="btn-primary open-showing-modal" style="margin-top: 24px;">BOOK SHOWING ➔</button>
+          </div>
+        </div>
+
+        <!-- 3-Column Brutalist Feature Grid -->
+        <div class="swiss-brutalist-cards">
+          <div class="swiss-card">
+            <h3 style="font-size: 1.4rem; font-weight: 900; margin-bottom: 8px;">01 / ARCHITECTURE</h3>
+            <p>Vaulted beam ceilings, open-concept floor plan, hardwood vinyl flooring, and 2.5 acres of secluded wooded lot.</p>
+          </div>
+          <div class="swiss-card">
+            <h3 style="font-size: 1.4rem; font-weight: 900; margin-bottom: 8px;">02 / KITCHEN</h3>
+            <p>Custom slate-blue cabinetry, quartz waterfall island, gas range, double basin stainless sink, butler's pantry.</p>
+          </div>
+          <div class="swiss-card">
+            <h3 style="font-size: 1.4rem; font-weight: 900; margin-bottom: 8px;">03 / GROUNDS</h3>
+            <p>2-car attached garage, asphalt parking, quiet Rockingham County neighborhood with top-tier public school access.</p>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- ==========================================================================
+       TEMPLATE FLOW 5: EXECUTIVE MANOR (GOLD-FRAMED ESTATE COLLECTION FLOW)
+       ========================================================================== -->
+  <div class="template-flow flow-heritage">
+    <main class="main-content">
+      <div class="container">
+        
+        <!-- Gold-Framed Crest Hero -->
+        <div class="heritage-framed-card text-center" style="border-width: 4px;">
+          <div style="font-size: 2rem; color: #d97706; margin-bottom: 8px;">🏰</div>
+          <span class="property-tag" style="color: #d97706; font-size: 0.85rem;">EXECUTIVE MANOR ESTATE COLLECTION</span>
+          <h1 style="font-size: 3rem; color: #064e3b; margin: 12px 0;">77 Example Road</h1>
+          <p style="color: #334155; font-size: 1.1rem; max-width: 600px; margin: 0 auto 20px;">
+            A distinguished Chester residence offering 3,850 square feet of refined architectural craft on 2.5 private acres.
+          </p>
+          <div style="font-size: 2.4rem; font-weight: 800; color: #d97706;">$849,900</div>
+        </div>
+
+        <!-- 2-Column Framed Layout -->
+        <div class="listing-detail-layout">
+          <div class="listing-main-col">
+            <div class="heritage-framed-card">
+              <h2 class="card-title">Deed &amp; Market History Timeline</h2>
+              <ul class="heritage-timeline">
+                <li>
+                  <strong>August 22, 2026:</strong> Listed for Sale at $849,900 (Rockingham MLS)
+                </li>
+                <li>
+                  <strong>May 14, 2021:</strong> Transferred &amp; Recorded Sold for $615,000
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <aside class="listing-sidebar">
+            <div class="heritage-framed-card text-center" style="padding: 24px;">
+              <h3 style="color: #064e3b; margin-bottom: 8px;">Formal Representative</h3>
+              <p style="color: #475569; font-size: 0.9rem; margin-bottom: 16px;">Example Realty Executive Desk</p>
+              <button class="btn-primary open-showing-modal" style="width: 100%; justify-content: center;">
+                Request Private Showing
+              </button>
+            </div>
+          </aside>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- ==========================================================================
+       BOTTOM REALTOR SHOWCASE & SALES PITCH SECTION ("We Can Build A Website For You")
+       ========================================================================== -->
   <section class="realtor-bottom-showcase" id="mattyjacks-showcase">
     <div class="container">
       
       <div class="showcase-header">
         <span class="showcase-tag">MattyJacks.com Platform</span>
-        <h2 class="showcase-title">Want A Custom Bespoke Website For Your Home Listing?</h2>
+        <h2 class="showcase-title">Want A Bespoke Website For Your Home Listing?</h2>
         <p class="showcase-subtitle">
           Stand out from generic Zillow &amp; MLS listings with a dedicated single-property domain tailored specifically for your seller's property.
         </p>
@@ -452,7 +569,7 @@
     </div>
   </footer>
 
-  <!-- Modular JavaScript Engine -->
+  <!-- Master JavaScript Engine -->
   <script type="module" src="js/app.js"></script>
 </body>
 </html>

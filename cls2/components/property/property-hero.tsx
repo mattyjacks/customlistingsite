@@ -105,8 +105,8 @@ export function PropertyHero({
             {customHeadline || PROPERTY_DATA.headline}
           </h1>
 
-          <p className="text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed drop-shadow">
-            {PROPERTY_DATA.tagline}
+          <p className="text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed drop-shadow line-clamp-3">
+            {PROPERTY_DATA.description}
           </p>
         </div>
 

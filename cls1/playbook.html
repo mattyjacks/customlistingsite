@@ -1,30 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MattyJacks Cold Calling Playbook & Sales Psychology Hub</title>
+  <title>MattyJacks Cold Calling Playbook and Sales Psychology Hub</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="css/playbook.css" />
 </head>
+
 <body class="playbook-page">
 
   <!-- Optional Passcode Lock Gate -->
-  <div class="gate-container" id="gateContainer" style="display: none; min-height: 100vh; align-items: center; justify-content: center; padding: 24px;">
-    <div style="background: #1e293b; border: 1px solid #a855f7; border-radius: 16px; padding: 40px; max-width: 440px; width: 100%; text-align: center; box-shadow: 0 25px 50px rgba(0,0,0,0.8);">
+  <div class="gate-container" id="gateContainer"
+    style="display: none; min-height: 100vh; align-items: center; justify-content: center; padding: 24px;">
+    <div
+      style="background: #1e293b; border: 1px solid #a855f7; border-radius: 16px; padding: 40px; max-width: 440px; width: 100%; text-align: center; box-shadow: 0 25px 50px rgba(0,0,0,0.8);">
       <div style="font-size: 2.5rem; margin-bottom: 16px;">🔒</div>
-      <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.6rem; color: #fff; margin-bottom: 8px;">Restricted Playbook HQ</h2>
-      <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 24px;">Enter team password to unlock cold calling assistant</p>
-      <div id="gateError" style="color: #f87171; background: rgba(239, 68, 68, 0.15); border: 1px solid #ef4444; padding: 10px; border-radius: 6px; font-size: 0.85rem; margin-bottom: 16px; display: none;">Invalid password. Please try again.</div>
+      <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.6rem; color: #fff; margin-bottom: 8px;">Restricted
+        Playbook HQ</h2>
+      <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 24px;">Enter team password to unlock cold calling
+        assistant</p>
+      <div id="gateError"
+        style="color: #f87171; background: rgba(239, 68, 68, 0.15); border: 1px solid #ef4444; padding: 10px; border-radius: 6px; font-size: 0.85rem; margin-bottom: 16px; display: none;">
+        Invalid password. Please try again.</div>
       <form id="gateForm">
         <div style="text-align: left; margin-bottom: 16px;">
-          <label style="font-size: 0.8rem; color: #f59e0b; font-weight: 800; display: block; margin-bottom: 6px;" for="passInput">Master Password</label>
-          <input type="password" id="passInput" style="width: 100%; padding: 12px; background: #0f172a; border: 1px solid #475569; border-radius: 6px; color: #fff; box-sizing: border-box;" placeholder="••••••••" required />
+          <label style="font-size: 0.8rem; color: #f59e0b; font-weight: 800; display: block; margin-bottom: 6px;"
+            for="passInput">Master Password</label>
+          <input type="password" id="passInput"
+            style="width: 100%; padding: 12px; background: #0f172a; border: 1px solid #475569; border-radius: 6px; color: #fff; box-sizing: border-box;"
+            placeholder="••••••••" required />
         </div>
-        <button type="submit" style="width: 100%; padding: 12px; background: linear-gradient(135deg, #f59e0b, #d97706); border: none; border-radius: 6px; color: #0b0f19; font-weight: 800; font-size: 1rem; cursor: pointer;">
+        <button type="submit"
+          style="width: 100%; padding: 12px; background: linear-gradient(135deg, #f59e0b, #d97706); border: none; border-radius: 6px; color: #0b0f19; font-weight: 800; font-size: 1rem; cursor: pointer;">
           Unlock Playbook & Decision Tree
         </button>
       </form>
@@ -33,7 +47,7 @@
 
   <!-- Unlocked Playbook & Sales Psychology Hub -->
   <div id="playbookWrapper">
-    
+
     <!-- Navigation Header -->
     <header class="pb-header">
       <div class="playbook-container">
@@ -42,7 +56,7 @@
             <span>MattyJacks Cold Call HQ</span>
             <span class="pb-badge">Authentic Partner v3.0</span>
           </div>
-          
+
           <div class="pb-tabs">
             <button class="pb-tab-btn active" id="tabTreeMode">⚡ Real-Time Decision Tree</button>
             <button class="pb-tab-btn" id="tabStaticMode">📖 Full Script Playbook</button>
@@ -63,7 +77,7 @@
 
       <!-- TAB 1: REAL-TIME DECISION TREE -->
       <div id="treeTab" class="pb-tab-pane active">
-        
+
         <!-- Live Call Setup Controls -->
         <div class="pb-controls-grid">
           <div class="pb-input-card">
@@ -93,7 +107,8 @@
           <div class="pb-dt-header">
             <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
               <span class="pb-step-badge" id="dtStepPill">STAGE 1: THE OPENER</span>
-              <span style="color: #cbd5e1; font-size: 0.9rem; font-weight: 600;" id="dtStepDesc">Pattern Interrupt Call Initiation</span>
+              <span style="color: #cbd5e1; font-size: 0.9rem; font-weight: 600;" id="dtStepDesc">Pattern Interrupt Call
+                Initiation</span>
             </div>
             <div class="pb-psych-tag" id="dtPsychTag">
               <span>🧠 Trigger: Pattern Interrupt (Klaff)</span>
@@ -107,7 +122,9 @@
               <button class="pb-copy-btn" id="dtCopyBtn" onclick="copyDtText()">📋 Copy Speech</button>
             </div>
             <div class="pb-speech-text" id="dtSpeechText">
-              "Hey <span class="agent-name-fill" style="color: #fbbf24; font-weight: 800;">Sarah</span>, this is Matty. I know I’m calling you completely out of the blue, so I’ll keep this to 30 seconds. Do you have a brief moment?"
+              "Hey <span class="agent-name-fill" style="color: #fbbf24; font-weight: 800;">Sarah</span>, this is Matty.
+              I know I’m calling you completely out of the blue, so I’ll keep this to 30 seconds. Do you have a brief
+              moment?"
             </div>
           </div>
 
@@ -122,7 +139,9 @@
 
           <!-- Psychological Explanation Box -->
           <div class="pb-psych-box" id="psychExplanation">
-            <strong>Psychology Insights:</strong> Pattern interrupts dismantle the automatic "spam rejection reflex". By stating you called out of the blue and setting a 30-second time constraint, you disarm resistance and gain permission to pitch.
+            <strong>Psychology Insights:</strong> Pattern interrupts dismantle the automatic "spam rejection reflex". By
+            stating you called out of the blue and setting a 30-second time constraint, you disarm resistance and gain
+            permission to pitch.
           </div>
         </div>
 
@@ -130,7 +149,7 @@
 
       <!-- TAB 2: FULL SCRIPT PLAYBOOK -->
       <div id="staticTab" class="pb-tab-pane">
-        
+
         <!-- Strategy Overview -->
         <div class="pb-card" style="border-left: 5px solid #a855f7;">
           <div class="pb-card-title">
@@ -139,15 +158,23 @@
           </div>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
             <div>
-              <h4 style="color: #fbbf24; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; font-weight: 800;">Our True Identity & Expertise</h4>
+              <h4
+                style="color: #fbbf24; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; font-weight: 800;">
+                Our True Identity & Expertise</h4>
               <p style="color: #f1f5f9; font-size: 1rem; line-height: 1.7; margin: 0;">
-                We are web design and engineering experts entering the real estate space. We don't make fake claims or quote inflated win rates; we leverage our deep technical design authority to build <strong style="color: #fbbf24;">bespoke property showcases</strong> that elevate listing presentations.
+                We are web design and engineering experts entering the real estate space. We don't make fake claims or
+                quote inflated win rates; we leverage our deep technical design authority to build <strong
+                  style="color: #fbbf24;">bespoke property showcases</strong> that elevate listing presentations.
               </p>
             </div>
             <div>
-              <h4 style="color: #34d399; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; font-weight: 800;">The Collaborative Offer</h4>
+              <h4
+                style="color: #34d399; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; font-weight: 800;">
+                The Collaborative Offer</h4>
               <p style="color: #f1f5f9; font-size: 1rem; line-height: 1.7; margin: 0;">
-                Connect with 2–3 sharp listing agents to <strong style="color: #34d399;">co-create a pilot property website</strong> for an upcoming listing. We build the site prototype for free in exchange for honest feedback and a 5-minute screen-share.
+                Connect with 2–3 sharp listing agents to <strong style="color: #34d399;">co-create a pilot property
+                  website</strong> for an upcoming listing. We build the site prototype for free in exchange for honest
+                feedback and a 5-minute screen-share.
               </p>
             </div>
           </div>
@@ -162,42 +189,58 @@
 
           <!-- Step 1 -->
           <div style="margin-bottom: 28px;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
-              <h4 style="color: #ffffff; font-size: 1.15rem; margin: 0; font-weight: 700;">Step 1: Pattern Interrupt Opener</h4>
+            <div
+              style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
+              <h4 style="color: #ffffff; font-size: 1.15rem; margin: 0; font-weight: 700;">Step 1: Pattern Interrupt
+                Opener</h4>
               <span class="pb-psych-tag">🧠 Pattern Interrupt & Time Constraint</span>
             </div>
             <div class="pb-script-box">
-              <button class="pb-copy-btn" style="position: absolute; top: 16px; right: 16px;" onclick="copyScript(this)">📋 Copy</button>
+              <button class="pb-copy-btn" style="position: absolute; top: 16px; right: 16px;"
+                onclick="copyScript(this)">📋 Copy</button>
               <div class="pb-script-text">
-                "Hey <strong>[Agent Name]</strong>, this is Matty. I know I’m calling you completely out of the blue, so I’ll keep this to 30 seconds. Do you have a brief moment?"
+                "Hey <strong>[Agent Name]</strong>, this is Matty. I know I’m calling you completely out of the blue, so
+                I’ll keep this to 30 seconds. Do you have a brief moment?"
               </div>
             </div>
           </div>
 
           <!-- Step 2 -->
           <div style="margin-bottom: 28px;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
-              <h4 style="color: #ffffff; font-size: 1.15rem; margin: 0; font-weight: 700;">Step 2: The Honest Expert Hook</h4>
+            <div
+              style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
+              <h4 style="color: #ffffff; font-size: 1.15rem; margin: 0; font-weight: 700;">Step 2: The Honest Expert
+                Hook</h4>
               <span class="pb-psych-tag">🧠 Radical Transparency & Advisory Framing</span>
             </div>
             <div class="pb-script-box">
-              <button class="pb-copy-btn" style="position: absolute; top: 16px; right: 16px;" onclick="copyScript(this)">📋 Copy</button>
+              <button class="pb-copy-btn" style="position: absolute; top: 16px; right: 16px;"
+                onclick="copyScript(this)">📋 Copy</button>
               <div class="pb-script-text">
-                "My team and I are web design and engineering experts, and we’re expanding our agency into real estate. We build high-end, standalone property showcase websites. We’re reaching out to a few active listing agents in the area to learn what would give you the ultimate edge when presenting to sellers. Are you currently using dedicated property sites for your listings?"
+                "My team and I are web design and engineering experts, and we’re expanding our agency into real estate.
+                We build high-end, standalone property showcase websites. We’re reaching out to a few active listing
+                agents in the area to learn what would give you the ultimate edge when presenting to sellers. Are you
+                currently using dedicated property sites for your listings?"
               </div>
             </div>
           </div>
 
           <!-- Step 3 -->
           <div>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
-              <h4 style="color: #ffffff; font-size: 1.15rem; margin: 0; font-weight: 700;">Step 3: The Collaborative Pilot Close</h4>
+            <div
+              style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
+              <h4 style="color: #ffffff; font-size: 1.15rem; margin: 0; font-weight: 700;">Step 3: The Collaborative
+                Pilot Close</h4>
               <span class="pb-psych-tag">🧠 Reciprocity & Risk Reversal</span>
             </div>
             <div class="pb-script-box">
-              <button class="pb-copy-btn" style="position: absolute; top: 16px; right: 16px;" onclick="copyScript(this)">📋 Copy</button>
+              <button class="pb-copy-btn" style="position: absolute; top: 16px; right: 16px;"
+                onclick="copyScript(this)">📋 Copy</button>
               <div class="pb-script-text">
-                "Since we're building out our real estate showcase portfolio, I'd love to take 5 minutes next Tuesday to show you what we can do, and offer to build a complimentary prototype site for your next upcoming listing so you can test it on your seller at zero cost. Do mornings or afternoons work better for a brief chat?"
+                "Since we're building out our real estate showcase portfolio, I'd love to take 5 minutes next Tuesday to
+                show you what we can do, and offer to build a complimentary prototype site for your next upcoming
+                listing so you can test it on your seller at zero cost. Do mornings or afternoons work better for a
+                brief chat?"
               </div>
             </div>
           </div>
@@ -211,43 +254,57 @@
           </div>
 
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px;">
-            
+
             <div style="background: #0f172a; border: 1px solid #334155; border-radius: 12px; padding: 20px;">
-              <div style="color: #f87171; font-weight: 800; font-size: 1rem; margin-bottom: 6px;">🗣️ "Why are you calling me / Is this a sales call?"</div>
-              <p style="color: #94a3b8; font-size: 0.85rem; margin-bottom: 12px;"><strong>Strategy:</strong> Radical Honesty & Expert Positioning.</p>
+              <div style="color: #f87171; font-weight: 800; font-size: 1rem; margin-bottom: 6px;">🗣️ "Why are you
+                calling me / Is this a sales call?"</div>
+              <p style="color: #94a3b8; font-size: 0.85rem; margin-bottom: 12px;"><strong>Strategy:</strong> Radical
+                Honesty & Expert Positioning.</p>
               <div class="pb-script-box" style="margin: 0;">
                 <div class="pb-script-text" style="font-size: 0.95rem; padding-right: 0;">
-                  "Total transparency—it is a cold outreach! We are web development experts expanding into real estate. We don't want to build generic templates; we want to partner with active listing agents to see how our custom websites can solve your presentation pain points."
+                  "Total transparency—it is a cold outreach! We are web development experts expanding into real estate.
+                  We don't want to build generic templates; we want to partner with active listing agents to see how our
+                  custom websites can solve your presentation pain points."
                 </div>
               </div>
             </div>
 
             <div style="background: #0f172a; border: 1px solid #334155; border-radius: 12px; padding: 20px;">
-              <div style="color: #f87171; font-weight: 800; font-size: 1rem; margin-bottom: 6px;">🗣️ "Just email me info."</div>
-              <p style="color: #94a3b8; font-size: 0.85rem; margin-bottom: 12px;"><strong>Strategy:</strong> Micro-qualification + Diagnostic Question.</p>
+              <div style="color: #f87171; font-weight: 800; font-size: 1rem; margin-bottom: 6px;">🗣️ "Just email me
+                info."</div>
+              <p style="color: #94a3b8; font-size: 0.85rem; margin-bottom: 12px;"><strong>Strategy:</strong>
+                Micro-qualification + Diagnostic Question.</p>
               <div class="pb-script-box" style="margin: 0;">
                 <div class="pb-script-text" style="font-size: 0.95rem; padding-right: 0;">
-                  "Happy to! To make sure I send relevant designs rather than generic PDFs—what is the #1 thing you wish standard MLS pages or brokerage sites did better when showcasing a home?"
+                  "Happy to! To make sure I send relevant designs rather than generic PDFs—what is the #1 thing you wish
+                  standard MLS pages or brokerage sites did better when showcasing a home?"
                 </div>
               </div>
             </div>
 
             <div style="background: #0f172a; border: 1px solid #334155; border-radius: 12px; padding: 20px;">
-              <div style="color: #f87171; font-weight: 800; font-size: 1rem; margin-bottom: 6px;">🗣️ "Brokerage / MLS provides this."</div>
-              <p style="color: #94a3b8; font-size: 0.85rem; margin-bottom: 12px;"><strong>Strategy:</strong> Custom Web Expert Contrast.</p>
+              <div style="color: #f87171; font-weight: 800; font-size: 1rem; margin-bottom: 6px;">🗣️ "Brokerage / MLS
+                provides this."</div>
+              <p style="color: #94a3b8; font-size: 0.85rem; margin-bottom: 12px;"><strong>Strategy:</strong> Custom Web
+                Expert Contrast.</p>
               <div class="pb-script-box" style="margin: 0;">
                 <div class="pb-script-text" style="font-size: 0.95rem; padding-right: 0;">
-                  "Brokerage sites are great for general leads, but they look like every other listing. As custom web developers, we build single-property digital showcases designed to make the seller feel like a VIP."
+                  "Brokerage sites are great for general leads, but they look like every other listing. As custom web
+                  developers, we build single-property digital showcases designed to make the seller feel like a VIP."
                 </div>
               </div>
             </div>
 
             <div style="background: #0f172a; border: 1px solid #334155; border-radius: 12px; padding: 20px;">
-              <div style="color: #f87171; font-weight: 800; font-size: 1rem; margin-bottom: 6px;">🗣️ "No budget / Too expensive."</div>
-              <p style="color: #94a3b8; font-size: 0.85rem; margin-bottom: 12px;"><strong>Strategy:</strong> Free Pilot Collaboration Offer.</p>
+              <div style="color: #f87171; font-weight: 800; font-size: 1rem; margin-bottom: 6px;">🗣️ "No budget / Too
+                expensive."</div>
+              <p style="color: #94a3b8; font-size: 0.85rem; margin-bottom: 12px;"><strong>Strategy:</strong> Free Pilot
+                Collaboration Offer.</p>
               <div class="pb-script-box" style="margin: 0;">
                 <div class="pb-script-text" style="font-size: 0.95rem; padding-right: 0;">
-                  "That's exactly why I called! Because we are establishing our real estate portfolio, we're building prototype sites at zero cost for a couple of active agents' upcoming listings so you can test the value before spending anything."
+                  "That's exactly why I called! Because we are establishing our real estate portfolio, we're building
+                  prototype sites at zero cost for a couple of active agents' upcoming listings so you can test the
+                  value before spending anything."
                 </div>
               </div>
             </div>
@@ -265,16 +322,18 @@
             <h3>The 7 Laws of Authentic Sales Psychology</h3>
           </div>
           <p style="color: #cbd5e1; font-size: 1rem; margin-bottom: 24px; line-height: 1.6;">
-            Honesty builds more trust than fake numbers. Every script in this playbook combines deep web engineering authority with radical transparency to build genuine business partnerships.
+            Honesty builds more trust than fake numbers. Every script in this playbook combines deep web engineering
+            authority with radical transparency to build genuine business partnerships.
           </p>
 
           <div class="pb-law-grid">
-            
+
             <div class="pb-law-card">
               <div class="pb-law-title">1. Radical Transparency</div>
               <div class="pb-law-author">Chris Voss (Never Split The Difference)</div>
               <div class="pb-law-desc">
-                Admitting you are web experts expanding into real estate shatters standard sales resistance. Prospects instantly respect authentic transparency over scripted hype.
+                Admitting you are web experts expanding into real estate shatters standard sales resistance. Prospects
+                instantly respect authentic transparency over scripted hype.
               </div>
             </div>
 
@@ -282,7 +341,8 @@
               <div class="pb-law-title">2. Advisory Co-Creation</div>
               <div class="pb-law-author">Neil Rackham (SPIN Selling)</div>
               <div class="pb-law-desc">
-                Framing the conversation as a consultation to understand their market challenges elevates you from a "vendor selling a product" to an "expert building solutions with them".
+                Framing the conversation as a consultation to understand their market challenges elevates you from a
+                "vendor selling a product" to an "expert building solutions with them".
               </div>
             </div>
 
@@ -290,7 +350,8 @@
               <div class="pb-law-title">3. Pattern Interrupt</div>
               <div class="pb-law-author">Oren Klaff (Pitch Anything)</div>
               <div class="pb-law-desc">
-                Stating "I know I called completely out of the blue" acknowledges the reality of the call, resets the prospect's attention, and earns 30 seconds of open listening time.
+                Stating "I know I called completely out of the blue" acknowledges the reality of the call, resets the
+                prospect's attention, and earns 30 seconds of open listening time.
               </div>
             </div>
 
@@ -298,7 +359,8 @@
               <div class="pb-law-title">4. Reciprocity & Pilot Value</div>
               <div class="pb-law-author">Robert Cialdini (Influence)</div>
               <div class="pb-law-desc">
-                Offering to build a free custom site prototype for their upcoming listing creates genuine gratitude and psychological pressure to grant a 5-minute review call.
+                Offering to build a free custom site prototype for their upcoming listing creates genuine gratitude and
+                psychological pressure to grant a 5-minute review call.
               </div>
             </div>
 
@@ -306,7 +368,8 @@
               <div class="pb-law-title">5. Core Authority Positioning</div>
               <div class="pb-law-author">Seth Godin (Permission Marketing)</div>
               <div class="pb-law-desc">
-                Positioning yourselves as custom web design and engineering experts commands technical respect without pretending to know more about real estate sales than the agent does.
+                Positioning yourselves as custom web design and engineering experts commands technical respect without
+                pretending to know more about real estate sales than the agent does.
               </div>
             </div>
 
@@ -314,7 +377,8 @@
               <div class="pb-law-title">6. Risk-Free Trial Close</div>
               <div class="pb-law-author">Jay Abraham (Risk Reversal)</div>
               <div class="pb-law-desc">
-                By promising "if it's not a fit, your feedback as a listing expert is still invaluable," you remove all sales pressure and make saying "yes" easy.
+                By promising "if it's not a fit, your feedback as a listing expert is still invaluable," you remove all
+                sales pressure and make saying "yes" easy.
               </div>
             </div>
 
@@ -335,24 +399,36 @@
 
           <!-- Email Template -->
           <div style="margin-bottom: 28px;">
-            <h4 style="color: #fbbf24; font-size: 1.05rem; margin-bottom: 8px; font-weight: 800;">📧 Authentic Pilot Email Template</h4>
+            <h4 style="color: #fbbf24; font-size: 1.05rem; margin-bottom: 8px; font-weight: 800;">📧 Authentic Pilot
+              Email Template</h4>
             <div class="pb-script-box">
-              <button class="pb-copy-btn" style="position: absolute; top: 16px; right: 16px;" onclick="copyScript(this)">📋 Copy Email</button>
+              <button class="pb-copy-btn" style="position: absolute; top: 16px; right: 16px;"
+                onclick="copyScript(this)">📋 Copy Email</button>
               <div class="pb-script-text" style="font-size: 1rem;">
-                <strong>Subject:</strong> Web Design Partnership for <span class="agent-name-fill" style="color: #fbbf24; font-weight: 800;">Sarah</span>'s Listings<br/><br/>
-                "Hi <span class="agent-name-fill" style="color: #fbbf24; font-weight: 800;">Sarah</span>, great speaking briefly. As mentioned, we are web engineering experts expanding into custom real estate showcases. Here is a live example of what we build: <a href="index.html" target="_blank" style="color: #a855f7; text-decoration: underline;">77 Example Road Demo</a>.<br/><br/>
-                I'd love to build a complimentary prototype site for one of your upcoming listings so you can test it on your seller. Let me know if Tuesday morning or Wednesday afternoon works best for a 5-minute screen-share."
+                <strong>Subject:</strong> Web Design Partnership for <span class="agent-name-fill"
+                  style="color: #fbbf24; font-weight: 800;">Sarah</span>'s Listings<br /><br />
+                "Hi <span class="agent-name-fill" style="color: #fbbf24; font-weight: 800;">Sarah</span>, great speaking
+                briefly. As mentioned, we are web engineering experts expanding into custom real estate showcases. Here
+                is a live example of what we build: <a href="index.html" target="_blank"
+                  style="color: #a855f7; text-decoration: underline;">77 Example Road Demo</a>.<br /><br />
+                I'd love to build a complimentary prototype site for one of your upcoming listings so you can test it on
+                your seller. Let me know if Tuesday morning or Wednesday afternoon works best for a 5-minute
+                screen-share."
               </div>
             </div>
           </div>
 
           <!-- SMS Template -->
           <div>
-            <h4 style="color: #34d399; font-size: 1.05rem; margin-bottom: 8px; font-weight: 800;">📱 Authentic SMS Follow-Up</h4>
+            <h4 style="color: #34d399; font-size: 1.05rem; margin-bottom: 8px; font-weight: 800;">📱 Authentic SMS
+              Follow-Up</h4>
             <div class="pb-script-box">
-              <button class="pb-copy-btn" style="position: absolute; top: 16px; right: 16px;" onclick="copyScript(this)">📋 Copy SMS</button>
+              <button class="pb-copy-btn" style="position: absolute; top: 16px; right: 16px;"
+                onclick="copyScript(this)">📋 Copy SMS</button>
               <div class="pb-script-text" style="font-size: 1rem;">
-                "Hey <span class="agent-name-fill" style="color: #fbbf24; font-weight: 800;">Sarah</span>, Matty here! As promised, here's the link to the property site showcase we built: [Insert Demo Link]. Would love your honest feedback as a listing agent when you have 30 seconds!"
+                "Hey <span class="agent-name-fill" style="color: #fbbf24; font-weight: 800;">Sarah</span>, Matty here!
+                As promised, here's the link to the property site showcase we built: [Insert Demo Link]. Would love your
+                honest feedback as a listing agent when you have 30 seconds!"
               </div>
             </div>
           </div>
@@ -649,7 +725,7 @@
       document.getElementById('dtStepPill').textContent = node.pill;
       document.getElementById('dtStepDesc').textContent = node.desc;
       document.getElementById('dtSpeechText').innerHTML = node.speech;
-      
+
       const psychTagEl = document.getElementById('dtPsychTag');
       if (psychTagEl && node.psychTag) {
         psychTagEl.innerHTML = `<span>${node.psychTag}</span>`;
@@ -712,4 +788,5 @@
     goToStage('opener');
   </script>
 </body>
+
 </html>

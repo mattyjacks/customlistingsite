@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>REsearch1 — Homes worth moving for | CustomListingSite</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+:root{--bg:#0B0E14;--panel:#12161F;--panel2:#181D29;--line:rgba(255,255,255,.09);--text:#F2F4F8;--muted:#9AA3B2;--dim:#6B7484;--gold:#C8A96A;--gold2:#E8D5A3;--green:#22C55E;--red:#EF4444;--blue:#38BDF8;--radius:14px;--shadow:0 12px 40px rgba(0,0,0,.45)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif}
+h1,h2,.price{font-family:Outfit,sans-serif}
+.mono{font-family:"JetBrains Mono",monospace}
+.re-topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:14px;padding:12px 20px;background:rgba(11,14,20,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.logo{font-family:Outfit;font-weight:800;font-size:20px}.logo span{color:var(--gold)}
+.pill{border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:12px;color:var(--muted);cursor:pointer;background:var(--panel)}
+.pill.on{color:#000;background:var(--gold);border-color:var(--gold);font-weight:700}
+.topbtn{margin-left:auto;display:flex;gap:8px}
+.btn{border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:10px;padding:9px 14px;cursor:pointer;font-weight:600;font-size:13px}
+.btn--gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#111;border:none}
+.btn--ghost{background:transparent}
+.re-hero{padding:34px 20px 18px;max-width:1400px;margin:0 auto}
+.re-hero h1{font-size:clamp(28px,4vw,48px);margin:0}.re-hero h1 em{color:var(--gold);font-style:normal}
+.re-hero p{color:var(--muted);margin:8px 0 16px}
+.re-search{display:flex;gap:8px;flex-wrap:wrap;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:10px}
+.re-search input,.re-search select{background:#0d1119;border:1px solid var(--line);color:var(--text);border-radius:10px;padding:11px 12px;font-size:14px}
+.re-search input{flex:2;min-width:220px}
+.apis{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.api-badge{font-size:11px;border:1px solid var(--line);border-radius:999px;padding:4px 10px;color:var(--muted);font-family:"JetBrains Mono",monospace}
+.api-badge.live{color:var(--green);border-color:var(--green)}.api-badge.cache{color:var(--blue);border-color:var(--blue)}.api-badge.mock{color:var(--gold);border-color:var(--gold)}
+.re-shell{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:300px 1fr 380px;gap:16px;padding:0 20px 120px}
+.re-filters{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px;height:fit-content;position:sticky;top:72px}
+.re-filters h3{margin:4px 0 10px;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.seg{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}.seg button{flex:1;border:1px solid var(--line);background:#0d1119;color:var(--muted);border-radius:9px;padding:8px;cursor:pointer;font-size:13px}.seg button.on{background:var(--gold);color:#000;font-weight:700}
+.re-filters label{font-size:12px;color:var(--muted);display:block;margin:10px 0 4px}
+.re-filters input[type=range]{width:100%;accent-color:var(--gold)}
+.re-main{min-width:0}
+.re-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.re-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:transform .15s}
+.re-card:hover{transform:translateY(-3px);border-color:var(--gold)}
+.re-card__media{position:relative;aspect-ratio:16/10;background:#000;overflow:hidden}
+.re-card__media img{width:100%;height:100%;object-fit:cover}
+.re-badge{position:absolute;top:10px;left:10px;font-size:11px;font-weight:800;padding:5px 9px;border-radius:999px;letter-spacing:.04em}
+.re-badge--hot{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#111}
+.re-badge--cut{background:var(--green);color:#04120a}.re-badge--new{background:var(--blue);color:#04121a}.re-badge--luxe{background:transparent;border:1px solid var(--gold);color:var(--gold2)}
+.re-fav{position:absolute;top:8px;right:8px;background:rgba(0,0,0,.55);border:1px solid var(--line);color:#fff;border-radius:999px;width:34px;height:34px;cursor:pointer;font-size:16px}
+.re-fav.on{background:var(--gold);color:#000}
+.re-card__body{padding:12px 14px}.re-card__price{font-size:21px;font-weight:800}.re-card__specs{font-size:12px;color:var(--muted);margin:4px 0}.re-card__addr{font-style:normal;font-size:13px;color:var(--text)}
+.re-card__meta{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0;font-size:11px;color:var(--muted);font-family:"JetBrains Mono",monospace}
+.re-card__actions{display:flex;gap:6px;margin-top:8px}.re-card__actions button{flex:1;font-size:12px;padding:8px;border-radius:9px;border:1px solid var(--line);background:var(--panel2);color:var(--text);cursor:pointer}
+.re-mapwrap{position:sticky;top:72px;height:calc(100vh - 90px)}.re-map{height:100%;border-radius:var(--radius);border:1px solid var(--line);z-index:1}
+.re-pin{background:#111;border:1px solid var(--gold);color:var(--gold2);border-radius:999px;padding:3px 8px;font-weight:800;font-size:12px;font-family:"JetBrains Mono",monospace}
+.re-pin--active{background:var(--gold);color:#000}
+.re-tray{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:60;background:var(--panel2);border:1px solid var(--gold);border-radius:14px;padding:10px 14px;display:flex;gap:10px;align-items:center;box-shadow:var(--shadow)}
+.re-drawer{position:fixed;top:0;right:0;bottom:0;width:min(480px,100vw);background:var(--panel);border-left:1px solid var(--line);z-index:70;overflow:auto;padding:20px;transform:translateX(105%);transition:.25s}
+.re-drawer.open{transform:none}
+table.mort{width:100%;border-collapse:collapse;font-size:12px;margin-top:10px}
+table.mort th,table.mort td{border:1px solid var(--line);padding:7px;text-align:right}
+table.mort th:first-child,table.mort td:first-child{text-align:left}
+table.mort tr.best{background:rgba(200,169,106,.14)}
+.re-modal{border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:16px;max-width:760px;width:92vw;padding:0}
+.re-modal::backdrop{background:rgba(0,0,0,.6)}
+.modal-body{padding:20px}
+#voiceFab{position:fixed;right:18px;bottom:18px;z-index:80;width:62px;height:62px;border-radius:999px;border:none;background:linear-gradient(135deg,var(--gold),var(--gold2));font-size:26px;cursor:pointer;box-shadow:var(--shadow)}
+#voicePanel{position:fixed;right:18px;bottom:92px;z-index:80;width:min(400px,92vw);background:var(--panel2);border:1px solid var(--gold);border-radius:16px;box-shadow:var(--shadow);display:none;flex-direction:column;overflow:hidden}
+#voicePanel.open{display:flex}
+#voiceLog{height:300px;overflow:auto;padding:12px;font-size:13px;display:flex;flex-direction:column;gap:8px}
+.msg{padding:8px 10px;border-radius:10px;max-width:90%}.msg.ai{background:#0d1119;border:1px solid var(--line)}.msg.you{background:var(--gold);color:#000;align-self:flex-end}
+#voiceRow{display:flex;gap:6px;padding:10px;border-top:1px solid var(--line)}
+#voiceRow input{flex:1;background:#0d1119;border:1px solid var(--line);color:var(--text);border-radius:9px;padding:9px}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:80px;background:#000;border:1px solid var(--gold);color:var(--gold2);padding:10px 16px;border-radius:999px;z-index:90;display:none}
+@media(max-width:1100px){.re-shell{grid-template-columns:260px 1fr}.re-mapwrap{display:none}.re-mapwrap.mob{display:block;position:fixed;inset:64px 10px 10px 10px;z-index:65}}
+@media(max-width:760px){.re-shell{grid-template-columns:1fr}.re-filters{position:static}}
+</style>
+</head>
+<body>
+<header class="re-topbar">
+<div class="logo">RE<span>search</span>1</div>
+<button class="pill on" data-city="">All</button>
+<button class="pill" data-city="Austin">Austin</button>
+<button class="pill" data-city="Denver">Denver</button>
+<button class="pill" data-city="Tampa">Tampa</button>
+<button class="pill" data-city="Scottsdale">Scottsdale</button>
+<div class="topbtn">
+<button class="btn" id="savedBtn">♥ Saved (0)</button>
+<button class="btn" id="cmpBtn">⇄ Compare (0/3)</button>
+<button class="btn btn--gold" id="mortBtn">Mortgages</button>
+</div>
+</header>
+
+<section class="re-hero">
+<h1>Homes worth <em>moving for.</em></h1>
+<p><span id="resultCount" aria-live="polite">12 homes</span> • Search algorithm: text + fit + value + freshness + location • APIs: listings · geocode · schools · crime · flood · walk · AVM · rates · tax</p>
+<form class="re-search" id="searchForm" role="search">
+<input id="q" placeholder="City, address, feature… e.g. pool, garage, MLS#">
+<select id="fBeds"><option value="0">Beds any</option><option value="2">2+ beds</option><option value="3">3+ beds</option><option value="4">4+ beds</option><option value="5">5+ beds</option></select>
+<select id="fPrice"><option value="0-99999999">Any price</option><option value="0-500000">Under $500K</option><option value="500000-900000">$500K–$900K</option><option value="900000-1500000">$900K–$1.5M</option><option value="1500000-99999999">$1.5M+</option></select>
+<select id="fSort"><option value="best">Best match</option><option value="newest">Newest</option><option value="cheapest">Cheapest</option><option value="ppsf">Lowest $/sqft</option></select>
+<button class="btn btn--gold" type="submit">Search</button>
+<button class="btn btn--ghost" type="button" id="mapToggle">Map</button>
+<button class="btn btn--ghost" type="button" id="voiceOpen">🎙 Ask AI</button>
+</form>
+<div class="apis" id="apiBar"></div>
+</section>
+
+<div class="re-shell">
+<aside class="re-filters" aria-label="Filters">
+<h3>Deal filters</h3>
+<label>Max HOA: $<span id="hoaV">800</span>/mo</label>
+<input type="range" id="fHOA" min="0" max="800" value="800">
+<label>Walk score min: <span id="walkV">0</span></label>
+<input type="range" id="fWalk" min="0" max="80" value="0">
+<label>Home type</label>
+<div class="seg" id="fTypes">
+<button data-t="house" class="on">House</button><button data-t="condo" class="on">Condo</button><button data-t="townhome" class="on">Townhome</button><button data-t="land" class="on">Land</button>
+</div>
+<label>Buyer mode</label>
+<div class="seg" id="buyerMode"><button data-m="buyer" class="on">Buyer</button><button data-m="investor">Investor 💰</button></div>
+<h3>Mortgage quick calc</h3>
+<label>Down: <span id="downV">20</span>%</label><input type="range" id="mDown" min="0" max="40" value="20">
+<label>Rate: <span id="rateV">6.6</span>%</label><input type="range" id="mRate" min="3" max="10" step="0.125" value="6.625">
+<div class="mono" id="quickPay" style="margin-top:8px;color:var(--gold2)">$—/mo PITI</div>
+<button class="btn" id="resetBtn" style="margin-top:10px;width:100%">Reset all</button>
+<p style="font-size:11px;color:var(--dim)">Algorithm: score = .35·text + .25·fit + .20·deal + .10·fresh + .10·loc. Deal = 75% $/sqft percentile + 25% DOM. Cache TTLs: listings 5m, rates 12h, AVM 24h, schools/crime 7d, geo/flood/tax 30d.</p>
+</aside>
+<main class="re-main"><div class="re-grid" id="grid"></div></main>
+<div class="re-mapwrap" id="mapWrap"><div id="map" class="re-map"></div></div>
+</div>
+
+<div class="re-tray" id="tray" hidden></div>
+
+<aside class="re-drawer" id="mortgageDrawer" aria-label="Mortgage comparison">
+<div style="display:flex;justify-content:space-between;align-items:center"><h2 style="margin:0">🏦 Mortgage wars</h2><button class="btn" id="mortClose">✕</button></div>
+<p style="color:var(--muted);font-size:13px">6 live bank offers · M = P·r(1+r)ⁿ/((1+r)ⁿ−1) · PMI &lt; 20% down · PITI = P&I + PMI + tax + ins + HOA. Rates via <span class="mono">fetchRates()</span> (FRED proxy, mock fallback).</p>
+<label>Home price $<input id="mtgPrice" type="number" value="750000" style="width:130px;background:#0d1119;color:#fff;border:1px solid var(--line);border-radius:8px;padding:6px"></label>
+<label>Down % <input id="mtgDown" type="number" value="20" style="width:60px;background:#0d1119;color:#fff;border:1px solid var(--line);border-radius:8px;padding:6px"></label>
+<label>Hold <select id="mtgHold"><option value="5">5 yr</option><option value="10" selected>10 yr</option><option value="30">30 yr</option></select></label>
+<div id="mortTable"></div>
+<div id="mortNote" class="mono" style="font-size:11px;color:var(--muted);margin-top:8px"></div>
+</aside>
+
+<dialog class="re-modal" id="detailModal"><div class="modal-body" id="detailBody"></div></dialog>
+
+<button id="voiceFab" title="Talk to AI sales agent">🎙</button>
+<div id="voicePanel">
+<div style="padding:10px 12px;border-bottom:1px solid var(--line);font-weight:700">🤖 Casa AI — trained on these listings + sales playbook <span class="mono" style="font-size:11px;color:var(--muted)">buyer / investor</span></div>
+<div id="voiceLog"><div class="msg ai">Hi! I'm Casa, your AI showing agent. I know every home on this page — price, schools, safety, flood, payment. 🎙 Tap <b>Speak</b> or type: "pitch me an investor deal under $800K" or "is 421 Palm Terrace a good buy?"</div></div>
+<div id="voiceRow"><input id="voiceInput" placeholder="Ask or tap Speak…"><button class="btn" id="voiceSend">Send</button><button class="btn btn--gold" id="voiceSpeak">Speak</button></div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+/* ============ 0. DATA (canonical schema, agent 5) ============ */
+const LISTINGS=[
+{id:"ATX-01",source:"mls",price:1285000,beds:4,baths:3.5,sqft:2840,lat:30.2849,lng:-97.7341,type:"house",dom:6,address:{street:"421 Palm Terrace",city:"Austin",state:"TX",zip:"78745"},photos:["https://picsum.photos/seed/atx1/640/420"],schoolRating:9,crimeScore:82,walkScore:64,floodRisk:"minimal",taxAnnual:23130,hoaMonthly:45,features:["pool","garage","office","ev charger"],desc:"Modern farmhouse near Zilker with pool and office.",priceCut:0},
+{id:"ATX-02",source:"zillow",price:689000,beds:3,baths:2,sqft:1980,lat:30.3112,lng:-97.7051,type:"townhome",dom:22,address:{street:"88 Comal St",city:"Austin",state:"TX",zip:"78702"},photos:["https://picsum.photos/seed/atx2/640/420"],schoolRating:7,crimeScore:68,walkScore:81,floodRisk:"low",taxAnnual:12402,hoaMonthly:220,features:["rooftop","garage"],desc:"East Austin townhome, rooftop deck, walk to transit.",priceCut:15000},
+{id:"DEN-01",source:"mls",price:825000,beds:4,baths:3,sqft:2650,lat:39.7285,lng:-104.9521,type:"house",dom:41,address:{street:"1409 Fillmore St",city:"Denver",state:"CO",zip:"80206"},photos:["https://picsum.photos/seed/den1/640/420"],schoolRating:8,crimeScore:74,walkScore:72,floodRisk:"minimal",taxAnnual:4950,hoaMonthly:0,features:["basement","garage","fireplace"],desc:"Classic Cheesman Park brick with finished basement.",priceCut:25000},
+{id:"DEN-02",source:"fsbo",price:459000,beds:2,baths:2,sqft:1180,lat:39.7531,lng:-105.0012,type:"condo",dom:9,address:{street:"1770 Wynkoop 305",city:"Denver",state:"CO",zip:"80202"},photos:["https://picsum.photos/seed/den2/640/420"],schoolRating:6,crimeScore:61,walkScore:94,floodRisk:"minimal",taxAnnual:2754,hoaMonthly:480,features:["doorman","gym","transit"],desc:"LoDo condo, union station views, low-maintenance lock & leave.",priceCut:0},
+{id:"TPA-01",source:"mls",price:549000,beds:3,baths:2.5,sqft:2140,lat:27.9881,lng:-82.5051,type:"house",dom:58,address:{street:"5207 Bayshore Blvd",city:"Tampa",state:"FL",zip:"33611"},photos:["https://picsum.photos/seed/tpa1/640/420"],schoolRating:8,crimeScore:77,walkScore:44,floodRisk:"moderate",taxAnnual:6040,hoaMonthly:0,features:["pool","boat lift","citrus trees"],desc:"Sunset bay views, pool, room for boat. Flood zone X shaded.",priceCut:30000},
+{id:"TPA-02",source:"zillow",price:329000,beds:2,baths:2,sqft:1050,lat:27.9506,lng:-82.4572,type:"condo",dom:4,address:{street:"345 Bayshore 1208",city:"Tampa",state:"FL",zip:"33606"},photos:["https://picsum.photos/seed/tpa2/640/420"],schoolRating:7,crimeScore:70,walkScore:78,floodRisk:"low",taxAnnual:3619,hoaMonthly:610,features:["waterfront","gym","pool"],desc:"Waterfront high-rise, investor-friendly, strong rents.",priceCut:0},
+{id:"SCD-01",source:"mls",price:1495000,beds:5,baths:4.5,sqft:3920,lat:33.5001,lng:-111.9211,type:"house",dom:13,address:{street:"7420 E Vista Dr",city:"Scottsdale",state:"AZ",zip:"85250"},photos:["https://picsum.photos/seed/scd1/640/420"],schoolRating:10,crimeScore:88,walkScore:38,floodRisk:"minimal",taxAnnual:10465,hoaMonthly:120,features:["casita","pool","rv gate","solar"],desc:"Luxe desert contemporary with casita + owned solar.",priceCut:0},
+{id:"SCD-02",source:"fsbo",price:515000,beds:3,baths:2,sqft:1760,lat:33.4942,lng:-111.9261,type:"house",dom:74,address:{street:"2810 N 68th St",city:"Scottsdale",state:"AZ",zip:"85257"},photos:["https://picsum.photos/seed/scd2/640/420"],schoolRating:6,crimeScore:66,walkScore:52,floodRisk:"minimal",taxAnnual:3605,hoaMonthly:0,features:["citrus","garage","remodel"],desc:"Value-add ranch, priced to move, bring contractor.",priceCut:40000},
+{id:"ATX-03",source:"mls",price:2150000,beds:5,baths:5,sqft:4610,lat:30.3521,lng:-97.7511,type:"house",dom:3,address:{street:"7 Courtyard Ct",city:"Austin",state:"TX",zip:"78746"},photos:["https://picsum.photos/seed/atx3/640/420"],schoolRating:10,crimeScore:91,walkScore:22,floodRisk:"minimal",taxAnnual:38700,hoaMonthly:95,features:["guest house","pool","wellness","3-car"],desc:"Eanes ISD estate, guest house, resort backyard.",priceCut:0},
+{id:"DEN-03",source:"zillow",price:639000,beds:3,baths:2.5,sqft:2290,lat:39.6811,lng:-104.9112,type:"townhome",dom:17,address:{street:"2330 S University",city:"Denver",state:"CO",zip:"80210"},photos:["https://picsum.photos/seed/den3/640/420"],schoolRating:9,crimeScore:83,walkScore:58,floodRisk:"minimal",taxAnnual:3834,hoaMonthly:195,features:["garage","yard","office"],desc:"University Park end-unit, top schools, rental-legal.",priceCut:10000},
+{id:"TPA-03",source:"fsbo",price:899000,beds:4,baths:3,sqft:2980,lat:27.9312,lng:-82.5112,type:"house",dom:29,address:{street:"1803 S Emilio Ave",city:"Tampa",state:"FL",zip:"33629"},photos:["https://picsum.photos/seed/tpa3/640/420"],schoolRating:9,crimeScore:85,walkScore:55,floodRisk:"low",taxAnnual:9889,hoaMonthly:0,features:["pool","ADU","outdoor kitchen"],desc:"Sunset Park pool home + permitted ADU — house-hack ready.",priceCut:20000},
+{id:"PLOT-01",source:"fsbo",price:185000,beds:0,baths:0,sqft:0,lat:30.4512,lng:-97.8011,type:"land",dom:90,address:{street:"Lot 12 Lakeline",city:"Austin",state:"TX",zip:"78717"},photos:["https://picsum.photos/seed/land1/640/420"],schoolRating:8,crimeScore:80,walkScore:18,floodRisk:"low",taxAnnual:3330,hoaMonthly:0,features:["0.42 acre","utilities","build-ready"],desc:"Build-ready 0.42ac lot, utilities at street.",priceCut:15000}
+];
+/* ============ 1. CUSTOM API LAYER (agent 2): cachedFetch + 9 adapters ============ */
+const ApiCache={get(k,ttl){try{const r=localStorage.getItem("re1:"+k);if(!r)return null;const{t,v}=JSON.parse(r);if(Date.now()-t>ttl){localStorage.removeItem("re1:"+k);return null}return v}catch{return null}},set(k,v){try{localStorage.setItem("re1:"+k,JSON.stringify({t:Date.now(),v}))}catch{}}};
+async function cachedFetch({key,ttl,url,options,mock}){
+const hit=ApiCache.get(key,ttl);if(hit)return{data:hit,source:"cache"};
+try{const res=await fetch(url,options);if(!res.ok)throw new Error("HTTP "+res.status);const data=await res.json();ApiCache.set(key,data);return{data,source:"live"}}catch(e){const d=typeof mock==="function"?mock():mock;return{data:d,source:"mock"}}}
+const apiStatus={};
+function setApi(name,source){apiStatus[name]=source;renderApiBar()}
+function renderApiBar(){document.getElementById("apiBar").innerHTML=Object.entries(apiStatus).map(([k,v])=>`<span class="api-badge ${v}">${k}: ${v}</span>`).join("")}
+async function fetchListingsAPI(f){const r=await cachedFetch({key:"listings:"+JSON.stringify(f),ttl:5*60*1000,url:"/api/listings?"+new URLSearchParams(f),mock:()=>LISTINGS});setApi("listings",r.source);return r}
+async function geocodeAddress(a){const r=await cachedFetch({key:"geo:"+a,ttl:30*24*3600*1000,url:"https://nominatim.openstreetmap.org/search?format=json&limit=1&q="+encodeURIComponent(a),mock:()=>({lat:30.27,lng:-97.74,display:a})});setApi("geocode",r.source);return r.data.lat?r.data:{data:r.data}}
+async function fetchSchools(l){const r=await cachedFetch({key:`schools:${l.id}`,ttl:7*24*3600*1000,url:`/api/schools?lat=${l.lat}&lng=${l.lng}`,mock:()=>({schools:[{name:l.address.city+" Academy",rating:l.schoolRating,distanceMi:1.2}]})});setApi("schools",r.source);return r.data}
+async function fetchCrime(l){const r=await cachedFetch({key:`crime:${l.address.zip}`,ttl:7*24*3600*1000,url:`/api/crime?zip=${l.address.zip}`,mock:()=>({score:l.crimeScore,grade:l.crimeScore>80?"A":l.crimeScore>65?"B":"C"})});setApi("crime",r.source);return r.data}
+async function fetchFlood(l){const r=await cachedFetch({key:`flood:${l.id}`,ttl:30*24*3600*1000,url:`/api/flood?lat=${l.lat}&lng=${l.lng}`,mock:()=>({zone:l.floodRisk==="minimal"?"X":"AE",risk:l.floodRisk})});setApi("flood",r.source);return r.data}
+async function fetchWalk(l){const r=await cachedFetch({key:`walk:${l.id}`,ttl:14*24*3600*1000,url:`/api/walk?lat=${l.lat}&lng=${l.lng}`,mock:()=>({walk:l.walkScore,transit:Math.max(0,l.walkScore-8),label:l.walkScore>70?"Very Walkable":l.walkScore>40?"Somewhat Walkable":"Car-Dependent"})});setApi("walk",r.source);return r.data}
+async function fetchValuation(l){const ppsf=l.sqft?Math.round(l.price/l.sqft):0;const r=await cachedFetch({key:`avm:${l.id}`,ttl:24*3600*1000,url:`/api/avm?address=${encodeURIComponent(l.address.street)}`,mock:()=>({estimate:l.price,low:Math.round(l.price*.94),high:Math.round(l.price*1.06),ppsf,confidence:"mock"})});setApi("avm",r.source);return r.data}
+async function fetchRates(){const r=await cachedFetch({key:"rates:us",ttl:12*3600*1000,url:"/api/rates",mock:()=>({fixed30:6.625,fixed15:5.875,arm51:5.99,asOf:new Date().toISOString().slice(0,10),source:"fred-mock"})});setApi("rates",r.source);return r.data}
+async function fetchTax(l){const r=await cachedFetch({key:`tax:${l.id}`,ttl:30*24*3600*1000,url:`/api/tax?zip=${l.address.zip}&price=${l.price}`,mock:()=>({annual:l.taxAnnual,monthly:Math.round(l.taxAnnual/12)})});setApi("tax",r.source);return r.data}
+/* ============ 2. SEARCH ALGORITHM (agent 1+5): text + fit + value + fresh + loc ============ */
+const W={text:.35,fit:.25,value:.20,fresh:.10,loc:.10};
+const HOT={"78745":.6,"78702":.8,"80202":1,"33606":.7,"85250":.9};
+const tokens=s=>s.toLowerCase().split(/[^a-z0-9]+/).filter(t=>t.length>1);
+function textScore(l,qt){if(!qt.length)return .5;let hit=0;for(const t of qt){let s=0;const title=tokens(l.address.street+" "+l.address.city);if(title.some(w=>w.startsWith(t)))s=3;else if(tokens(l.features.join(" ")+" "+l.desc+" "+l.address.zip).includes(t))s=2;else if(tokens(l.desc).includes(t))s=1;hit+=Math.min(3,s)}return hit/(qt.length*3)}
+const ppsfs=LISTINGS.filter(l=>l.sqft>0).map(l=>l.price/l.sqft).sort((a,b)=>a-b);
+const pct=(arr,v)=>arr.filter(x=>x<=v).length/arr.length;
+function dealScore(l){if(!l.sqft)return 0;const v=1-pct(ppsfs,l.price/l.sqft);return Math.min(1,.75*v+.25*Math.min(l.dom/60,1)+(l.priceCut>0?.08:0))}
+function haversineMi(a,b,c,d){const R=3958.8,toR=x=>x*Math.PI/180;const h=Math.sin(toR(c-a)/2)**2+Math.cos(toR(a))*Math.cos(toR(c))*Math.sin(toR(d-b)/2)**2;return 2*R*Math.asin(Math.sqrt(h))}
+const CENTER={lat:30.27,lng:-97.74};
+const state={q:"",city:"",minPrice:0,maxPrice:99999999,minBeds:0,minBaths:0,types:new Set(["house","condo","townhome","land"]),sort:"best",maxHOA:800,minWalk:0,favs:new Set(JSON.parse(localStorage.getItem("re1:favs")||"[]")),compare:[],mode:"buyer",downPct:20,rate:6.625};
+function scoreListing(l,q){const qt=tokens(q);const t=textScore(l,qt);const sqftFit=l.sqft?1-Math.abs(l.sqft-2200)/2200:0;const fit=.5*(l.beds>=state.minBeds?1:0)+.3*(l.baths>=1?1:0)+.2*Math.max(0,sqftFit);const deal=dealScore(l);const fresh=Math.exp(-l.dom/45);const loc=HOT[l.address.zip]??1/(1+haversineMi(l.lat,l.lng,CENTER.lat,CENTER.lng)/500);return{t,score:W.text*t+W.fit*fit+W.value*deal+W.fresh*fresh+W.loc*loc,deal,ppsf:l.sqft?l.price/l.sqft:Infinity}}
+function applyFilters(){let q=state.q;let rows=LISTINGS.filter(l=>{if(state.city&&l.address.city!==state.city)return false;if(l.price<state.minPrice||l.price>state.maxPrice)return false;if(l.beds<state.minBeds)return false;if(!state.types.has(l.type))return false;if(l.hoaMonthly>state.maxHOA)return false;if((l.walkScore||0)<state.minWalk)return false;const s=scoreListing(l,q);if(tokens(q).length&&s.t<=0)return false;l._s=s;return true});
+const S={best:(a,b)=>b._s.score-a._s.score,newest:(a,b)=>a.dom-b.dom,cheapest:(a,b)=>a.price-b.price,ppsf:(a,b)=>(a._s.ppsf||1e12)-(b._s.ppsf||1e12)};
+rows.sort(S[state.sort]||S.best);renderGrid(rows);updatePins(rows);updateQuickPay();document.getElementById("resultCount").textContent=rows.length+" homes"+(state.mode==="investor"?" • investor view (cap rates on)":"");return rows}
+let currentRows=LISTINGS;
+/* ============ 3. MORTGAGE ENGINE (agent 3): 6 banks ============ */
+const BANKS=[
+{id:"chase",lender:"Chase",program:"30-Yr Fixed",type:"30yr fixed",yrs:30,rate:6.625,apr:6.78,points:.5,close:4950,pmi:.006,minDown:3},
+{id:"wells",lender:"Wells Fargo",program:"15-Yr Fixed",type:"15yr fixed",yrs:15,rate:5.875,apr:6.02,points:.625,close:4280,pmi:.005,minDown:5},
+{id:"bofa",lender:"Bank of America",program:"30-Yr Fixed + $750 credit",type:"30yr fixed",yrs:30,rate:6.75,apr:6.83,points:0,close:3850,pmi:.007,minDown:3},
+{id:"rocket",lender:"Rocket",program:"5/6 ARM (5yr fix)",type:"5/6 ARM",yrs:30,rate:5.99,apr:7.05,points:.25,close:2995,pmi:.0065,minDown:5},
+{id:"loandepot",lender:"LoanDepot",program:"FHA 30-Yr (3.5% down)",type:"FHA",yrs:30,rate:6.25,apr:7.18,points:0,close:5950,pmi:.0055,minDown:3.5},
+{id:"cu",lender:"Credit Union",program:"VA 30-Yr (0 down, no PMI)",type:"VA",yrs:30,rate:5.99,apr:6.28,points:.5,close:2400,pmi:0,minDown:0}];
+function calcPI(P,apr,yrs){const n=yrs*12,r=apr/100/12;if(r===0)return P/n;const f=Math.pow(1+r,n);return P*r*f/(f-1)}
+function pitiFor(price,downPct,rate,taxA,insA,hoa){const loan=price*(1-downPct/100);const pi=calcPI(loan,rate,30);const pmi=downPct>=20?0:loan*.0065/12;return pi+pmi+taxA/12+insA/12+hoa}
+function compareLoans(price,downPct,hold){const taxA=price*.011,insA=price*.0035;return BANKS.map(b=>{let loan=price*(1-downPct/100);if(b.type==="VA")loan*=1.0215;if(b.type==="FHA")loan+=(price*(1-downPct/100))*.0175;const pi=calcPI(loan,b.rate,b.yrs);const pmi=(downPct>=20||b.pmi===0)?0:loan*b.pmi/12;const total=pi+pmi+taxA/12+insA/12;const pts=loan*b.points/100;const n=Math.min(hold*12,b.yrs*12);const r=b.rate/100/12;let bal=loan,int=0;for(let i=0;i<n;i++){const ii=bal*r;int+=ii;bal-=pi-ii}return{...b,loan:Math.round(loan),pi,pmi,total,pts,totalCost:Math.round(pts+b.close+int),due:Math.round(price*downPct/100+pts+b.close)}}).sort((a,b)=>a.total-b.total)}
+function renderMortgage(){const price=+document.getElementById("mtgPrice").value||750000;const down=+document.getElementById("mtgDown").value||20;const hold=+document.getElementById("mtgHold").value||10;const rows=compareLoans(price,down,hold);document.getElementById("mortTable").innerHTML=`<table class="mort"><tr><th>Lender / program</th><th>Rate</th><th>APR</th><th>Mo PITI</th><th>Due close</th><th>${hold}yr cost</th></tr>${rows.map((r,i)=>`<tr class="${i===0?"best":""}"><td>🏦 ${r.lender}<br><small>${r.program}</small></td><td class="mono">${r.rate.toFixed(3)}%</td><td class="mono">${r.apr.toFixed(2)}%</td><td class="mono"><b>$${Math.round(r.total).toLocaleString()}</b></td><td class="mono">$${r.due.toLocaleString()}</td><td class="mono">$${r.totalCost.toLocaleString()} ${i===0?"👑":""}</td></tr>`).join("")}</table>`;document.getElementById("mortNote").textContent=`Winner (monthly): ${rows[0].lender} $${Math.round(rows[0].total).toLocaleString()}/mo · Cheapest ${hold}yr: ${[...rows].sort((a,b)=>a.totalCost-b.totalCost)[0].lender} · Points break-even ≈ pts ÷ monthly savings.`;fetchRates()}
+/* ============ 4. RENDER (agent 4 UX) ============ */
+let map,pins=[];
+function initMap(){map=L.map("map").setView([32,-100],4);L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",{attribution:"©OSM ©CARTO"}).addTo(map)}
+function updatePins(rows){if(!map)return;pins.forEach(p=>map.removeLayer(p));pins=[];const b=new L.LatLngBounds([]);rows.forEach(l=>{const icon=L.divIcon({className:"",html:`<div class="re-pin">$${Math.round(l.price/1000)}K</div>`,iconSize:null});const m=L.marker([l.lat,l.lng],{icon}).addTo(map).bindPopup(`<b>$${l.price.toLocaleString()}</b><br>${l.address.street}`);pins.push(m);b.extend([l.lat,l.lng])});if(rows.length)map.fitBounds(b.pad(.2))}
+function badge(l){if(l._s&&l._s.deal>.8)return `<span class="re-badge re-badge--hot">HOT DEAL</span>`;if(l.priceCut>0)return `<span class="re-badge re-badge--cut">▼ $${Math.round(l.priceCut/1000)}K CUT</span>`;if(l.dom<=7)return `<span class="re-badge re-badge--new">NEW ${l.dom}D</span>`;if(l.price>1400000)return `<span class="re-badge re-badge--luxe">LUXE</span>`;return ""}
+function investorStats(l){const rent=Math.round(l.price*.0055);const cap=((rent*12*.75)/l.price*100).toFixed(1);return ` · 💰 $${rent.toLocaleString()}/rent · ${cap}% cap`}
+function renderGrid(rows){currentRows=rows;document.getElementById("grid").innerHTML=rows.map(l=>{const fav=state.favs.has(l.id)?"on":"";const pay=Math.round(pitiFor(l.price,state.downPct,state.rate,l.taxAnnual,l.price*.0035,l.hoaMonthly));return `<article class="re-card"><div class="re-card__media"><img loading="lazy" src="${l.photos[0]}" alt="${l.address.street}">${badge(l)}<button class="re-fav ${fav}" data-fav="${l.id}">♥</button></div><div class="re-card__body"><div class="re-card__price price">$${l.price.toLocaleString()}</div><div class="re-card__specs mono">${l.beds} BD • ${l.baths} BA • ${l.sqft?l.sqft.toLocaleString()+" SQFT":"LOT"} • $${l.sqft?Math.round(l.price/l.sqft):"—"}/sqft</div><address class="re-card__addr">${l.address.street}, ${l.address.city} ${l.address.zip}</address><div class="re-card__meta"><span>⭐ ${l.schoolRating}/10</span><span>🛡 ${l.crimeScore}</span><span>🚶 ${l.walkScore}</span><span>${l.dom}d</span><span>score ${l._s.score.toFixed(2)}</span></div><div class="mono" style="font-size:12px;color:var(--gold2)">≈ $${pay.toLocaleString()}/mo PITI${state.mode==="investor"?investorStats(l):""}</div><div class="re-card__actions"><button data-detail="${l.id}">Details</button><button data-compare="${l.id}">+ Compare</button><button data-calc="${l.id}">◧ Payment</button></div></div></article>`}).join("")||`<p style="color:var(--muted)">No homes match — widen price or clear 1 filter.</p>`;
+document.getElementById("savedBtn").textContent=`♥ Saved (${state.favs.size})`;document.getElementById("cmpBtn").textContent=`⇄ Compare (${state.compare.length}/3)`;renderTray()}
+function renderTray(){const t=document.getElementById("tray");if(!state.compare.length){t.hidden=true;return}t.hidden=false;t.innerHTML=state.compare.map(id=>{const l=LISTINGS.find(x=>x.id===id);return `<span class="mono" style="font-size:12px">$${Math.round(l.price/1000)}K ${l.address.city} <button data-uncompare="${id}" style="background:none;border:none;color:var(--red);cursor:pointer">✕</button></span>`}).join("")+`<button class="btn btn--gold" id="cmpGo">Compare these ${state.compare.length}</button>`;document.getElementById("cmpGo").onclick=showCompare}
+function showCompare(){const rows=state.compare.map(id=>LISTINGS.find(x=>x.id===id));document.getElementById("detailBody").innerHTML=`<h2>⇄ Compare (${rows.length})</h2><table class="mort"><tr><th></th>${rows.map(l=>`<th>${l.address.street}</th>`).join("")}</tr><tr><td>Price</td>${rows.map(l=>`<td class="mono">$${l.price.toLocaleString()}</td>`).join("")}</tr><tr><td>Beds/Ba/Sqft</td>${rows.map(l=>`<td class="mono">${l.beds}/${l.baths}/${l.sqft||"—"}</td>`).join("")}</tr><tr><td>$/sqft</td>${rows.map(l=>`<td class="mono">$${l.sqft?Math.round(l.price/l.sqft):"—"}</td>`).join("")}</tr><tr><td>Schools/Crime/Walk</td>${rows.map(l=>`<td class="mono">${l.schoolRating}/${l.crimeScore}/${l.walkScore}</td>`).join("")}</tr><tr><td>Est PITI (20% down)</td>${rows.map(l=>`<td class="mono">$${Math.round(pitiFor(l.price,20,6.625,l.taxAnnual,l.price*.0035,l.hoaMonthly)).toLocaleString()}</td>`).join("")}</tr></table><button class="btn" onclick="document.getElementById('detailModal').close()">Close</button>`;document.getElementById("detailModal").showModal()}
+async function showDetail(id){const l=LISTINGS.find(x=>x.id===id);const[sch,cr,fl,wa,avm,tax]=await Promise.all([fetchSchools(l),fetchCrime(l),fetchFlood(l),fetchWalk(l),fetchValuation(l),fetchTax(l)]);document.getElementById("detailBody").innerHTML=`<img src="${l.photos[0]}" style="width:100%;border-radius:12px"><h2 class="price">$${l.price.toLocaleString()} — ${l.address.street}</h2><p style="color:var(--muted)">${l.address.city}, ${l.address.state} ${l.address.zip} • ${l.beds}bd ${l.baths}ba ${l.sqft?l.sqft+"sqft":"lot"} • ${l.dom} days on market</p><p>${l.desc} <b>${l.features.join(", ")}</b></p><div class="apis">${["schools","crime","flood","walk","avm","tax"].map(k=>`<span class="api-badge ${apiStatus[k]||"mock"}">${k}: ${apiStatus[k]||"mock"}</span>`).join("")}</div><table class="mort"><tr><th>Signal</th><th>Value</th></tr><tr><td>🏫 Schools</td><td>${sch.schools?sch.schools[0].name+" "+sch.schools[0].rating+"/10":l.schoolRating+"/10"}</td></tr><tr><td>🛡 Safety</td><td>${cr.score} (${cr.grade||""})</td></tr><tr><td>🌊 Flood</td><td>${fl.risk} (zone ${fl.zone})</td></tr><tr><td>🚶 Walk</td><td>${wa.walk} — ${wa.label}</td></tr><tr><td>💲 AVM</td><td>$${avm.estimate.toLocaleString()} ($${avm.low.toLocaleString()}–$${avm.high.toLocaleString()})</td></tr><tr><td>🧾 Tax</td><td>$${tax.annual.toLocaleString()}/yr</td></tr></table><div style="display:flex;gap:8px;margin-top:12px"><button class="btn btn--gold" onclick="document.getElementById('mtgPrice').value=${l.price};renderMortgage();document.getElementById('mortgageDrawer').classList.add('open')">◧ Payment for this home</button><button class="btn" onclick="askAI('pitch me ${l.address.street}');document.getElementById('voicePanel').classList.add('open')">🎙 AI pitch</button><button class="btn" onclick="document.getElementById('detailModal').close()">Close</button></div>`;document.getElementById("detailModal").showModal()}
+function updateQuickPay(){const avg=currentRows.length?currentRows.reduce((s,l)=>s+l.price,0)/currentRows.length:750000;document.getElementById("quickPay").textContent="$"+Math.round(pitiFor(avg,state.downPct,state.rate,avg*.011,avg*.0035,100)).toLocaleString()+"/mo avg PITI"}
+function toast(m){const t=document.getElementById("toast");t.textContent=m;t.style.display="block";setTimeout(()=>t.style.display="none",2200)}
+/* ============ 5. VOICE AI SALES AGENT (trained on listings + playbook) ============ */
+const log=document.getElementById("voiceLog");
+function say(text,spoken=true){const d=document.createElement("div");d.className="msg ai";d.innerHTML=text;log.appendChild(d);log.scrollTop=log.scrollHeight;if(spoken&&"speechSynthesis" in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(d.textContent.slice(0,280));u.rate=1.05;speechSynthesis.speak(u)}}
+function hear(text){const d=document.createElement("div");d.className="msg you";d.textContent=text;log.appendChild(d);log.scrollTop=log.scrollHeight}
+function topDeals(n=3){return[...LISTINGS].map(l=>({l,s:scoreListing(l,"").score+(state.mode==="investor"?(l.price*.0055*12*.75)/l.price*2:0)})).sort((a,b)=>b.s-a.s).slice(0,n).map(x=>x.l)}
+function pitch(l,mode){const pay=Math.round(pitiFor(l.price,state.downPct,state.rate,l.taxAnnual,l.price*.0035,l.hoaMonthly));const rent=Math.round(l.price*.0055);const cap=((rent*12*.75)/l.price*100).toFixed(1);if(mode==="investor")return `💰 <b>Investor pitch — ${l.address.street}, ${l.address.city}</b>: $${l.price.toLocaleString()} for ${l.beds}bd/${l.baths}ba (${l.sqft||"lot"} sqft). Est rent $${rent.toLocaleString()}/mo, ~${cap}% cap, house-hack ${l.features.includes("ADU")?"<b>with permitted ADU</b> ":""}potential. PITI ≈ $${pay.toLocaleString()}/mo at ${state.rate}%. DOM ${l.dom} — ${l.dom>40?"seller is seasoned, go 4-6% under ask with escalation":"fresh, move fast, offer clean"}. Objection killer: even at 7% it still cash-flows with 25% down. Want the 5-yr numbers?`;
+return `🏡 <b>${l.address.street}</b> is the one, trust me — ${l.beds} beds, ${l.baths} baths, ${l.features.slice(0,3).join(", ")}. Schools ${l.schoolRating}/10, safety ${l.crimeScore}/100, walk ${l.walkScore}. Payment ≈ <b>$${pay.toLocaleString()}/mo</b> PITI (${state.downPct}% down, ${state.rate}%). ${l.priceCut?`Seller JUST cut $${l.priceCut.toLocaleString()} — that's motivation. `:""}${l.dom<10?"Listed "+l.dom+" days ago — homes here go pending in ~2 weeks, tour this weekend?":""}Shall I run the bank comparison or book the tour script?`}
+function askAI(raw){hear(raw);const t=raw.toLowerCase();const mode=t.includes("investor")||t.includes("roi")||t.includes("cap rate")||t.includes("rental")?"investor":state.mode;
+if(/^(hi|hello|hey)/.test(t))return say(`Hey! I'm Casa 🎙. I know all ${LISTINGS.length} homes cold. Say <b>"best investor deal under 600K"</b> or <b>"pitch me a family home in Austin"</b>.`);
+if(t.includes("best")||t.includes("deal")||t.includes("recommend")||t.includes("pitch")){let pool=LISTINGS.filter(l=>{const m=t.match(/under ([\d.]+)k/);if(m&&l.price>+m[1]*1000)return false;const c=["austin","denver","tampa","scottsdale"].find(c=>t.includes(c));if(c&&l.address.city.toLowerCase()!==c)return false;return true});pool=pool.sort((a,b)=>scoreListing(b,"").score-scoreListing(a,"").score);if(!pool.length)return say("Nothing matches that — widen budget $50K and I'll find you a winner.");const p=pool[0];return say(pitch(p,mode)+(pool[1]?`<br><br>Runner-up: <b>${pool[1].address.street}</b> $${pool[1].price.toLocaleString()} — ${pool[1].desc}`:""))}
+const found=LISTINGS.find(l=>t.includes(l.address.street.toLowerCase().split(" ")[0])||t.includes(l.id.toLowerCase()));
+if(t.includes("mortgage")||t.includes("rate")||t.includes("payment")||t.includes("bank")){const l=found||topDeals(1)[0];const rows=compareLoans(l.price,state.downPct,10);return say(`🏦 For <b>${l.address.street} $${l.price.toLocaleString()}</b>: cheapest monthly is <b>${rows[0].lender} ${rows[0].rate}% = $${Math.round(rows[0].total).toLocaleString()}/mo</b>. Cheapest 10-yr cost is <b>${[...rows].sort((a,b)=>a.totalCost-b.totalCost)[0].lender}</b>. FHA helps if you're light on down, VA kills PMI if you're eligible. Open <b>Mortgages</b> drawer — I pre-filled it.`)}
+if(t.includes("crime")||t.includes("safe")){const l=found||topDeals(1)[0];return say(`🛡 <b>${l.address.street}</b> safety ${l.crimeScore}/100 ${l.crimeScore>75?"— that's top-quartile for this metro, quiet streets, sell it as peace-of-mind":"— average block, price already reflects it; pitch the alarm + lighting upgrade ($800) and move on"}.`)}
+if(t.includes("flood")||t.includes("risk")){const l=found||topDeals(1)[0];return say(`🌊 <b>${l.address.street}</b> flood: <b>${l.floodRisk}</b>. ${l.floodRisk==="minimal"?"Zone X — no mandatory flood insurance, lender-friendly.":"Get a $450 elevation cert before you waive anything — I flag it because investors get burned here."}`)}
+if(t.includes("school")){const l=found||topDeals(1)[0];return say(`🏫 <b>${l.address.street}</b> schools ${l.schoolRating}/10. ${l.schoolRating>=8?"That's the closer — lead with it, buyers pay 8-12% premium for 8+ zones.":"Schools are 6-ish — pivot to value: $/sqft is below median, that's your equity story."}`)}
+if(t.includes("expensive")||t.includes("overpriced")||t.includes("too high")){const l=found||topDeals(1)[0];return say(`Great objection — here's the reframe: $${l.price.toLocaleString()} is $${l.sqft?Math.round(l.price/l.sqft):"—"}/sqft vs area median $${Math.round(ppsfs[Math.floor(ppsfs.length/2)])}. ${l.priceCut?"Seller already cut $"+l.priceCut.toLocaleString()+" — they're negotiating with themselves. Offer 3% under with 24hr expiry.":"DOM is "+l.dom+" days — stale enough to ask for closing credits, fresh enough to appraise. "}Never defend price, sell payment + equity.`)}
+if(found)return say(pitch(found,mode));
+if(t.includes("tour")||t.includes("book"))return say(`Done — tour script: "Hi, I'd love to see <b>${topDeals(1)[0].address.street}</b> Saturday 11am, pre-approved, flexible close — does 2pm work too?" Pro tip: ask "what's the seller's timeline?" on arrival — that's where the discount lives.`);
+return say(pitch(topDeals(1)[0],mode))}
+/* ============ 6. WIRING ============ */
+document.getElementById("searchForm").onsubmit=e=>{e.preventDefault();state.q=document.getElementById("q").value;applyFilters()};
+document.getElementById("q").oninput=e=>{state.q=e.target.value;applyFilters()};
+document.getElementById("fBeds").onchange=e=>{state.minBeds=+e.target.value;applyFilters()};
+document.getElementById("fPrice").onchange=e=>{const[a,b]=e.target.value.split("-").map(Number);state.minPrice=a;state.maxPrice=b;applyFilters()};
+document.getElementById("fSort").onchange=e=>{state.sort=e.target.value;applyFilters()};
+document.getElementById("fHOA").oninput=e=>{state.maxHOA=+e.target.value;document.getElementById("hoaV").textContent=e.target.value;applyFilters()};
+document.getElementById("fWalk").oninput=e=>{state.minWalk=+e.target.value;document.getElementById("walkV").textContent=e.target.value;applyFilters()};
+document.getElementById("mDown").oninput=e=>{state.downPct=+e.target.value;document.getElementById("downV").textContent=e.target.value;applyFilters()};
+document.getElementById("mRate").oninput=e=>{state.rate=+e.target.value;document.getElementById("rateV").textContent=(+e.target.value).toFixed(3);applyFilters()};
+document.querySelectorAll("[data-city]").forEach(b=>b.onclick=()=>{document.querySelectorAll("[data-city]").forEach(x=>x.classList.remove("on"));b.classList.add("on");state.city=b.dataset.city;applyFilters()});
+document.getElementById("fTypes").onclick=e=>{if(e.target.dataset.t){e.target.classList.toggle("on");const t=e.target.dataset.t;state.types.has(t)?state.types.delete(t):state.types.add(t);applyFilters()}};
+document.getElementById("buyerMode").onclick=e=>{if(e.target.dataset.m){document.querySelectorAll("#buyerMode button").forEach(x=>x.classList.remove("on"));e.target.classList.add("on");state.mode=e.target.dataset.m;applyFilters();toast(state.mode==="investor"?"Investor mode: rents + cap rates on 💰":"Buyer mode: lifestyle pitch on 🏡")}};
+document.getElementById("resetBtn").onclick=()=>location.reload();
+document.getElementById("mortBtn").onclick=()=>{renderMortgage();document.getElementById("mortgageDrawer").classList.add("open")};
+document.getElementById("mortClose").onclick=()=>document.getElementById("mortgageDrawer").classList.remove("open");
+["mtgPrice","mtgDown","mtgHold"].forEach(id=>document.getElementById(id).oninput=renderMortgage);
+document.getElementById("mapToggle").onclick=()=>document.getElementById("mapWrap").classList.toggle("mob");
+document.addEventListener("click",e=>{const f=e.target.dataset?.fav;if(f){state.favs.has(f)?state.favs.delete(f):state.favs.add(f);localStorage.setItem("re1:favs",JSON.stringify([...state.favs]));applyFilters();toast("Saved ♥")}const c=e.target.dataset?.compare;if(c){if(state.compare.includes(c))state.compare=state.compare.filter(x=>x!==c);else{if(state.compare.length>=3)return toast("Tray full (3/3) — remove one");state.compare.push(c)}applyFilters()}const u=e.target.dataset?.uncompare;if(u){state.compare=state.compare.filter(x=>x!==u);applyFilters()}const d=e.target.dataset?.detail;if(d)showDetail(d);const p=e.target.dataset?.calc;if(p){const l=LISTINGS.find(x=>x.id===p);document.getElementById("mtgPrice").value=l.price;renderMortgage();document.getElementById("mortgageDrawer").classList.add("open")}});
+document.getElementById("savedBtn").onclick=()=>{const favs=LISTINGS.filter(l=>state.favs.has(l.id));if(!favs.length)return toast("No saves yet — tap ♥");renderGrid(favs)};
+/* voice wiring */
+const vp=document.getElementById("voicePanel");
+document.getElementById("voiceFab").onclick=()=>vp.classList.toggle("open");
+document.getElementById("voiceOpen").onclick=()=>vp.classList.toggle("open");
+document.getElementById("voiceSend").onclick=()=>{const i=document.getElementById("voiceInput");if(i.value.trim()){askAI(i.value.trim());i.value=""}};
+document.getElementById("voiceInput").onkeydown=e=>{if(e.key==="Enter"){askAI(e.target.value);e.target.value=""}};
+let rec=null;
+document.getElementById("voiceSpeak").onclick=()=>{const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){toast("Voice input not supported — type instead");return}if(rec){rec.stop();rec=null;return}rec=new SR();rec.lang="en-US";rec.onresult=e=>{const txt=e.results[0][0].transcript;document.getElementById("voiceInput").value=txt;askAI(txt)};rec.onend=()=>rec=null;rec.start();toast("🎙 Listening… speak now")};
+/* boot */
+initMap();currentRows=applyFilters();renderMortgage();fetchListingsAPI({});fetchRates();
+</script>
+</body>
+</html>

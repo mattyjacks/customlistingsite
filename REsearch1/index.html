@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>REsearch — Real estate search</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#fff;color:#202124;min-height:100vh;display:flex;flex-direction:column}
+header{display:flex;justify-content:flex-end;gap:18px;padding:16px 24px;font-size:13px;color:#5f6368}
+header a{color:#5f6368;text-decoration:none}header a:hover{text-decoration:underline}
+main{flex:1;display:flex;flex-direction:column;align-items:center;padding:8vh 16px 40px}
+.logo{font-size:clamp(44px,8vw,72px);font-weight:400;letter-spacing:-2px;margin:0 0 26px;user-select:none}
+.logo .b{color:#4285F4}.logo .r{color:#EA4335}.logo .y{color:#FBBC05}.logo .g{color:#34A853}
+.box{width:min(584px,92vw);position:relative}
+#q{width:100%;padding:14px 48px 14px 22px;font-size:16px;border:1px solid #dfe1e5;border-radius:24px;outline:none;box-shadow:0 1px 6px rgba(32,33,36,.18)}
+#q:hover{box-shadow:0 1px 8px rgba(32,33,36,.28)}#q:focus{box-shadow:0 1px 8px rgba(32,33,36,.3)}
+.mic{position:absolute;right:14px;top:50%;transform:translateY(-50%);border:none;background:none;font-size:20px;cursor:pointer}
+.row{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap;justify-content:center;align-items:center}
+.btn{background:#f8f9fa;border:1px solid #f8f9fa;border-radius:4px;color:#3c4043;font-size:14px;padding:10px 20px;cursor:pointer}
+.btn:hover{border-color:#dadce0;box-shadow:0 1px 2px rgba(0,0,0,.1)}
+.btn.primary{background:#1a73e8;border-color:#1a73e8;color:#fff}
+select.btn{padding:9px 10px}
+#status{margin-top:14px;font-size:12px;color:#70757a;min-height:18px}
+#results{width:min(680px,94vw);margin:26px auto 0;text-align:left}
+.res{margin:0 0 26px}.res a.t{font-size:19px;color:#1a0dab;text-decoration:none}.res a.t:hover{text-decoration:underline}
+.res .u{font-size:13px;color:#006621;margin:2px 0}.res .s{font-size:14px;color:#4d5156;line-height:1.5}
+.meta{display:inline-block;background:#e8f0fe;color:#1a73e8;border-radius:10px;padding:1px 8px;font-size:12px;margin:2px 4px 0 0}
+.badge{display:inline-block;font-size:11px;border-radius:10px;padding:1px 8px;margin-left:6px;background:#f1f3f4;color:#5f6368}
+.badge.ai{background:#e6f4ea;color:#137333}.badge.web{background:#fef7e0;color:#b06000}
+footer{background:#f2f2f2;border-top:1px solid #dadce0;padding:12px 24px;font-size:13px;color:#70757a;display:flex;gap:18px;flex-wrap:wrap}
+details.setup{width:min(680px,94vw);margin:30px auto 0;font-size:13px;color:#5f6368;background:#f8f9fa;border:1px solid #dadce0;border-radius:8px;padding:12px 16px}
+code{background:#eee;border-radius:4px;padding:1px 6px;font-size:12px}
+.spin{display:inline-block;width:14px;height:14px;border:2px solid #dadce0;border-top-color:#1a73e8;border-radius:50%;animation:sp 0.8s linear infinite;vertical-align:-2px}
+@keyframes sp{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<header><a href="full.html">Full app (mortgages + voice)</a><a href="#" id="healthLink">API status</a></header>
+<main>
+<p class="logo"><span class="b">R</span><span class="r">E</span><span class="y">s</span><span class="b">e</span><span class="g">a</span><span class="r">r</span><span class="b">c</span><span class="y">h</span></p>
+<div class="box"><input id="q" autocomplete="off" placeholder="pool home under $800K near top schools…"><button class="mic" id="mic" title="Voice input">🎙</button></div>
+<div class="row">
+<button class="btn primary" id="searchBtn">Search</button>
+<button class="btn" id="browseBtn">Browse Zillow 🌐</button>
+<select class="btn" id="site" title="Browse source"><option value="all">All sites</option><option value="zillow.com">Zillow</option><option value="realtor.com">Realtor</option><option value="redfin.com">Redfin</option></select>
+</div>
+<div id="status">checking backend…</div>
+<div id="results" aria-live="polite"></div>
+<details class="setup"><summary><b>How this works + setup (.env)</b></summary>
+<p><b>Semantic search:</b> page calls <code>POST /api/semantic</code> on the backend proxy (<code>server.js</code>). The proxy embeds your query with <code>OPENAI_EMBED_MODEL</code> and cosine-ranks listings. No key ever ships to the browser.</p>
+<p><b>Web browse (Zillow etc.):</b> <code>POST /api/browse</code> calls the OpenAI Responses API with the <code>web_search</code> tool on model <code>OPENAI_BROWSE_MODEL</code> (default <code>chatgpt-5.6-luna</code>, fallback <code>gpt-4o</code>). Returns real browsed URLs.</p>
+<p><b>Run it:</b> <code>cp .env.example .env</code> → put your <code>OPENAI_API_KEY</code> in <code>.env</code> → <code>node server.js</code> → open <code>http://127.0.0.1:8787</code>. Without a backend the page still works in <b>local demo mode</b> (keyword + TF-IDF ranking, Zillow button opens zillow.com search).</p>
+<p>See <code>.env.example</code> for every variable. <code>.env</code> is gitignored — I could not read yours, so the example documents the full contract.</p>
+</details>
+</main>
+<footer><span>REsearch1 · semantic + browse demo</span><span id="modelLine"></span></footer>
+<script>
+const $=id=>document.getElementById(id);
+const API=""; // same origin (node server.js). Set to http://127.0.0.1:8787 if opening file:// directly.
+let LOCAL=[];
+fetch("listings.json").then(r=>r.json()).then(j=>LOCAL=j).catch(()=>{});
+let backend={ok:false};
+/* health */
+async function health(){try{const r=await fetch(API+"/api/health");if(!r.ok)throw 0;backend=await r.json();$("status").textContent=backend.hasKey?`● backend connected · semantic ${backend.embedModel} · browse ${backend.browseModel}`:`● backend up but OPENAI_API_KEY missing in .env — local demo mode`;$("modelLine").textContent=`browse: ${backend.browseModel}`}catch{$("status").textContent="○ no backend — local demo mode (run node server.js + .env for AI search)";$("modelLine").textContent="local demo mode"}}
+health();
+$("healthLink").onclick=e=>{e.preventDefault();health();toast("re-checked backend")};
+/* local fallback ranking: token overlap + price intent */
+function localSearch(query){const toks=query.toLowerCase().split(/[^a-z0-9]+/).filter(t=>t.length>1);const m=query.match(/under\s*\$?([\d.]+)\s*k/i);const cap=m?+m[1]*1000:Infinity;return LOCAL.filter(l=>l.price<=cap).map(l=>{const hay=(l.address.street+" "+l.address.city+" "+l.desc+" "+l.features.join(" ")).toLowerCase();let s=0;toks.forEach(t=>{if(hay.includes(t))s+=t.length>4?2:1});return{...l,score:s,mode:"local"}}).sort((a,b)=>b.score-a.score||a.price-b.price).slice(0,8)}
+function esc(s){return String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+function card(l){const mo=Math.round(l.price*0.8*0.00507+l.price*0.011/12);return `<div class="res"><a class="t" href="https://www.zillow.com/homes/${esc(l.address.city)}_rb/" target="_blank" rel="noopener">$${l.price.toLocaleString()} — ${esc(l.address.street)}, ${esc(l.address.city)}</a><span class="badge ${l.mode==="browse"?"web":"ai"}">${l.mode==="browse"?"web browse":"semantic"+(l.score?.toFixed? " "+l.score.toFixed(2):"")}</span><div class="u">${esc(l.address.city)}, ${esc(l.address.state)} ${esc(l.address.zip)} · ${l.beds}bd ${l.baths}ba · ≈ $${mo.toLocaleString()}/mo</div><div class="s">${esc(l.desc||l.snippet||"")}</div><div><span class="meta">$${l.sqft?Math.round(l.price/l.sqft):"—"}/sqft</span>${(l.features||[]).map(f=>`<span class="meta">${esc(f)}</span>`).join("")}</div></div>`}
+function toast(m){$("status").textContent=m}
+/* SEARCH (semantic first, local fallback) */
+async function doSearch(){const query=$("q").value.trim();if(!query){$("q").focus();return}$("results").innerHTML=`<span class="spin"></span> searching…`;
+try{const r=await fetch(API+"/api/semantic",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({query,limit:8})});
+if(r.ok){const j=await r.json();$("results").innerHTML=j.results.map(x=>card({...x,mode:"semantic"})).join("")||"<p>No matches.</p>";toast(`semantic via ${j.model}`);return}
+if(r.status===400){toast("backend has no key — local demo results below");}}catch{/* no backend */}
+$("results").innerHTML=localSearch(query).map(card).join("")||"<p>No matches — try widening the budget.</p>";toast("local demo ranking (no backend)")}
+/* BROWSE (Luna web_search, fallback opens Zillow) */
+async function doBrowse(){const query=$("q").value.trim()||"3bd home Austin TX";const site=$("site").value;$("results").innerHTML=`<span class="spin"></span> browsing ${esc(site)} via ${backend.browseModel||"chatgpt-5.6-luna"}…`;
+try{const r=await fetch(API+"/api/browse",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({query,site})});
+if(r.ok){const j=await r.json();const rows=(j.results||[]).map(x=>({mode:"browse",price:x.price||0,beds:x.beds||"—",baths:x.baths||"—",sqft:0,address:{street:x.title||"Listing",city:x.city||"",state:"",zip:""},desc:x.snippet||"",features:[],url:x.url}));$("results").innerHTML=rows.map(x=>`<div class="res"><a class="t" href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.address.street)}</a><span class="badge web">web browse · ${esc(j.model||"")}</span><div class="u">${esc(x.url)}</div><div class="s">${esc(x.desc)}</div></div>`).join("")||"<p>No browse results.</p>";toast(`browsed via ${j.model}`);return}
+toast("browse backend unavailable — opening "+site)}catch{toast("no backend — opening "+site+" directly")}
+window.open("https://www."+(site==="all"?"zillow":site)+".com/homes/"+encodeURIComponent(query)+"_rb/","_blank")}
+$("searchBtn").onclick=doSearch;$("browseBtn").onclick=doBrowse;
+$("q").onkeydown=e=>{if(e.key==="Enter")doSearch()};
+$("mic").onclick=()=>{const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR)return toast("voice not supported — type instead");const r=new SR();r.lang="en-US";r.onresult=e=>{$("q").value=e.results[0][0].transcript;doSearch()};r.start();toast("🎙 listening…")};
+</script>
+</body>
+</html>
